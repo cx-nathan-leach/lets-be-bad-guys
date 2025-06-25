@@ -203,7 +203,7 @@
                   "startLine": 42
                 },
                 "artifactLocation": {
-                  "uri": "file:/badguys/vulnerable/views.py"
+                  "uri": "badguys/vulnerable/views.py"
                 }
               }
             },
@@ -224,7 +224,7 @@
                   "startLine": 42
                 },
                 "artifactLocation": {
-                  "uri": "file:/badguys/vulnerable/views.py"
+                  "uri": "badguys/vulnerable/views.py"
                 }
               }
             },
@@ -245,7 +245,7 @@
                   "startLine": 53
                 },
                 "artifactLocation": {
-                  "uri": "file:/badguys/vulnerable/views.py"
+                  "uri": "badguys/vulnerable/views.py"
                 }
               }
             },
@@ -266,7 +266,7 @@
                   "startLine": 53
                 },
                 "artifactLocation": {
-                  "uri": "file:/badguys/vulnerable/views.py"
+                  "uri": "badguys/vulnerable/views.py"
                 }
               }
             }
@@ -331,7 +331,7 @@
                   "startLine": 68
                 },
                 "artifactLocation": {
-                  "uri": "file:/badguys/vulnerable/views.py"
+                  "uri": "badguys/vulnerable/views.py"
                 }
               }
             },
@@ -352,7 +352,7 @@
                   "startLine": 68
                 },
                 "artifactLocation": {
-                  "uri": "file:/badguys/vulnerable/views.py"
+                  "uri": "badguys/vulnerable/views.py"
                 }
               }
             },
@@ -373,7 +373,7 @@
                   "startLine": 68
                 },
                 "artifactLocation": {
-                  "uri": "file:/badguys/vulnerable/views.py"
+                  "uri": "badguys/vulnerable/views.py"
                 }
               }
             },
@@ -394,7 +394,7 @@
                   "startLine": 76
                 },
                 "artifactLocation": {
-                  "uri": "file:/badguys/vulnerable/views.py"
+                  "uri": "badguys/vulnerable/views.py"
                 }
               }
             },
@@ -415,7 +415,7 @@
                   "startLine": 76
                 },
                 "artifactLocation": {
-                  "uri": "file:/badguys/vulnerable/views.py"
+                  "uri": "badguys/vulnerable/views.py"
                 }
               }
             },
@@ -436,7 +436,7 @@
                   "startLine": 76
                 },
                 "artifactLocation": {
-                  "uri": "file:/badguys/vulnerable/views.py"
+                  "uri": "badguys/vulnerable/views.py"
                 }
               }
             }
@@ -499,7 +499,7 @@
                   "startLine": 68
                 },
                 "artifactLocation": {
-                  "uri": "file:/badguys/vulnerable/views.py"
+                  "uri": "badguys/vulnerable/views.py"
                 }
               }
             },
@@ -520,7 +520,7 @@
                   "startLine": 68
                 },
                 "artifactLocation": {
-                  "uri": "file:/badguys/vulnerable/views.py"
+                  "uri": "badguys/vulnerable/views.py"
                 }
               }
             },
@@ -541,7 +541,7 @@
                   "startLine": 68
                 },
                 "artifactLocation": {
-                  "uri": "file:/badguys/vulnerable/views.py"
+                  "uri": "badguys/vulnerable/views.py"
                 }
               }
             },
@@ -562,7 +562,7 @@
                   "startLine": 72
                 },
                 "artifactLocation": {
-                  "uri": "file:/badguys/vulnerable/views.py"
+                  "uri": "badguys/vulnerable/views.py"
                 }
               }
             },
@@ -583,7 +583,7 @@
                   "startLine": 72
                 },
                 "artifactLocation": {
-                  "uri": "file:/badguys/vulnerable/views.py"
+                  "uri": "badguys/vulnerable/views.py"
                 }
               }
             },
@@ -604,7 +604,7 @@
                   "startLine": 72
                 },
                 "artifactLocation": {
-                  "uri": "file:/badguys/vulnerable/views.py"
+                  "uri": "badguys/vulnerable/views.py"
                 }
               }
             },
@@ -625,7 +625,7 @@
                   "startLine": 72
                 },
                 "artifactLocation": {
-                  "uri": "file:/badguys/vulnerable/views.py"
+                  "uri": "badguys/vulnerable/views.py"
                 }
               }
             }
@@ -688,7 +688,7 @@
                   "startLine": 35
                 },
                 "artifactLocation": {
-                  "uri": "file:/badguys/vulnerable/views.py"
+                  "uri": "badguys/vulnerable/views.py"
                 }
               }
             },
@@ -709,7 +709,7 @@
                   "startLine": 39
                 },
                 "artifactLocation": {
-                  "uri": "file:/badguys/vulnerable/views.py"
+                  "uri": "badguys/vulnerable/views.py"
                 }
               }
             },
@@ -730,7 +730,7 @@
                   "startLine": 39
                 },
                 "artifactLocation": {
-                  "uri": "file:/badguys/vulnerable/views.py"
+                  "uri": "badguys/vulnerable/views.py"
                 }
               }
             },
@@ -751,7 +751,7 @@
                   "startLine": 39
                 },
                 "artifactLocation": {
-                  "uri": "file:/badguys/vulnerable/views.py"
+                  "uri": "badguys/vulnerable/views.py"
                 }
               }
             },
@@ -772,7 +772,7 @@
                   "startLine": 39
                 },
                 "artifactLocation": {
-                  "uri": "file:/badguys/vulnerable/views.py"
+                  "uri": "badguys/vulnerable/views.py"
                 }
               }
             },
@@ -793,7 +793,7 @@
                   "startLine": 53
                 },
                 "artifactLocation": {
-                  "uri": "file:/badguys/vulnerable/views.py"
+                  "uri": "badguys/vulnerable/views.py"
                 }
               }
             },
@@ -814,7 +814,7 @@
                   "startLine": 53
                 },
                 "artifactLocation": {
-                  "uri": "file:/badguys/vulnerable/views.py"
+                  "uri": "badguys/vulnerable/views.py"
                 }
               }
             },
@@ -835,7 +835,7 @@
                   "startLine": 53
                 },
                 "artifactLocation": {
-                  "uri": "file:/badguys/vulnerable/views.py"
+                  "uri": "badguys/vulnerable/views.py"
                 }
               }
             }
@@ -899,7 +899,7 @@
                   "startLine": 39
                 },
                 "artifactLocation": {
-                  "uri": "file:/badguys/vulnerable/views.py"
+                  "uri": "badguys/vulnerable/views.py"
                 }
               }
             },
@@ -920,7 +920,7 @@
                   "startLine": 39
                 },
                 "artifactLocation": {
-                  "uri": "file:/badguys/vulnerable/views.py"
+                  "uri": "badguys/vulnerable/views.py"
                 }
               }
             },
@@ -941,7 +941,7 @@
                   "startLine": 39
                 },
                 "artifactLocation": {
-                  "uri": "file:/badguys/vulnerable/views.py"
+                  "uri": "badguys/vulnerable/views.py"
                 }
               }
             },
@@ -962,7 +962,7 @@
                   "startLine": 42
                 },
                 "artifactLocation": {
-                  "uri": "file:/badguys/vulnerable/views.py"
+                  "uri": "badguys/vulnerable/views.py"
                 }
               }
             },
@@ -983,7 +983,7 @@
                   "startLine": 42
                 },
                 "artifactLocation": {
-                  "uri": "file:/badguys/vulnerable/views.py"
+                  "uri": "badguys/vulnerable/views.py"
                 }
               }
             },
@@ -1004,7 +1004,7 @@
                   "startLine": 42
                 },
                 "artifactLocation": {
-                  "uri": "file:/badguys/vulnerable/views.py"
+                  "uri": "badguys/vulnerable/views.py"
                 }
               }
             }
@@ -1065,7 +1065,7 @@
                   "startLine": 90
                 },
                 "artifactLocation": {
-                  "uri": "file:/badguys/settings.py"
+                  "uri": "badguys/settings.py"
                 }
               }
             }
@@ -1126,7 +1126,7 @@
                   "startLine": 177
                 },
                 "artifactLocation": {
-                  "uri": "file:/badguys/vulnerable/views.py"
+                  "uri": "badguys/vulnerable/views.py"
                 }
               }
             },
@@ -1147,7 +1147,7 @@
                   "startLine": 177
                 },
                 "artifactLocation": {
-                  "uri": "file:/badguys/vulnerable/views.py"
+                  "uri": "badguys/vulnerable/views.py"
                 }
               }
             },
@@ -1168,7 +1168,7 @@
                   "startLine": 177
                 },
                 "artifactLocation": {
-                  "uri": "file:/badguys/vulnerable/views.py"
+                  "uri": "badguys/vulnerable/views.py"
                 }
               }
             },
@@ -1189,7 +1189,7 @@
                   "startLine": 178
                 },
                 "artifactLocation": {
-                  "uri": "file:/badguys/vulnerable/views.py"
+                  "uri": "badguys/vulnerable/views.py"
                 }
               }
             },
@@ -1210,7 +1210,7 @@
                   "startLine": 178
                 },
                 "artifactLocation": {
-                  "uri": "file:/badguys/vulnerable/views.py"
+                  "uri": "badguys/vulnerable/views.py"
                 }
               }
             }
@@ -1270,7 +1270,7 @@
                   "startLine": 1
                 },
                 "artifactLocation": {
-                  "uri": "file:/badguys/settings.py"
+                  "uri": "badguys/settings.py"
                 }
               }
             }
