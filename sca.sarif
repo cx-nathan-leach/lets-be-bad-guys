@@ -3428,8 +3428,8 @@
             {
               "physicalLocation": {
                 "region": {
-                  "endColumn": 1,
-                  "endLine": 1,
+                  "endColumn": 2,
+                  "endLine": 2,
                   "startColumn": 1,
                   "startLine": 1
                 },
