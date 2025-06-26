@@ -9,9 +9,9 @@
           "organization": "Checkmarx",
           "properties": {
             "scanMetrics": {
-              "scanId": "731c7fba-28e6-4aef-affa-29d81f749555",
-              "memoryPeak": 1265,
-              "virtualMemoryPeak": 60410,
+              "scanId": "a0536dc5-baf6-4315-9e63-af2b0bc11418",
+              "memoryPeak": 1156,
+              "virtualMemoryPeak": 60335,
               "totalScannedFilesCount": 16,
               "totalScannedLoc": 1408,
               "domObjectsPerLanguage": {
@@ -40,30 +40,14 @@
           },
           "rules": [
             {
-              "id": "Python_Critical_Risk.Stored_XSS",
-              "help": {
-                "text": "*   Fully encode all dynamic data, regardless of source, before embedding it in output.\r\n*   Encoding should be context-sensitive. For example:\r\n    *   HTML encoding for HTML content\r\n    *   HTML Attribute encoding for data output to attribute values\r\n    *   JavaScript encoding for server-generated JavaScript\r\n*   It is recommended to use the platform-provided encoding functionality, or known security libraries for encoding output.\r\n*   Implement a Content Security Policy (CSP) with explicit whitelists for the application's resources only.\u00a0\r\n*   As an extra layer of protection, validate all untrusted data, regardless of source (note this is not a replacement for encoding). Validation should be based on a whitelist: accept only data fitting a specified structure, rather than reject bad patterns. Check for:\r\n    *   Data type\r\n    *   Size\r\n    *   Range\r\n    *   Format\r\n    *   Expected values\r\n*   In the `Content-Type` HTTP response header, explicitly define character encoding (charset) for the entire page.\u00a0\r\n*   Set the `HTTPOnly` flag on the session cookie for \"Defense in Depth\", to prevent any successful XSS exploits from stealing the cookie.\n\n"
-              },
-              "name": "StoredXss",
-              "properties": {
-                "queryID": 346558629760677672
-              },
-              "fullDescription": {
-                "text": "A successful XSS exploit would allow an attacker to rewrite web pages and insert malicious scripts which would alter the intended output. This could include HTML fragments, CSS styling rules, arbitrary JavaScript, or references to third party code. An attacker could use this to steal users' passwords, collect personal data such as credit card details, provide false information, or run malware. From the victim\u2019s point of view, this is performed by the genuine website, and the victim would blame the site for incurred damage.\n\nAn attacker could use legitimate access to the application to submit modified data to the application\u2019s data-store. This would then be used to construct the returned web page, triggering the attack.\n\n"
-              },
-              "helpUri": "https://docs.checkmarx.com/",
-              "shortDescription": {
-                "text": "The application creates web pages that include untrusted data, whether from user input, the application\u2019s database, or from other external sources. The untrusted data is embedded directly in the page's HTML, causing the browser to display it as part of the web page. If the input includes HTML fragments or JavaScript, these are displayed too, and the user cannot tell that this is not the intended page. The vulnerability is the result of directly embedding arbitrary data without first encoding it in a format that would prevent the browser from treating it like HTML or code instead of plain text.\n\nIn order to exploit this vulnerability, an attacker would load the malicious payload into the data-store, typically via regular forms on other web pages. Afterwards, the application reads this data from the data-store, and embeds it within the web page as displayed for another user.\n\n"
-              }
-            },
-            {
               "id": "Python_Critical_Risk.Code_Injection",
               "help": {
                 "text": "\r\n*   The application should not compile, execute, or evaluate any untrusted code from any external source, including user input, uploaded files, or a database. \r\n*   If it is absolutely necessary to include external data in dynamic execution, it is permissible to pass the data as parameters to the code, but do not execute user data directly.  \r\n*   If it is necessary to pass untrusted data to dynamic execution, enforce very strict data validation. For example, accept only integers between certain values.\r\n*   Validate all input, regardless of source. Validation should be based on a whitelist: accept only data fitting a specified structure, rather than reject bad patterns. Parameters should be limited to an allowed character set, and non-validated input should be dropped. In addition to characters, check for:\r\n    *   Data type\r\n    *   Size\r\n    *   Range\r\n    *   Format\r\n    *   Expected values\r\n*   If possible, always prefer to whitelist known and trusted input instead of comparing to a blacklist.\r\n*   Configure the application to run using a restricted user account that has no unnecessary privileges.\r\n*   If possible, isolate all dynamic execution to use a separate, dedicated user account that has privileges only for the specific operations and files used by dynamic execution, according to the Principle of Least Privilege.\r\n*   Prefer passing user data to a pre-implemented script, e.g. in another isolated application.\u00a0\r\n*   If the provided user data consists only of Python literals and literal containers, consider using\u00a0`ast.literal_eval()` instead, or even the `json` object."
               },
               "name": "CodeInjection",
               "properties": {
-                "queryID": 13646819717326216658
+                "queryID": 13646819717326216658,
+                "security-severity": "9.1304"
               },
               "fullDescription": {
                 "text": "An attacker could run arbitrary code on the application server host. Depending on the application\u2019s OS permissions,these could include:\r\n*   Database access, such as reading or modifying sensitive data;\r\n*   File actions (read / create / modify / delete);\r\n*   Changing the website;\r\n*   Open a network connection to the attacker\u2019s server;\r\n*   Decrypt secret data using the application's encryption keys;\u00a0\r\n*   Start and stop system services;\r\n*   Complete server takeover.\n\n"
@@ -80,7 +64,8 @@
               },
               "name": "ReflectedXss",
               "properties": {
-                "queryID": 11301225196674651062
+                "queryID": 11301225196674651062,
+                "security-severity": "7"
               },
               "fullDescription": {
                 "text": "A successful XSS exploit would allow an attacker to rewrite web pages and insert malicious scripts which would alter the intended output. This could include HTML fragments, CSS styling rules, arbitrary JavaScript, or references to third party code. An attacker could use this to steal users' passwords, collect personal data such as credit card details, provide false information, or run malware. From the victim\u2019s point of view, this is performed by the genuine website, and the victim would blame the site for incurred damage.\n\nThe attacker could use social engineering to cause the user to send the website modified input, which will be returned in the requested web page.\n\n"
@@ -97,7 +82,8 @@
               },
               "name": "PathTraversal",
               "properties": {
-                "queryID": 4418167693267818286
+                "queryID": 4418167693267818286,
+                "security-severity": "7.5362"
               },
               "fullDescription": {
                 "text": "An attacker could define arbitrary file path for the application to use, potentially leading to:\r\n*   Stealing sensitive files, such as configuration or system files\r\n*   Overwriting files such as program binaries, configuration files, or system files\r\n*   Deleting critical files, causing denial of service (DoS).\n\n"
@@ -108,13 +94,32 @@
               }
             },
             {
+              "id": "Python_High_Risk.Debug_Enabled",
+              "help": {
+                "text": "\u00a0- Remove all debug code before deploying or building the application. Ensure the configuration settings are not defined to enable debug mode.\u00a0\r\n\u00a0- Implement all test code via a dedicated test framework, which can isolate the test case code from the rest of the application.\u00a0\r\n\u00a0- Avoid implementing special \"test code\", \"debugging-time\" functionality, or \"secret\" interfaces or parameters in the application code itself.\u00a0\r\n\u00a0- Define and implement a standard and automatic build / deployment process, using dedicated CI / CD tools, that can automatically configure the deployed application, exclude all temporary code, and include only intended application code."
+              },
+              "name": "DebugEnabled",
+              "properties": {
+                "queryID": 15910406614565918143,
+                "security-severity": "7.6812"
+              },
+              "fullDescription": {
+                "text": "Tests and debugging code are not intended to be deployed to the production environment, and can create unintended entry points, thus increasing the application's attack surface. Furthermore, this code is often not properly tested or maintained, and can retain historic vulnerabilities that were fixed in other parts of the codebase. Often, debug code will contain a functional \"back door\", by enabling the programmer to bypass operational security mechanisms, such as authentication or access controls."
+              },
+              "helpUri": "https://docs.checkmarx.com/",
+              "shortDescription": {
+                "text": "During application development, it is common for programmers to implement specialized code, in order to ease debugging and testing. Often the programmer will even\u00a0enable the debug code to bypass security mechanisms, so as to focus the tests on the specific functionality and isolate it from the security architecture.\u00a0\r\n\r\nThis debug or test code is not removed from the codebase, and is then included in the software build and deployed to the production environment."
+              }
+            },
+            {
               "id": "Python_Medium_Threat.Use_Of_Hardcoded_Password",
               "help": {
                 "text": "*   Do not hardcode any secret data in source code, especially not passwords.\u00a0\r\n*   In particular, user passwords should be stored in a\u00a0database or directory service, and protected with a strong password hash (e.g. bcrypt, scrypt, PBKDF2, or Argon2). Do not compare user passwords with a hardcoded value.\u00a0\r\n*   Sytem passwords should be stored in a configuration file or the database, and protected with strong encryption (e.g. AES-256). Encryption keys should be securely managed, and not hardcoded."
               },
               "name": "UseOfHardcodedPassword",
               "properties": {
-                "queryID": 10308959669028119927
+                "queryID": 10308959669028119927,
+                "security-severity": "5.5072"
               },
               "fullDescription": {
                 "text": "Hardcoded passwords expose the application to password leakage. If an attacker gains access to the source code, she will be able to steal the embedded passwords, and use them to impersonate a valid user. This could include impersonating end users to the application, or impersonating the application to a remote system, such as a database or a remote web service.\u00a0\r\n\r\nOnce the attacker succeeds in impersonating the user or application, she will have full access to the system, and be able to do anything the impersonated identity could do."
@@ -125,13 +130,50 @@
               }
             },
             {
+              "id": "Python_Medium_Threat.Use_of_Hardcoded_Cryptographic_Key",
+              "help": {
+                "text": "Generic Guidance:\r\n*   Do not store any sensitive information, such as encryption keys, in plain text.\r\n*   Never\u00a0hardcode encryption keys in the application source code.\u00a0\r\n*   Implement proper key management, including dynamically generating random keys, protecting keys, and replacing keys as necessary.\u00a0\r\n\r\nSpecific Recommendations:\r\n*   Remove the hardcoded encryption key from the application source code. Instead, retrieve the key from an external, protected store.\n\n"
+              },
+              "name": "UseOfHardcodedCryptographicKey",
+              "properties": {
+                "queryID": 17125041041096276150,
+                "security-severity": "5.7971"
+              },
+              "fullDescription": {
+                "text": "Static, unchangeable encryption keys in the source code can be stolen by an attacker with access to the source code or the application binaries. Once the attacker has the encryption key, this can be used to gain access to any encrypted secret data, thus violating the confidentiality of the data. Furthermore, it would be impossible to replace the encryption key once stolen. Note that if this is\u00a0a product that can be installed numerous times, the encryption key will always be the same, allowing an attacker to break all instances at the same cost.\n\n"
+              },
+              "helpUri": "https://docs.checkmarx.com/",
+              "shortDescription": {
+                "text": "The application code uses an encryption key to encrypt and decrypt sensitive data. While it is important to create this encryption key randomly and keep it secret, the application has a single, static key embedded in plain text in the source code.\u00a0\r\n\r\nAn attacker could gain access to the source code - whether in the source control system, developer workstations, or the server filesystem or product binaries themselves. Once the attacker has gained access to the source code, it is trivial to retrieve the plain text encryption key and use it to decrypt the sensitive data that the application was protecting.\n\n"
+              }
+            },
+            {
+              "id": "Python_Medium_Threat.Secure_Cookie_Flag_Not_Set_In_Config",
+              "help": {
+                "text": "*   Always rely on HTTPS to conduct secure HTTP communications\r\n*   Cookies should always have the secure attribute flag when a secured channel is used\n\n"
+              },
+              "name": "SecureCookieFlagNotSetInConfig",
+              "properties": {
+                "queryID": 13728294608634614396,
+                "security-severity": "5"
+              },
+              "fullDescription": {
+                "text": "Cookies without the secure attribute may be transmitted over an unencrypted channel, in a way that may allow an attacker may be able to observe the cookie and might impersonate the user, performing actions on their behalf.\n\n"
+              },
+              "helpUri": "https://docs.checkmarx.com/",
+              "shortDescription": {
+                "text": "Cookies can be passed via encrypted and unencrypted channels. Setting the secure cookie attribute will indicate to the browser to never submit this cookie over an insecure channel.\n\n"
+              }
+            },
+            {
               "id": "Python_Medium_Threat.Open_Redirect",
               "help": {
                 "text": "\r\n1.  Ideally, do not allow arbitrary URLs for redirection. Instead, create a mapping from user-provided parameter values to legitimate URLs.\r\n2.  If it is necessary to allow arbitrary URLs:\r\n    *   For URLs inside the application site, first filter and encode the user-provided parameter, and then either:\r\n        *   Create a white-list of allowed URLs inside the application\r\n        *   Use variables as a relative URL as an absolute one, by prefixing it with the application site domain - this will ensure all redirection will occur inside the domain\r\n    *   For URLs outside the application (if necessary), either:\r\n        *   White-list redirection to allowed external domains by first filtering URLs with trusted prefixes. Prefixes must be tested up to the third slash \\[/\\] - `scheme://my.trusted.domain.com/,` to prevent evasion. For example, if the third slash \\[/\\] is not validated and scheme://my.trusted.domain.com is trusted, the URL scheme://my.trusted.domain.com.evildomain.com would be valid under this filter, but the domain actually being browsed is evildomain.com, not domain.com.\r\n        *   For fully dynamic open redirection, use an intermediate disclaimer page to provide users with a clear warning that they are leaving the site.\r\n\n\n"
               },
               "name": "OpenRedirect",
               "properties": {
-                "queryID": 11971208775240962660
+                "queryID": 11971208775240962660,
+                "security-severity": "6.6667"
               },
               "fullDescription": {
                 "text": "An attacker could use social engineering to get a victim to click a link to the application, so that the user will be immediately redirected to another site of the attacker's choice. An attacker can then craft a destination website to fool the victim; for example - they may craft a phishing website with an identical looking UI as the previous website's login page, and with a similar looking URL, convincing the user to submit their access credentials in the attacker's website. Another example would be a phishing website with an identical UI as that of a popular payment service, convincing the user to submit their payment information.\n\n"
@@ -148,7 +190,8 @@
               },
               "name": "MissingHstsHeader",
               "properties": {
-                "queryID": 7929843929890808532
+                "queryID": 7929843929890808532,
+                "security-severity": "4.9275"
               },
               "fullDescription": {
                 "text": "Failure to set an HSTS header and provide it with a reasonable \"max-age\" value of at least one year may leave users vulnerable to Man-in-the-Middle attacks.\n\n"
@@ -156,6 +199,96 @@
               "helpUri": "https://docs.checkmarx.com/",
               "shortDescription": {
                 "text": "Many users browse to websites by simply typing the domain name into the address bar, without the protocol prefix. The browser will automatically assume that the user's intended protocol is HTTP, instead of the\u00a0encrypted HTTPS protocol.\r\n\r\nWhen this initial request is made, an attacker can perform a Man-in-the-Middle attack and manipulate it to redirect users to a malicious web-site of the attacker's choosing. To protect the user from such an occurence, the HTTP Strict Transport Security (HSTS) header instructs the user's browser to disallow use of an unsecure HTTP connection to the the domain associated with the HSTS header.\r\n\r\nOnce\u00a0a browser that supports the HSTS feature has visited a web-site and the header was set, it will no longer allow\u00a0communicating with the domain over an HTTP connection.\r\n\r\nOnce an HSTS header was issued for a specific website, the browser is also instructed\u00a0to prevent users from manually overriding and accepting an untrusted SSL certificate for as long as the \"max-age\" value still applies. The recommended \"max-age\" value is for at least one year in seconds, or 31536000.\n\n"
+              }
+            },
+            {
+              "id": "Python_Medium_Threat.Django_Missing_Function_Level_Authorization",
+              "help": {
+                "text": "Use Spring-Security annotations according to the desired Spring-Security configuration in order to safely create methods with an Authorization layer."
+              },
+              "name": "DjangoMissingFunctionLevelAuthorization",
+              "properties": {
+                "queryID": 9932158522616364323,
+                "security-severity": "5.3623"
+              },
+              "fullDescription": {
+                "text": "The user may try to access objects that need an authorization level that the user shouldn't have, by guessing the object's id."
+              },
+              "helpUri": "https://docs.checkmarx.com/",
+              "shortDescription": {
+                "text": "Lack of spring-security configuration in the backend; Easily predictable object Ids in the application's frontend."
+              }
+            },
+            {
+              "id": "Python_Medium_Threat.Command_Argument_Injection",
+              "help": {
+                "text": "- Refactor the code to avoid any direct shell command execution. Instead, use platform provided APIs or library calls.\n- If it is impossible to remove the command execution, execute only static commands that do not include dynamic, user-controlled data.\n- Validate all input, regardless of source. Validation should be based on a whitelist: accept only data fitting a specified format, rather than rejecting bad patterns (blacklist). Parameters should be limited to an allowed character set, and non-validated input should be dropped. In addition to characters, check for:\n     - Data type\n     - Size\n     - Range\n     - Format\n     - Expected values\n- In order to minimize damage as a measure of defense in depth, configure the application to run using a restricted user account that has no unnecessary OS privileges.\n- If possible, isolate all OS commands to use a separate dedicated user account that has minimal privileges only for the specific commands and files used by the application, according to the Principle of Least Privilege.\n\n"
+              },
+              "name": "CommandArgumentInjection",
+              "properties": {
+                "queryID": 16321289430704188843,
+                "security-severity": "4.7826"
+              },
+              "fullDescription": {
+                "text": "The impact of an attacker-controlled argument passed to an external program depends on the functionality, capability, implementation and permissions granted to this program. Invoking a program that allows OS commands may allow command injection, an external compiler or interpreter may allow for code injection or a file path can be manipulated to allow path traversal. In other cases, the external program may itself be vulnerable to attack, such as a buffer overflow.\n\n"
+              },
+              "helpUri": "https://docs.checkmarx.com/",
+              "shortDescription": {
+                "text": "A potentially tainted value is passed as an argument to an external program, which is executed by code.\n\n"
+              }
+            },
+            {
+              "id": "JavaScript_Low_Visibility.Potential_Clickjacking_on_Legacy_Browsers",
+              "help": {
+                "text": "Generic Guidance:\r\n*   Define and implement a a Content Security Policy (CSP) on the server side, including a frame-ancestors directive. Enforce the CSP on all relevant webpages.\u00a0\r\n*   If certain webpages are required to be loaded into a frame, define a specific, whitelisted target URL.\u00a0\r\n*   Alternatively, return a\u00a0\"X-Frame-Options\" header on all HTTP responses. If it is necessary to allow a particular webpage to be loaded into a frame,\u00a0\u00a0define a specific, whitelisted target URL.\u00a0\r\n*   For legacy support, implement framebusting code using Javascript and CSS to ensure that, if a page is framed, it is never displayed, and attempt to navigate into the frame to prevent attack. Even if navigation fails, the page is not displayed and is therefore not interactive, mitigating potential clickjacking attacks.\r\n\r\nSpecific Recommendations:\r\n*   Implement a proper framebuster script on the client, that is not vulnerable to frame-buster-busting attacks.\r\n    *   Code should first disable the UI, such that even if frame-busting is successfully evaded, the UI cannot be clicked. This can be done by setting the CSS value of the \"display\" attribute to \"none\" on either the \"body\" or \"html\" tags. This is done because, if a frame attempts to redirect and become the parent, the malicious parent can still prevent redirection via various techniques.\r\n    *   Code should then determine whether no framing occurs by comparing self === top; if the result is true, can the UI be enabled. If it is false, attempt to navigate away from the framing page by setting the top.location attribute to self.location."
+              },
+              "name": "PotentialClickjackingOnLegacyBrowsers",
+              "properties": {
+                "queryID": 4267131875844504913,
+                "security-severity": "3.913"
+              },
+              "fullDescription": {
+                "text": "Clickjacking attacks allow an attacker to \"hijack\" a user's mouse clicks on a webpage, by invisibly framing the application, and superimposing it in front of a bogus site. When the user is convinced to click on the bogus website, e.g. on a link or a button, the user's mouse is actually clicking on the target webpage, despite being invisible.\u00a0\r\n\r\nThis could allow the attacker to craft an overlay that, when clicked, would lead the user to perform undesirable actions in the vulnerable application, e.g. enabling the user's webcam, deleting all the user's\u00a0records, changing the user's settings, or causing clickfraud."
+              },
+              "helpUri": "https://docs.checkmarx.com/",
+              "shortDescription": {
+                "text": "The root cause of vulnerability to a clickjacking attack, is that the application's web pages can be loaded into a frame of another website. The application does not implement a proper frame-busting script, that would prevent the page from being loaded into another frame. Note that there are many types of simplistic\u00a0redirection scripts that still leave the application vulnerable to clickjacking techniques, and should not be used.\u00a0\r\n\r\nWhen dealing with modern browsers, applications mitigate this vulnerability by issuing appropriate Content-Security-Policy or X-Frame-Options headers to indicate to the browser to disallow framing. However, many legacy browsers do not support this feature, and require a more manual approach by implementing a mitigation in Javascript. To ensure legacy support, a framebusting script is required."
+              }
+            },
+            {
+              "id": "Python_Low_Visibility.Missing_Content_Security_Policy",
+              "help": {
+                "text": "Explicitly set the Content-Security-Policy headers for all applicable policy types (frame, script, form, script, media, img etc.) according to business requirements and deployment layout of external file hosting services. Specifically, do not use\u00a0a wildcard, '\\*', to specify these policies, as this would allow content from any external resource.\r\n\r\nThe Content-Security-Policy can be explicitly defined within web-application code, as a header\u00a0managed by\u00a0web-server configurations, or within <meta> tags in the HTML `<head>` section."
+              },
+              "name": "MissingContentSecurityPolicy",
+              "properties": {
+                "queryID": 8455083761984522303,
+                "security-severity": "2.3188"
+              },
+              "fullDescription": {
+                "text": "The Content-Security-Policy header enforces that the source of content, such as the origin of a script, embedded (child) frame, embedding (parent) frame or image, are trusted and allowed by the current web-page; if, within the web-page, a content's source does not adhere to\u00a0a strict\u00a0Content Security Policy, it is promptly rejected by the browser. Failure to define a policy may leave the application's users exposed to Cross-Site Scripting (XSS) attacks, Clickjacking attacks, content forgery and more."
+              },
+              "helpUri": "https://docs.checkmarx.com/",
+              "shortDescription": {
+                "text": "The Content-Security-Policy header is used by modern browsers as an indicator for trusted sources of content, including media, images, scripts, frames and more. If these policies are not explicitly defined, default browser behavior would allow\u00a0untrusted content."
+              }
+            },
+            {
+              "id": "Python_Critical_Risk.Stored_XSS",
+              "help": {
+                "text": "*   Fully encode all dynamic data, regardless of source, before embedding it in output.\r\n*   Encoding should be context-sensitive. For example:\r\n    *   HTML encoding for HTML content\r\n    *   HTML Attribute encoding for data output to attribute values\r\n    *   JavaScript encoding for server-generated JavaScript\r\n*   It is recommended to use the platform-provided encoding functionality, or known security libraries for encoding output.\r\n*   Implement a Content Security Policy (CSP) with explicit whitelists for the application's resources only.\u00a0\r\n*   As an extra layer of protection, validate all untrusted data, regardless of source (note this is not a replacement for encoding). Validation should be based on a whitelist: accept only data fitting a specified structure, rather than reject bad patterns. Check for:\r\n    *   Data type\r\n    *   Size\r\n    *   Range\r\n    *   Format\r\n    *   Expected values\r\n*   In the `Content-Type` HTTP response header, explicitly define character encoding (charset) for the entire page.\u00a0\r\n*   Set the `HTTPOnly` flag on the session cookie for \"Defense in Depth\", to prevent any successful XSS exploits from stealing the cookie.\n\n"
+              },
+              "name": "StoredXss",
+              "properties": {
+                "queryID": 346558629760677672,
+                "security-severity": "9.4203"
+              },
+              "fullDescription": {
+                "text": "A successful XSS exploit would allow an attacker to rewrite web pages and insert malicious scripts which would alter the intended output. This could include HTML fragments, CSS styling rules, arbitrary JavaScript, or references to third party code. An attacker could use this to steal users' passwords, collect personal data such as credit card details, provide false information, or run malware. From the victim\u2019s point of view, this is performed by the genuine website, and the victim would blame the site for incurred damage.\n\nAn attacker could use legitimate access to the application to submit modified data to the application\u2019s data-store. This would then be used to construct the returned web page, triggering the attack.\n\n"
+              },
+              "helpUri": "https://docs.checkmarx.com/",
+              "shortDescription": {
+                "text": "The application creates web pages that include untrusted data, whether from user input, the application\u2019s database, or from other external sources. The untrusted data is embedded directly in the page's HTML, causing the browser to display it as part of the web page. If the input includes HTML fragments or JavaScript, these are displayed too, and the user cannot tell that this is not the intended page. The vulnerability is the result of directly embedding arbitrary data without first encoding it in a format that would prevent the browser from treating it like HTML or code instead of plain text.\n\nIn order to exploit this vulnerability, an attacker would load the malicious payload into the data-store, typically via regular forms on other web pages. Afterwards, the application reads this data from the data-store, and embeds it within the web page as displayed for another user.\n\n"
               }
             }
           ],
@@ -169,88 +302,220 @@
         },
         "properties": {
           "scanMetadata": {
-            "scanId": "731c7fba-28e6-4aef-affa-29d81f749555",
-            "projectId": "42d7812b-b4c2-47f8-918c-a5fcf2b9c0dd",
+            "scanId": "a0536dc5-baf6-4315-9e63-af2b0bc11418",
+            "projectId": "e3728b0c-aca4-40a6-b3fe-5cd99d4e9c37",
             "loc": 14221,
-            "fileCount": 77,
+            "fileCount": 80,
             "isIncremental": false,
             "isIncrementalCanceled": false,
-            "queryPreset": "ASA Premium"
+            "queryPreset": "All"
           }
         }
       },
       "results": [
         {
           "message": {
-            "markdown": "The method **user_pic** embeds untrusted data in generated output with **HttpResponse**, at line **53** of **/badguys/vulnerable/views.py**. This untrusted data is embedded into the output without proper sanitization or encoding, enabling an attacker to inject malicious code into the generated web-page.\n\nThe attacker would be able to alter the returned web page by saving malicious data in a data-store ahead of time. The attacker's modified data is then read from the database by the **user_pic** method with **read**, at line **42** of **/badguys/vulnerable/views.py**. This untrusted data then flows through the code straight to the output web page, without sanitization.\u00a0\r\n\r\nThis can enable a Stored Cross-Site Scripting (XSS) attack.\n\n",
-            "text": "The method user_pic embeds untrusted data in generated output with HttpResponse, at line 53 of /badguys/vulnerable/views.py. This untrusted data is embedded into the output without proper sanitization or encoding, enabling an attacker to inject malicious code into the generated web-page.\n\nThe attacker would be able to alter the returned web page by saving malicious data in a data-store ahead of time. The attacker's modified data is then read from the database by the user_pic method with read, at line 42 of /badguys/vulnerable/views.py. This untrusted data then flows through the code straight to the output web page, without sanitization.\u00a0\r\n\r\nThis can enable a Stored Cross-Site Scripting (XSS) attack.\n\n"
+            "markdown": "The application's\u00a0**code_execution** method receives and\u00a0dynamically executes user-controlled code using\u00a0**exec**,\u00a0at line **76** of **/badguys/vulnerable/views.py**. This could enable an attacker to inject and run arbitrary code.\n\nThe attacker can inject the executed code via user input,\u00a0**POST**, which is retrieved by the application in the **code_execution** method, at line **68** of **/badguys/vulnerable/views.py**.\n\n",
+            "text": "The application's\u00a0code_execution method receives and\u00a0dynamically executes user-controlled code using\u00a0exec,\u00a0at line 76 of /badguys/vulnerable/views.py. This could enable an attacker to inject and run arbitrary code.\n\nThe attacker can inject the executed code via user input,\u00a0POST, which is retrieved by the application in the code_execution method, at line 68 of /badguys/vulnerable/views.py.\n\n"
           },
+          "level": "9.0",
           "locations": [
             {
               "id": 0,
               "physicalLocation": {
                 "region": {
                   "properties": {
-                    "methodName": "user_pic",
-                    "methodLine": 35,
+                    "methodName": "code_execution",
+                    "methodLine": 56,
                     "domType": "MethodInvokeExpr",
-                    "nodeID": 790,
-                    "fullName": "read"
+                    "nodeID": 1015,
+                    "fullName": "exec"
                   },
-                  "endColumn": 66,
+                  "endColumn": 21,
                   "sourceLanguage": "python",
-                  "startColumn": 62,
-                  "startLine": 42
+                  "startColumn": 17,
+                  "startLine": 76
                 },
                 "artifactLocation": {
-                  "uri": "badguys/vulnerable/views.py"
+                  "uri": "/badguys/vulnerable/views.py"
                 }
               }
-            },
+            }
+          ],
+          "properties": {
+            "state": "TO_VERIFY",
+            "status": "NEW",
+            "severity": "CRITICAL",
+            "queryID": 13646819717326216658,
+            "foundAt": "2025-06-26T16:02:59Z",
+            "firstScanID": "6c24e7ed-e92b-444c-8c43-4ab34150a46f",
+            "firstFoundAt": "2025-06-26T16:02:59Z",
+            "cweID": 94,
+            "cvssScore": 9.1304,
+            "confidenceLevel": 0,
+            "compliances": [
+              "MOIS(KISA) Secure Coding 2021",
+              "OWASP Top 10 2013",
+              "SANS top 25",
+              "ASA Premium",
+              "Top Tier",
+              "PCI DSS v4.0",
+              "FISMA 2014",
+              "OWASP ASVS",
+              "OWASP Top 10 2021",
+              "NIST SP 800-53",
+              "PCI DSS v3.2.1",
+              "ASD STIG 6.1",
+              "CWE top 25"
+            ]
+          },
+          "codeFlows": [
             {
-              "id": 1,
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "location": {
+                        "id": 0,
+                        "physicalLocation": {
+                          "region": {
+                            "properties": {
+                              "methodName": "code_execution",
+                              "methodLine": 56,
+                              "domType": "MethodInvokeExpr",
+                              "nodeID": 1015,
+                              "fullName": "exec"
+                            },
+                            "endColumn": 21,
+                            "sourceLanguage": "python",
+                            "startColumn": 17,
+                            "startLine": 76
+                          },
+                          "artifactLocation": {
+                            "uri": "/badguys/vulnerable/views.py"
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "hostedViewerUri": "https://ast.checkmarx.net/sast-results/e3728b0c-aca4-40a6-b3fe-5cd99d4e9c37/a0536dc5-baf6-4315-9e63-af2b0bc11418?resultId=BFVmNn4YjisxSUK6NKkd9feIi3k%3D",
+          "partialFingerprints": {
+            "similarityID": "2094426463",
+            "queryKey": "Python_Critical_Risk.Code_Injection",
+            "nodeFilePathsSha256": "00ae58dff6e407be32281f894d806fd9c751f29b9ac74def689d32f9d35103fe"
+          },
+          "ruleId": "Python_Critical_Risk.Code_Injection"
+        },
+        {
+          "message": {
+            "markdown": "The application's\u00a0**code_execution** method receives and\u00a0dynamically executes user-controlled code using\u00a0**exec**,\u00a0at line **72** of **/badguys/vulnerable/views.py**. This could enable an attacker to inject and run arbitrary code.\n\nThe attacker can inject the executed code via user input,\u00a0**POST**, which is retrieved by the application in the **code_execution** method, at line **68** of **/badguys/vulnerable/views.py**.\n\n",
+            "text": "The application's\u00a0code_execution method receives and\u00a0dynamically executes user-controlled code using\u00a0exec,\u00a0at line 72 of /badguys/vulnerable/views.py. This could enable an attacker to inject and run arbitrary code.\n\nThe attacker can inject the executed code via user input,\u00a0POST, which is retrieved by the application in the code_execution method, at line 68 of /badguys/vulnerable/views.py.\n\n"
+          },
+          "level": "9.0",
+          "locations": [
+            {
+              "id": 0,
               "physicalLocation": {
                 "region": {
                   "properties": {
-                    "methodName": "user_pic",
-                    "methodLine": 35,
-                    "domType": "UnknownReference",
-                    "nodeID": 793,
-                    "fullName": "CxPYNS_96a6ad9b.user_pic.data"
+                    "methodName": "code_execution",
+                    "methodLine": 56,
+                    "domType": "MethodInvokeExpr",
+                    "nodeID": 981,
+                    "fullName": "exec"
                   },
-                  "endColumn": 13,
+                  "endColumn": 17,
                   "sourceLanguage": "python",
-                  "startColumn": 9,
-                  "startLine": 42
+                  "startColumn": 13,
+                  "startLine": 72
                 },
                 "artifactLocation": {
-                  "uri": "badguys/vulnerable/views.py"
+                  "uri": "/badguys/vulnerable/views.py"
                 }
               }
-            },
+            }
+          ],
+          "properties": {
+            "state": "TO_VERIFY",
+            "status": "NEW",
+            "severity": "CRITICAL",
+            "queryID": 13646819717326216658,
+            "foundAt": "2025-06-26T16:02:59Z",
+            "firstScanID": "6c24e7ed-e92b-444c-8c43-4ab34150a46f",
+            "firstFoundAt": "2025-06-26T16:02:59Z",
+            "cweID": 94,
+            "cvssScore": 9.1304,
+            "confidenceLevel": 0,
+            "compliances": [
+              "MOIS(KISA) Secure Coding 2021",
+              "OWASP Top 10 2013",
+              "SANS top 25",
+              "ASA Premium",
+              "Top Tier",
+              "PCI DSS v4.0",
+              "FISMA 2014",
+              "OWASP ASVS",
+              "OWASP Top 10 2021",
+              "NIST SP 800-53",
+              "PCI DSS v3.2.1",
+              "ASD STIG 6.1",
+              "CWE top 25"
+            ]
+          },
+          "codeFlows": [
             {
-              "id": 2,
-              "physicalLocation": {
-                "region": {
-                  "properties": {
-                    "methodName": "user_pic",
-                    "methodLine": 35,
-                    "domType": "UnknownReference",
-                    "nodeID": 867,
-                    "fullName": "CxPYNS_96a6ad9b.user_pic.data"
-                  },
-                  "endColumn": 29,
-                  "sourceLanguage": "python",
-                  "startColumn": 25,
-                  "startLine": 53
-                },
-                "artifactLocation": {
-                  "uri": "badguys/vulnerable/views.py"
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "location": {
+                        "id": 0,
+                        "physicalLocation": {
+                          "region": {
+                            "properties": {
+                              "methodName": "code_execution",
+                              "methodLine": 56,
+                              "domType": "MethodInvokeExpr",
+                              "nodeID": 981,
+                              "fullName": "exec"
+                            },
+                            "endColumn": 17,
+                            "sourceLanguage": "python",
+                            "startColumn": 13,
+                            "startLine": 72
+                          },
+                          "artifactLocation": {
+                            "uri": "/badguys/vulnerable/views.py"
+                          }
+                        }
+                      }
+                    }
+                  ]
                 }
-              }
-            },
+              ]
+            }
+          ],
+          "hostedViewerUri": "https://ast.checkmarx.net/sast-results/e3728b0c-aca4-40a6-b3fe-5cd99d4e9c37/a0536dc5-baf6-4315-9e63-af2b0bc11418?resultId=7PbK7y79hfavzX53tYAKtmP7HcU%3D",
+          "partialFingerprints": {
+            "similarityID": "1765596350",
+            "queryKey": "Python_Critical_Risk.Code_Injection",
+            "nodeFilePathsSha256": "dc147e72a7505364e9e0ced5af98e81046a36894e4c12cb8c1bc5b9d23fbc354"
+          },
+          "ruleId": "Python_Critical_Risk.Code_Injection"
+        },
+        {
+          "message": {
+            "markdown": "The method **user_pic** embeds untrusted data in generated output with **HttpResponse**, at line **53** of **/badguys/vulnerable/views.py**. This untrusted data is embedded into the output without proper sanitization or encoding, enabling an attacker to inject malicious code into the generated web-page.\n\nThe attacker would be able to alter the returned web page by simply providing modified data in the user input **request**, which is read by the **user_pic** method at line **35** of **/badguys/vulnerable/views.py**. This input then flows through the code straight to the output web page, without sanitization.\u00a0\r\n\r\nThis can enable a Reflected Cross-Site Scripting (XSS) attack.\n\n",
+            "text": "The method user_pic embeds untrusted data in generated output with HttpResponse, at line 53 of /badguys/vulnerable/views.py. This untrusted data is embedded into the output without proper sanitization or encoding, enabling an attacker to inject malicious code into the generated web-page.\n\nThe attacker would be able to alter the returned web page by simply providing modified data in the user input request, which is read by the user_pic method at line 35 of /badguys/vulnerable/views.py. This input then flows through the code straight to the output web page, without sanitization.\u00a0\r\n\r\nThis can enable a Reflected Cross-Site Scripting (XSS) attack.\n\n"
+          },
+          "level": "8.9",
+          "locations": [
             {
-              "id": 3,
+              "id": 0,
               "physicalLocation": {
                 "region": {
                   "properties": {
@@ -266,7 +531,7 @@
                   "startLine": 53
                 },
                 "artifactLocation": {
-                  "uri": "badguys/vulnerable/views.py"
+                  "uri": "/badguys/vulnerable/views.py"
                 }
               }
             }
@@ -274,11 +539,1276 @@
           "properties": {
             "state": "TO_VERIFY",
             "status": "NEW",
-            "severity": "CRITICAL",
-            "queryID": 346558629760677672,
-            "foundAt": "2025-06-25T19:14:58Z",
+            "severity": "HIGH",
+            "queryID": 11301225196674651062,
+            "foundAt": "2025-06-26T16:02:59Z",
             "firstScanID": "6c24e7ed-e92b-444c-8c43-4ab34150a46f",
-            "firstFoundAt": "2025-06-25T19:14:58Z",
+            "firstFoundAt": "2025-06-26T16:02:59Z",
+            "cweID": 79,
+            "cvssScore": 7,
+            "confidenceLevel": 0,
+            "compliances": [
+              "OWASP Top 10 2013",
+              "FISMA 2014",
+              "SANS top 25",
+              "NIST SP 800-53",
+              "OWASP ASVS",
+              "OWASP Top 10 2021",
+              "PCI DSS v3.2.1",
+              "ASD STIG 6.1",
+              "CWE top 25",
+              "Top Tier",
+              "ASA Premium",
+              "MOIS(KISA) Secure Coding 2021",
+              "OWASP Top 10 2017",
+              "PCI DSS v4.0"
+            ]
+          },
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "location": {
+                        "id": 0,
+                        "physicalLocation": {
+                          "region": {
+                            "properties": {
+                              "methodName": "user_pic",
+                              "methodLine": 35,
+                              "domType": "MethodInvokeExpr",
+                              "nodeID": 863,
+                              "fullName": "HttpResponse"
+                            },
+                            "endColumn": 24,
+                            "sourceLanguage": "python",
+                            "startColumn": 12,
+                            "startLine": 53
+                          },
+                          "artifactLocation": {
+                            "uri": "/badguys/vulnerable/views.py"
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "hostedViewerUri": "https://ast.checkmarx.net/sast-results/e3728b0c-aca4-40a6-b3fe-5cd99d4e9c37/a0536dc5-baf6-4315-9e63-af2b0bc11418?resultId=WybEom%2FXBaMyyGEVCcpXa4N%2FD78%3D",
+          "partialFingerprints": {
+            "similarityID": "-1038673593",
+            "queryKey": "Python_High_Risk.Reflected_XSS",
+            "nodeFilePathsSha256": "6eb0e90aed97d4fabeee3b719d5b1b2cd181780c7c6268668d56bffe271c80d9"
+          },
+          "ruleId": "Python_High_Risk.Reflected_XSS"
+        },
+        {
+          "message": {
+            "markdown": "Method **user_pic** at line **39** of **/badguys/vulnerable/views.py** gets dynamic data from the **GET** element. This element\u2019s value then flows through the code and is eventually used in a file path for local disk access in **user_pic** at line **42** of **/badguys/vulnerable/views.py**. This may cause a Path Traversal vulnerability.\n\n",
+            "text": "Method user_pic at line 39 of /badguys/vulnerable/views.py gets dynamic data from the GET element. This element\u2019s value then flows through the code and is eventually used in a file path for local disk access in user_pic at line 42 of /badguys/vulnerable/views.py. This may cause a Path Traversal vulnerability.\n\n"
+          },
+          "level": "8.9",
+          "locations": [
+            {
+              "id": 0,
+              "physicalLocation": {
+                "region": {
+                  "properties": {
+                    "methodName": "user_pic",
+                    "methodLine": 35,
+                    "domType": "MethodInvokeExpr",
+                    "nodeID": 869,
+                    "fullName": "open"
+                  },
+                  "endColumn": 20,
+                  "sourceLanguage": "python",
+                  "startColumn": 16,
+                  "startLine": 42
+                },
+                "artifactLocation": {
+                  "uri": "/badguys/vulnerable/views.py"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "state": "TO_VERIFY",
+            "status": "NEW",
+            "severity": "HIGH",
+            "queryID": 4418167693267818286,
+            "foundAt": "2025-06-26T16:02:59Z",
+            "firstScanID": "a2489392-6561-4db6-adab-35eaafc0e267",
+            "firstFoundAt": "2025-06-26T16:02:59Z",
+            "cweID": 22,
+            "cvssScore": 7.5362,
+            "confidenceLevel": 0,
+            "compliances": [
+              "OWASP ASVS",
+              "MOIS(KISA) Secure Coding 2021",
+              "Top Tier",
+              "OWASP Top 10 2017",
+              "CWE top 25",
+              "OWASP Top 10 2021",
+              "PCI DSS v4.0",
+              "SANS top 25",
+              "ASA Premium",
+              "Base Preset",
+              "PCI DSS v3.2.1"
+            ]
+          },
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "location": {
+                        "id": 0,
+                        "physicalLocation": {
+                          "region": {
+                            "properties": {
+                              "methodName": "user_pic",
+                              "methodLine": 35,
+                              "domType": "MethodInvokeExpr",
+                              "nodeID": 869,
+                              "fullName": "open"
+                            },
+                            "endColumn": 20,
+                            "sourceLanguage": "python",
+                            "startColumn": 16,
+                            "startLine": 42
+                          },
+                          "artifactLocation": {
+                            "uri": "/badguys/vulnerable/views.py"
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "hostedViewerUri": "https://ast.checkmarx.net/sast-results/e3728b0c-aca4-40a6-b3fe-5cd99d4e9c37/a0536dc5-baf6-4315-9e63-af2b0bc11418?resultId=KVXdo7td2%2BUIK0%2BwWlZpiHChLxI%3D",
+          "partialFingerprints": {
+            "similarityID": "-1069850681",
+            "queryKey": "Python_High_Risk.Path_Traversal",
+            "nodeFilePathsSha256": "00ae58dff6e407be32281f894d806fd9c751f29b9ac74def689d32f9d35103fe"
+          },
+          "ruleId": "Python_High_Risk.Path_Traversal"
+        },
+        {
+          "message": {
+            "markdown": "The application source code includes **true**, in line **10** of **/badguys/settings.py**, which was left from development and debugging, and is not part of the intended application functionality.",
+            "text": "The application source code includes true, in line 10 of /badguys/settings.py, which was left from development and debugging, and is not part of the intended application functionality."
+          },
+          "level": "8.9",
+          "locations": [
+            {
+              "id": 0,
+              "physicalLocation": {
+                "region": {
+                  "properties": {
+                    "methodName": null,
+                    "methodLine": 10,
+                    "domType": "UnknownReference",
+                    "nodeID": 3923,
+                    "fullName": "CxPYNS_e5742d14.DEBUG"
+                  },
+                  "endColumn": 6,
+                  "sourceLanguage": "python",
+                  "startColumn": 1,
+                  "startLine": 10
+                },
+                "artifactLocation": {
+                  "uri": "/badguys/settings.py"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "state": "TO_VERIFY",
+            "status": "NEW",
+            "severity": "HIGH",
+            "queryID": 15910406614565918143,
+            "foundAt": "2025-06-26T16:02:59Z",
+            "firstScanID": "a65a7cee-76a6-4389-976a-a07fec66c8e2",
+            "firstFoundAt": "2025-06-26T16:02:59Z",
+            "cweID": 489,
+            "cvssScore": 7.6812,
+            "confidenceLevel": 0,
+            "compliances": [
+              "NIST SP 800-53",
+              "OWASP Top 10 2017",
+              "PCI DSS v4.0",
+              "FISMA 2014",
+              "MOIS(KISA) Secure Coding 2021"
+            ]
+          },
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "location": {
+                        "id": 0,
+                        "physicalLocation": {
+                          "region": {
+                            "properties": {
+                              "methodName": null,
+                              "methodLine": 10,
+                              "domType": "UnknownReference",
+                              "nodeID": 3923,
+                              "fullName": "CxPYNS_e5742d14.DEBUG"
+                            },
+                            "endColumn": 6,
+                            "sourceLanguage": "python",
+                            "startColumn": 1,
+                            "startLine": 10
+                          },
+                          "artifactLocation": {
+                            "uri": "/badguys/settings.py"
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "hostedViewerUri": "https://ast.checkmarx.net/sast-results/e3728b0c-aca4-40a6-b3fe-5cd99d4e9c37/a0536dc5-baf6-4315-9e63-af2b0bc11418?resultId=la2hh1xFNtoOjucLUA1YZG%2BZZvo%3D",
+          "partialFingerprints": {
+            "similarityID": "-1120528780",
+            "queryKey": "Python_High_Risk.Debug_Enabled",
+            "nodeFilePathsSha256": "36ff490940cf5414e46272d81ec4eeffe36432344edacdaf2c96b69e8e64d10c"
+          },
+          "ruleId": "Python_High_Risk.Debug_Enabled"
+        },
+        {
+          "message": {
+            "markdown": "The application uses the hard-coded password **\"h++jszpm)i@p%ay_b=cp#()^od!qns14)h%@qm3)p=cuo+st^a\"** for authentication purposes, either using it to verify users' identities, or to access another remote system. This password at line **90** of **/badguys/settings.py** appears in the code, implying it is accessible to anyone with source code access, and cannot be changed without rebuilding\u00a0the application.",
+            "text": "The application uses the hard-coded password \"h++jszpm)i@p%ay_b=cp#()^od!qns14)h%@qm3)p=cuo+st^a\" for authentication purposes, either using it to verify users' identities, or to access another remote system. This password at line 90 of /badguys/settings.py appears in the code, implying it is accessible to anyone with source code access, and cannot be changed without rebuilding\u00a0the application."
+          },
+          "level": "6.9",
+          "locations": [
+            {
+              "id": 0,
+              "physicalLocation": {
+                "region": {
+                  "properties": {
+                    "methodName": null,
+                    "methodLine": 90,
+                    "domType": "StringLiteral",
+                    "nodeID": 3342,
+                    "fullName": "\"h++jszpm)i@p%ay_b=cp#()^od!qns14)h%@qm3)p=cuo+st^a\""
+                  },
+                  "endColumn": 66,
+                  "sourceLanguage": "python",
+                  "startColumn": 14,
+                  "startLine": 90
+                },
+                "artifactLocation": {
+                  "uri": "/badguys/settings.py"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "state": "TO_VERIFY",
+            "status": "NEW",
+            "severity": "MEDIUM",
+            "queryID": 10308959669028119927,
+            "foundAt": "2025-06-26T16:02:59Z",
+            "firstScanID": "6c24e7ed-e92b-444c-8c43-4ab34150a46f",
+            "firstFoundAt": "2025-06-26T16:02:59Z",
+            "cweID": 259,
+            "cvssScore": 5.5072,
+            "confidenceLevel": 0,
+            "compliances": [
+              "OWASP ASVS",
+              "OWASP Top 10 API",
+              "SANS top 25",
+              "ASA Premium",
+              "ASD STIG 6.1",
+              "FISMA 2014",
+              "OWASP Top 10 2021",
+              "PCI DSS v4.0",
+              "CWE top 25",
+              "MOIS(KISA) Secure Coding 2021",
+              "NIST SP 800-53"
+            ]
+          },
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "location": {
+                        "id": 0,
+                        "physicalLocation": {
+                          "region": {
+                            "properties": {
+                              "methodName": null,
+                              "methodLine": 90,
+                              "domType": "StringLiteral",
+                              "nodeID": 3342,
+                              "fullName": "\"h++jszpm)i@p%ay_b=cp#()^od!qns14)h%@qm3)p=cuo+st^a\""
+                            },
+                            "endColumn": 66,
+                            "sourceLanguage": "python",
+                            "startColumn": 14,
+                            "startLine": 90
+                          },
+                          "artifactLocation": {
+                            "uri": "/badguys/settings.py"
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "hostedViewerUri": "https://ast.checkmarx.net/sast-results/e3728b0c-aca4-40a6-b3fe-5cd99d4e9c37/a0536dc5-baf6-4315-9e63-af2b0bc11418?resultId=kCgtUIcgA15oGP68WTAqflXtcSc%3D",
+          "partialFingerprints": {
+            "similarityID": "-2056718301",
+            "queryKey": "Python_Medium_Threat.Use_Of_Hardcoded_Password",
+            "nodeFilePathsSha256": "5cf79a6eb63854f43a84097b2e3f318d8390c35de85e2089c33a3968b705ae98"
+          },
+          "ruleId": "Python_Medium_Threat.Use_Of_Hardcoded_Password"
+        },
+        {
+          "message": {
+            "markdown": "The variable\u00a0**\"h++jszpm)i@p%ay_b=cp#()^od!qns14)h%@qm3)p=cuo+st^a\"** at line **90** of **/badguys/settings.py** is assigned a hardcoded, literal value. This static value is used as an encryption key.\n\n",
+            "text": "The variable\u00a0\"h++jszpm)i@p%ay_b=cp#()^od!qns14)h%@qm3)p=cuo+st^a\" at line 90 of /badguys/settings.py is assigned a hardcoded, literal value. This static value is used as an encryption key.\n\n"
+          },
+          "level": "6.9",
+          "locations": [
+            {
+              "id": 0,
+              "physicalLocation": {
+                "region": {
+                  "properties": {
+                    "methodName": null,
+                    "methodLine": 90,
+                    "domType": "StringLiteral",
+                    "nodeID": 4041,
+                    "fullName": "\"h++jszpm)i@p%ay_b=cp#()^od!qns14)h%@qm3)p=cuo+st^a\""
+                  },
+                  "endColumn": 66,
+                  "sourceLanguage": "python",
+                  "startColumn": 14,
+                  "startLine": 90
+                },
+                "artifactLocation": {
+                  "uri": "/badguys/settings.py"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "state": "TO_VERIFY",
+            "status": "NEW",
+            "severity": "MEDIUM",
+            "queryID": 17125041041096276150,
+            "foundAt": "2025-06-26T16:02:59Z",
+            "firstScanID": "a65a7cee-76a6-4389-976a-a07fec66c8e2",
+            "firstFoundAt": "2025-06-26T16:02:59Z",
+            "cweID": 321,
+            "cvssScore": 5.7971,
+            "confidenceLevel": 0,
+            "compliances": [
+              "OWASP ASVS",
+              "OWASP Top 10 2021",
+              "PCI DSS v4.0",
+              "SANS top 25",
+              "CWE top 25",
+              "MOIS(KISA) Secure Coding 2021"
+            ]
+          },
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "location": {
+                        "id": 0,
+                        "physicalLocation": {
+                          "region": {
+                            "properties": {
+                              "methodName": null,
+                              "methodLine": 90,
+                              "domType": "StringLiteral",
+                              "nodeID": 4041,
+                              "fullName": "\"h++jszpm)i@p%ay_b=cp#()^od!qns14)h%@qm3)p=cuo+st^a\""
+                            },
+                            "endColumn": 66,
+                            "sourceLanguage": "python",
+                            "startColumn": 14,
+                            "startLine": 90
+                          },
+                          "artifactLocation": {
+                            "uri": "/badguys/settings.py"
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "hostedViewerUri": "https://ast.checkmarx.net/sast-results/e3728b0c-aca4-40a6-b3fe-5cd99d4e9c37/a0536dc5-baf6-4315-9e63-af2b0bc11418?resultId=HtOzeqYBPaNQaUXDe6gBHCx6y14%3D",
+          "partialFingerprints": {
+            "similarityID": "505872087",
+            "queryKey": "Python_Medium_Threat.Use_of_Hardcoded_Cryptographic_Key",
+            "nodeFilePathsSha256": "5cf79a6eb63854f43a84097b2e3f318d8390c35de85e2089c33a3968b705ae98"
+          },
+          "ruleId": "Python_Medium_Threat.Use_of_Hardcoded_Cryptographic_Key"
+        },
+        {
+          "message": {
+            "markdown": "A cookie was generated and sent to the client in file **/badguys/settings.py** in line\u00a0**1**, secure attribute is missing. A cookie without a secure flag may be transmitted over a plain-text connection, potentially exposing it to anyone observing this channel.\n\n",
+            "text": "A cookie was generated and sent to the client in file /badguys/settings.py in line\u00a01, secure attribute is missing. A cookie without a secure flag may be transmitted over a plain-text connection, potentially exposing it to anyone observing this channel.\n\n"
+          },
+          "level": "6.9",
+          "locations": [
+            {
+              "id": 0,
+              "physicalLocation": {
+                "region": {
+                  "properties": {
+                    "methodName": null,
+                    "methodLine": 1,
+                    "domType": "NamespaceDecl",
+                    "nodeID": 3610,
+                    "fullName": "CxPYNS_e5742d14"
+                  },
+                  "sourceLanguage": "python",
+                  "startColumn": 1,
+                  "startLine": 1
+                },
+                "artifactLocation": {
+                  "uri": "/badguys/settings.py"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "state": "TO_VERIFY",
+            "status": "NEW",
+            "severity": "MEDIUM",
+            "queryID": 13728294608634614396,
+            "foundAt": "2025-06-26T16:02:59Z",
+            "firstScanID": "a65a7cee-76a6-4389-976a-a07fec66c8e2",
+            "firstFoundAt": "2025-06-26T16:02:59Z",
+            "cweID": 614,
+            "cvssScore": 5,
+            "confidenceLevel": 0,
+            "compliances": [
+              "ASD STIG 6.1",
+              "OWASP ASVS",
+              "PCI DSS v4.0"
+            ]
+          },
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "location": {
+                        "id": 0,
+                        "physicalLocation": {
+                          "region": {
+                            "properties": {
+                              "methodName": null,
+                              "methodLine": 1,
+                              "domType": "NamespaceDecl",
+                              "nodeID": 3610,
+                              "fullName": "CxPYNS_e5742d14"
+                            },
+                            "sourceLanguage": "python",
+                            "startColumn": 1,
+                            "startLine": 1
+                          },
+                          "artifactLocation": {
+                            "uri": "/badguys/settings.py"
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "hostedViewerUri": "https://ast.checkmarx.net/sast-results/e3728b0c-aca4-40a6-b3fe-5cd99d4e9c37/a0536dc5-baf6-4315-9e63-af2b0bc11418?resultId=QcGKTcisO72v1lUhQopK0fcrJg0%3D",
+          "partialFingerprints": {
+            "similarityID": "-829076369",
+            "queryKey": "Python_Medium_Threat.Secure_Cookie_Flag_Not_Set_In_Config",
+            "nodeFilePathsSha256": "5cf79a6eb63854f43a84097b2e3f318d8390c35de85e2089c33a3968b705ae98"
+          },
+          "ruleId": "Python_Medium_Threat.Secure_Cookie_Flag_Not_Set_In_Config"
+        },
+        {
+          "message": {
+            "markdown": "The potentially tainted value provided by\u00a0**GET** in\u00a0**/badguys/vulnerable/views.py** at line **177** is used as a destination URL by **redirect** in **/badguys/vulnerable/views.py** at line **178**, potentially allowing attackers to perform an open redirection.\n\n",
+            "text": "The potentially tainted value provided by\u00a0GET in\u00a0/badguys/vulnerable/views.py at line 177 is used as a destination URL by redirect in /badguys/vulnerable/views.py at line 178, potentially allowing attackers to perform an open redirection.\n\n"
+          },
+          "level": "6.9",
+          "locations": [
+            {
+              "id": 0,
+              "physicalLocation": {
+                "region": {
+                  "properties": {
+                    "methodName": "unvalidated_redirect",
+                    "methodLine": 176,
+                    "domType": "MethodInvokeExpr",
+                    "nodeID": 1655,
+                    "fullName": "redirect"
+                  },
+                  "endColumn": 20,
+                  "sourceLanguage": "python",
+                  "startColumn": 12,
+                  "startLine": 178
+                },
+                "artifactLocation": {
+                  "uri": "/badguys/vulnerable/views.py"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "state": "TO_VERIFY",
+            "status": "NEW",
+            "severity": "MEDIUM",
+            "queryID": 11971208775240962660,
+            "foundAt": "2025-06-26T16:02:59Z",
+            "firstScanID": "6c24e7ed-e92b-444c-8c43-4ab34150a46f",
+            "firstFoundAt": "2025-06-26T16:02:59Z",
+            "cweID": 601,
+            "cvssScore": 6.6667,
+            "confidenceLevel": 0,
+            "compliances": [
+              "OWASP Top 10 API 2023",
+              "ASA Premium",
+              "NIST SP 800-53",
+              "OWASP Top 10 2017",
+              "ASD STIG 6.1",
+              "OWASP ASVS",
+              "FISMA 2014",
+              "PCI DSS v3.2.1",
+              "PCI DSS v4.0",
+              "MOIS(KISA) Secure Coding 2021",
+              "OWASP Top 10 2021"
+            ]
+          },
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "location": {
+                        "id": 0,
+                        "physicalLocation": {
+                          "region": {
+                            "properties": {
+                              "methodName": "unvalidated_redirect",
+                              "methodLine": 176,
+                              "domType": "MethodInvokeExpr",
+                              "nodeID": 1655,
+                              "fullName": "redirect"
+                            },
+                            "endColumn": 20,
+                            "sourceLanguage": "python",
+                            "startColumn": 12,
+                            "startLine": 178
+                          },
+                          "artifactLocation": {
+                            "uri": "/badguys/vulnerable/views.py"
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "hostedViewerUri": "https://ast.checkmarx.net/sast-results/e3728b0c-aca4-40a6-b3fe-5cd99d4e9c37/a0536dc5-baf6-4315-9e63-af2b0bc11418?resultId=sFfdXDYWmkLunlb9JF8KmdgKbj4%3D",
+          "partialFingerprints": {
+            "similarityID": "1923217012",
+            "queryKey": "Python_Medium_Threat.Open_Redirect",
+            "nodeFilePathsSha256": "d9eea2344b445c7cb568bf446126a07aceb12f402d013b96c288e486ff1d3bc6"
+          },
+          "ruleId": "Python_Medium_Threat.Open_Redirect"
+        },
+        {
+          "message": {
+            "markdown": "The web-application does not define an HSTS header, leaving it vulnerable to attack.\n\n",
+            "text": "The web-application does not define an HSTS header, leaving it vulnerable to attack.\n\n"
+          },
+          "level": "6.9",
+          "locations": [
+            {
+              "id": 0,
+              "physicalLocation": {
+                "region": {
+                  "properties": {
+                    "methodName": null,
+                    "methodLine": 1,
+                    "domType": "NamespaceDecl",
+                    "nodeID": 2911,
+                    "fullName": "CxPYNS_e5742d14"
+                  },
+                  "sourceLanguage": "python",
+                  "startColumn": 1,
+                  "startLine": 1
+                },
+                "artifactLocation": {
+                  "uri": "/badguys/settings.py"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "state": "TO_VERIFY",
+            "status": "NEW",
+            "severity": "MEDIUM",
+            "queryID": 7929843929890808532,
+            "foundAt": "2025-06-26T16:02:59Z",
+            "firstScanID": "6c24e7ed-e92b-444c-8c43-4ab34150a46f",
+            "firstFoundAt": "2025-06-26T16:02:59Z",
+            "cweID": 346,
+            "cvssScore": 4.9275,
+            "confidenceLevel": 0,
+            "compliances": [
+              "PCI DSS v4.0",
+              "ASA Premium",
+              "OWASP ASVS",
+              "OWASP Top 10 2021",
+              "OWASP Top 10 API 2023"
+            ]
+          },
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "location": {
+                        "id": 0,
+                        "physicalLocation": {
+                          "region": {
+                            "properties": {
+                              "methodName": null,
+                              "methodLine": 1,
+                              "domType": "NamespaceDecl",
+                              "nodeID": 2911,
+                              "fullName": "CxPYNS_e5742d14"
+                            },
+                            "sourceLanguage": "python",
+                            "startColumn": 1,
+                            "startLine": 1
+                          },
+                          "artifactLocation": {
+                            "uri": "/badguys/settings.py"
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "hostedViewerUri": "https://ast.checkmarx.net/sast-results/e3728b0c-aca4-40a6-b3fe-5cd99d4e9c37/a0536dc5-baf6-4315-9e63-af2b0bc11418?resultId=XpbwMP1Pb0OUG1rPCvwe%2BnvRBXw%3D",
+          "partialFingerprints": {
+            "similarityID": "1989311441",
+            "queryKey": "Python_Medium_Threat.Missing_HSTS_Header",
+            "nodeFilePathsSha256": "5cf79a6eb63854f43a84097b2e3f318d8390c35de85e2089c33a3968b705ae98"
+          },
+          "ruleId": "Python_Medium_Threat.Missing_HSTS_Header"
+        },
+        {
+          "message": {
+            "markdown": "Line **35** flags a method or annotation that could be a potential unauthorized access to object available in the corresponding controller.\n\nThis query is looking for possible flaws in Spring-Security configuration, so only projects that use Spring-Security are considered.",
+            "text": "Line 35 flags a method or annotation that could be a potential unauthorized access to object available in the corresponding controller.\n\nThis query is looking for possible flaws in Spring-Security configuration, so only projects that use Spring-Security are considered."
+          },
+          "level": "6.9",
+          "locations": [
+            {
+              "id": 0,
+              "physicalLocation": {
+                "region": {
+                  "properties": {
+                    "methodName": "user_pic",
+                    "methodLine": 35,
+                    "domType": "MethodDecl",
+                    "nodeID": 789,
+                    "fullName": "CxPYNS_96a6ad9b.user_pic"
+                  },
+                  "endColumn": 13,
+                  "sourceLanguage": "python",
+                  "startColumn": 5,
+                  "startLine": 35
+                },
+                "artifactLocation": {
+                  "uri": "/badguys/vulnerable/views.py"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "state": "TO_VERIFY",
+            "status": "NEW",
+            "severity": "MEDIUM",
+            "queryID": 9932158522616364323,
+            "foundAt": "2025-06-26T16:02:59Z",
+            "firstScanID": "a65a7cee-76a6-4389-976a-a07fec66c8e2",
+            "firstFoundAt": "2025-06-26T16:02:59Z",
+            "cweID": 862,
+            "cvssScore": 5.3623,
+            "confidenceLevel": 0,
+            "compliances": [
+              "OWASP Top 10 2021",
+              "OWASP Top 10 API",
+              "ASD STIG 6.1",
+              "CWE top 25",
+              "MOIS(KISA) Secure Coding 2021",
+              "OWASP ASVS"
+            ]
+          },
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "location": {
+                        "id": 0,
+                        "physicalLocation": {
+                          "region": {
+                            "properties": {
+                              "methodName": "user_pic",
+                              "methodLine": 35,
+                              "domType": "MethodDecl",
+                              "nodeID": 789,
+                              "fullName": "CxPYNS_96a6ad9b.user_pic"
+                            },
+                            "endColumn": 13,
+                            "sourceLanguage": "python",
+                            "startColumn": 5,
+                            "startLine": 35
+                          },
+                          "artifactLocation": {
+                            "uri": "/badguys/vulnerable/views.py"
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "hostedViewerUri": "https://ast.checkmarx.net/sast-results/e3728b0c-aca4-40a6-b3fe-5cd99d4e9c37/a0536dc5-baf6-4315-9e63-af2b0bc11418?resultId=LdWwrUU59SrbbPVrEdRCJ2FtReI%3D",
+          "partialFingerprints": {
+            "similarityID": "-61154366",
+            "queryKey": "Python_Medium_Threat.Django_Missing_Function_Level_Authorization",
+            "nodeFilePathsSha256": "f0b6e87a13552f59431ed8af2638cc4f3111b124517b42d27db2bb9fb10338c2"
+          },
+          "ruleId": "Python_Medium_Threat.Django_Missing_Function_Level_Authorization"
+        },
+        {
+          "message": {
+            "markdown": "An argument is passed to an external OS command by **exec** at **/badguys/vulnerable/views.py** in line **72**. This could allow an attacker to attack the external program by injecting malicious arguments into its execution.\n\nThe argument is provided by user input at **request** at **/badguys/vulnerable/views.py** in line **56**.\n\n",
+            "text": "An argument is passed to an external OS command by exec at /badguys/vulnerable/views.py in line 72. This could allow an attacker to attack the external program by injecting malicious arguments into its execution.\n\nThe argument is provided by user input at request at /badguys/vulnerable/views.py in line 56.\n\n"
+          },
+          "level": "6.9",
+          "locations": [
+            {
+              "id": 0,
+              "physicalLocation": {
+                "region": {
+                  "properties": {
+                    "methodName": "code_execution",
+                    "methodLine": 56,
+                    "domType": "MethodInvokeExpr",
+                    "nodeID": 1079,
+                    "fullName": "exec"
+                  },
+                  "endColumn": 17,
+                  "sourceLanguage": "python",
+                  "startColumn": 13,
+                  "startLine": 72
+                },
+                "artifactLocation": {
+                  "uri": "/badguys/vulnerable/views.py"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "state": "TO_VERIFY",
+            "status": "NEW",
+            "severity": "MEDIUM",
+            "queryID": 16321289430704188843,
+            "foundAt": "2025-06-26T16:02:59Z",
+            "firstScanID": "a65a7cee-76a6-4389-976a-a07fec66c8e2",
+            "firstFoundAt": "2025-06-26T16:02:59Z",
+            "cweID": 88,
+            "cvssScore": 4.7826,
+            "confidenceLevel": 0,
+            "compliances": [
+              "CWE top 25",
+              "MOIS(KISA) Secure Coding 2021",
+              "OWASP ASVS",
+              "OWASP Top 10 2021",
+              "SANS top 25"
+            ]
+          },
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "location": {
+                        "id": 0,
+                        "physicalLocation": {
+                          "region": {
+                            "properties": {
+                              "methodName": "code_execution",
+                              "methodLine": 56,
+                              "domType": "MethodInvokeExpr",
+                              "nodeID": 1079,
+                              "fullName": "exec"
+                            },
+                            "endColumn": 17,
+                            "sourceLanguage": "python",
+                            "startColumn": 13,
+                            "startLine": 72
+                          },
+                          "artifactLocation": {
+                            "uri": "/badguys/vulnerable/views.py"
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "hostedViewerUri": "https://ast.checkmarx.net/sast-results/e3728b0c-aca4-40a6-b3fe-5cd99d4e9c37/a0536dc5-baf6-4315-9e63-af2b0bc11418?resultId=mRT5jt4pV3UZI19VErdyrvupi3Y%3D",
+          "partialFingerprints": {
+            "similarityID": "-1821492779",
+            "queryKey": "Python_Medium_Threat.Command_Argument_Injection",
+            "nodeFilePathsSha256": "4f28b215b5383ba6f3b5123e8dc7a385a955e43a5267c56dc44a91affef3ab30"
+          },
+          "ruleId": "Python_Medium_Threat.Command_Argument_Injection"
+        },
+        {
+          "message": {
+            "markdown": "An argument is passed to an external OS command by **exec** at **/badguys/vulnerable/views.py** in line **76**. This could allow an attacker to attack the external program by injecting malicious arguments into its execution.\n\nThe argument is provided by user input at **request** at **/badguys/vulnerable/views.py** in line **56**.\n\n",
+            "text": "An argument is passed to an external OS command by exec at /badguys/vulnerable/views.py in line 76. This could allow an attacker to attack the external program by injecting malicious arguments into its execution.\n\nThe argument is provided by user input at request at /badguys/vulnerable/views.py in line 56.\n\n"
+          },
+          "level": "6.9",
+          "locations": [
+            {
+              "id": 0,
+              "physicalLocation": {
+                "region": {
+                  "properties": {
+                    "methodName": "code_execution",
+                    "methodLine": 56,
+                    "domType": "MethodInvokeExpr",
+                    "nodeID": 1113,
+                    "fullName": "exec"
+                  },
+                  "endColumn": 21,
+                  "sourceLanguage": "python",
+                  "startColumn": 17,
+                  "startLine": 76
+                },
+                "artifactLocation": {
+                  "uri": "/badguys/vulnerable/views.py"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "state": "TO_VERIFY",
+            "status": "NEW",
+            "severity": "MEDIUM",
+            "queryID": 16321289430704188843,
+            "foundAt": "2025-06-26T16:02:59Z",
+            "firstScanID": "a65a7cee-76a6-4389-976a-a07fec66c8e2",
+            "firstFoundAt": "2025-06-26T16:02:59Z",
+            "cweID": 88,
+            "cvssScore": 4.7826,
+            "confidenceLevel": 0,
+            "compliances": [
+              "CWE top 25",
+              "MOIS(KISA) Secure Coding 2021",
+              "OWASP ASVS",
+              "OWASP Top 10 2021",
+              "SANS top 25"
+            ]
+          },
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "location": {
+                        "id": 0,
+                        "physicalLocation": {
+                          "region": {
+                            "properties": {
+                              "methodName": "code_execution",
+                              "methodLine": 56,
+                              "domType": "MethodInvokeExpr",
+                              "nodeID": 1113,
+                              "fullName": "exec"
+                            },
+                            "endColumn": 21,
+                            "sourceLanguage": "python",
+                            "startColumn": 17,
+                            "startLine": 76
+                          },
+                          "artifactLocation": {
+                            "uri": "/badguys/vulnerable/views.py"
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "hostedViewerUri": "https://ast.checkmarx.net/sast-results/e3728b0c-aca4-40a6-b3fe-5cd99d4e9c37/a0536dc5-baf6-4315-9e63-af2b0bc11418?resultId=4dgEEItTryswNJqVosBNepfLmRA%3D",
+          "partialFingerprints": {
+            "similarityID": "-202882954",
+            "queryKey": "Python_Medium_Threat.Command_Argument_Injection",
+            "nodeFilePathsSha256": "6eb0e90aed97d4fabeee3b719d5b1b2cd181780c7c6268668d56bffe271c80d9"
+          },
+          "ruleId": "Python_Medium_Threat.Command_Argument_Injection"
+        },
+        {
+          "message": {
+            "markdown": "The application does not protect the\u00a0web page **/badguys/templates/about.html** from clickjacking attacks in legacy browsers, by using framebusting scripts.",
+            "text": "The application does not protect the\u00a0web page /badguys/templates/about.html from clickjacking attacks in legacy browsers, by using framebusting scripts."
+          },
+          "level": "3.9",
+          "locations": [
+            {
+              "id": 0,
+              "physicalLocation": {
+                "region": {
+                  "properties": {
+                    "methodName": null,
+                    "methodLine": 4,
+                    "domType": "Comment",
+                    "nodeID": 6026,
+                    "fullName": "<"
+                  },
+                  "endColumn": 2,
+                  "sourceLanguage": "javascript",
+                  "startColumn": 1,
+                  "startLine": 4
+                },
+                "artifactLocation": {
+                  "uri": "/badguys/templates/about.html"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "state": "TO_VERIFY",
+            "status": "NEW",
+            "severity": "LOW",
+            "queryID": 4267131875844504913,
+            "foundAt": "2025-06-26T16:02:59Z",
+            "firstScanID": "a65a7cee-76a6-4389-976a-a07fec66c8e2",
+            "firstFoundAt": "2025-06-26T16:02:59Z",
+            "cweID": 79,
+            "cvssScore": 3.913,
+            "confidenceLevel": 0,
+            "compliances": [
+              "SANS top 25",
+              "ASD STIG 6.1",
+              "CWE top 25",
+              "MOIS(KISA) Secure Coding 2021",
+              "OWASP ASVS",
+              "OWASP Top 10 2021",
+              "PCI DSS v4.0"
+            ]
+          },
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "location": {
+                        "id": 0,
+                        "physicalLocation": {
+                          "region": {
+                            "properties": {
+                              "methodName": null,
+                              "methodLine": 4,
+                              "domType": "Comment",
+                              "nodeID": 6026,
+                              "fullName": "<"
+                            },
+                            "endColumn": 2,
+                            "sourceLanguage": "javascript",
+                            "startColumn": 1,
+                            "startLine": 4
+                          },
+                          "artifactLocation": {
+                            "uri": "/badguys/templates/about.html"
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "hostedViewerUri": "https://ast.checkmarx.net/sast-results/e3728b0c-aca4-40a6-b3fe-5cd99d4e9c37/a0536dc5-baf6-4315-9e63-af2b0bc11418?resultId=TeQcYkZyTekLrU6IqRMekcFbANs%3D",
+          "partialFingerprints": {
+            "similarityID": "614638164",
+            "queryKey": "JavaScript_Low_Visibility.Potential_Clickjacking_on_Legacy_Browsers",
+            "nodeFilePathsSha256": "214f264da7b26a8f248ed74a3d3ef310a9ec508d597a6e624703c10ba2f606ed"
+          },
+          "ruleId": "JavaScript_Low_Visibility.Potential_Clickjacking_on_Legacy_Browsers"
+        },
+        {
+          "message": {
+            "markdown": "A Content Security Policy is not explicitly defined within the web-application.",
+            "text": "A Content Security Policy is not explicitly defined within the web-application."
+          },
+          "level": "3.9",
+          "locations": [
+            {
+              "id": 0,
+              "physicalLocation": {
+                "region": {
+                  "properties": {
+                    "methodName": null,
+                    "methodLine": 1,
+                    "domType": "NamespaceDecl",
+                    "nodeID": 3610,
+                    "fullName": "CxPYNS_e5742d14"
+                  },
+                  "sourceLanguage": "python",
+                  "startColumn": 1,
+                  "startLine": 1
+                },
+                "artifactLocation": {
+                  "uri": "/badguys/settings.py"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "state": "TO_VERIFY",
+            "status": "NEW",
+            "severity": "LOW",
+            "queryID": 8455083761984522303,
+            "foundAt": "2025-06-26T16:02:59Z",
+            "firstScanID": "a65a7cee-76a6-4389-976a-a07fec66c8e2",
+            "firstFoundAt": "2025-06-26T16:02:59Z",
+            "cweID": 346,
+            "cvssScore": 2.3188,
+            "confidenceLevel": 0,
+            "compliances": [
+              "PCI DSS v4.0",
+              "OWASP ASVS",
+              "OWASP Top 10 2021"
+            ]
+          },
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "location": {
+                        "id": 0,
+                        "physicalLocation": {
+                          "region": {
+                            "properties": {
+                              "methodName": null,
+                              "methodLine": 1,
+                              "domType": "NamespaceDecl",
+                              "nodeID": 3610,
+                              "fullName": "CxPYNS_e5742d14"
+                            },
+                            "sourceLanguage": "python",
+                            "startColumn": 1,
+                            "startLine": 1
+                          },
+                          "artifactLocation": {
+                            "uri": "/badguys/settings.py"
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "hostedViewerUri": "https://ast.checkmarx.net/sast-results/e3728b0c-aca4-40a6-b3fe-5cd99d4e9c37/a0536dc5-baf6-4315-9e63-af2b0bc11418?resultId=l2pquZzs%2FvcC1yYl8T0nAp8rAOw%3D",
+          "partialFingerprints": {
+            "similarityID": "781218675",
+            "queryKey": "Python_Low_Visibility.Missing_Content_Security_Policy",
+            "nodeFilePathsSha256": "5cf79a6eb63854f43a84097b2e3f318d8390c35de85e2089c33a3968b705ae98"
+          },
+          "ruleId": "Python_Low_Visibility.Missing_Content_Security_Policy"
+        },
+        {
+          "message": {
+            "markdown": "A Content Security Policy is not explicitly defined within the web-application.",
+            "text": "A Content Security Policy is not explicitly defined within the web-application."
+          },
+          "level": "3.9",
+          "locations": [
+            {
+              "id": 0,
+              "physicalLocation": {
+                "region": {
+                  "properties": {
+                    "methodName": null,
+                    "methodLine": 99,
+                    "domType": "Declarator",
+                    "nodeID": 3764,
+                    "fullName": "CxPYNS_e5742d14.MIDDLEWARE_CLASSES"
+                  },
+                  "endColumn": 19,
+                  "sourceLanguage": "python",
+                  "startColumn": 1,
+                  "startLine": 99
+                },
+                "artifactLocation": {
+                  "uri": "/badguys/settings.py"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "state": "TO_VERIFY",
+            "status": "NEW",
+            "severity": "LOW",
+            "queryID": 8455083761984522303,
+            "foundAt": "2025-06-26T16:02:59Z",
+            "firstScanID": "a65a7cee-76a6-4389-976a-a07fec66c8e2",
+            "firstFoundAt": "2025-06-26T16:02:59Z",
+            "cweID": 346,
+            "cvssScore": 2.3188,
+            "confidenceLevel": 0,
+            "compliances": [
+              "PCI DSS v4.0",
+              "OWASP ASVS",
+              "OWASP Top 10 2021"
+            ]
+          },
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "location": {
+                        "id": 0,
+                        "physicalLocation": {
+                          "region": {
+                            "properties": {
+                              "methodName": null,
+                              "methodLine": 99,
+                              "domType": "Declarator",
+                              "nodeID": 3764,
+                              "fullName": "CxPYNS_e5742d14.MIDDLEWARE_CLASSES"
+                            },
+                            "endColumn": 19,
+                            "sourceLanguage": "python",
+                            "startColumn": 1,
+                            "startLine": 99
+                          },
+                          "artifactLocation": {
+                            "uri": "/badguys/settings.py"
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "hostedViewerUri": "https://ast.checkmarx.net/sast-results/e3728b0c-aca4-40a6-b3fe-5cd99d4e9c37/a0536dc5-baf6-4315-9e63-af2b0bc11418?resultId=pah5xFS0pUiD8MWmH6v%2FydQWaf8%3D",
+          "partialFingerprints": {
+            "similarityID": "761421811",
+            "queryKey": "Python_Low_Visibility.Missing_Content_Security_Policy",
+            "nodeFilePathsSha256": "5cf79a6eb63854f43a84097b2e3f318d8390c35de85e2089c33a3968b705ae98"
+          },
+          "ruleId": "Python_Low_Visibility.Missing_Content_Security_Policy"
+        },
+        {
+          "message": {
+            "markdown": "The method **user_pic** embeds untrusted data in generated output with **HttpResponse**, at line **53** of **/badguys/vulnerable/views.py**. This untrusted data is embedded into the output without proper sanitization or encoding, enabling an attacker to inject malicious code into the generated web-page.\n\nThe attacker would be able to alter the returned web page by saving malicious data in a data-store ahead of time. The attacker's modified data is then read from the database by the **user_pic** method with **read**, at line **42** of **/badguys/vulnerable/views.py**. This untrusted data then flows through the code straight to the output web page, without sanitization.\u00a0\r\n\r\nThis can enable a Stored Cross-Site Scripting (XSS) attack.\n\n",
+            "text": "The method user_pic embeds untrusted data in generated output with HttpResponse, at line 53 of /badguys/vulnerable/views.py. This untrusted data is embedded into the output without proper sanitization or encoding, enabling an attacker to inject malicious code into the generated web-page.\n\nThe attacker would be able to alter the returned web page by saving malicious data in a data-store ahead of time. The attacker's modified data is then read from the database by the user_pic method with read, at line 42 of /badguys/vulnerable/views.py. This untrusted data then flows through the code straight to the output web page, without sanitization.\u00a0\r\n\r\nThis can enable a Stored Cross-Site Scripting (XSS) attack.\n\n"
+          },
+          "level": "0.0",
+          "locations": [
+            {
+              "id": 0,
+              "physicalLocation": {
+                "region": {
+                  "properties": {
+                    "methodName": "user_pic",
+                    "methodLine": 35,
+                    "domType": "MethodInvokeExpr",
+                    "nodeID": 863,
+                    "fullName": "HttpResponse"
+                  },
+                  "endColumn": 24,
+                  "sourceLanguage": "python",
+                  "startColumn": 12,
+                  "startLine": 53
+                },
+                "artifactLocation": {
+                  "uri": "/badguys/vulnerable/views.py"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "state": "TO_VERIFY",
+            "status": "NEW",
+            "severity": "INFO",
+            "queryID": 346558629760677672,
+            "foundAt": "2025-06-26T16:02:59Z",
+            "firstScanID": "6c24e7ed-e92b-444c-8c43-4ab34150a46f",
+            "firstFoundAt": "2025-06-26T16:02:59Z",
             "cweID": 79,
             "cvssScore": 9.4203,
             "confidenceLevel": 0,
@@ -300,1016 +1830,55 @@
               "Base Preset"
             ]
           },
-          "hostedViewerUri": "https://ast.checkmarx.net/sast-results/42d7812b-b4c2-47f8-918c-a5fcf2b9c0dd/731c7fba-28e6-4aef-affa-29d81f749555?resultId=km7phuIZJVcOxgJXWv8%2B45fDR7o%3D",
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "location": {
+                        "id": 0,
+                        "physicalLocation": {
+                          "region": {
+                            "properties": {
+                              "methodName": "user_pic",
+                              "methodLine": 35,
+                              "domType": "MethodInvokeExpr",
+                              "nodeID": 863,
+                              "fullName": "HttpResponse"
+                            },
+                            "endColumn": 24,
+                            "sourceLanguage": "python",
+                            "startColumn": 12,
+                            "startLine": 53
+                          },
+                          "artifactLocation": {
+                            "uri": "/badguys/vulnerable/views.py"
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "hostedViewerUri": "https://ast.checkmarx.net/sast-results/e3728b0c-aca4-40a6-b3fe-5cd99d4e9c37/a0536dc5-baf6-4315-9e63-af2b0bc11418?resultId=km7phuIZJVcOxgJXWv8%2B45fDR7o%3D",
           "partialFingerprints": {
             "similarityID": "671443671",
             "queryKey": "Python_Critical_Risk.Stored_XSS",
             "nodeFilePathsSha256": "1054704a903b52190732867789c7b0ed2b0e65f581f72f48576c496dabc4fea7"
           },
           "ruleId": "Python_Critical_Risk.Stored_XSS"
-        },
-        {
-          "message": {
-            "markdown": "The application's\u00a0**code_execution** method receives and\u00a0dynamically executes user-controlled code using\u00a0**exec**,\u00a0at line **76** of **/badguys/vulnerable/views.py**. This could enable an attacker to inject and run arbitrary code.\n\nThe attacker can inject the executed code via user input,\u00a0**POST**, which is retrieved by the application in the **code_execution** method, at line **68** of **/badguys/vulnerable/views.py**.\n\n",
-            "text": "The application's\u00a0code_execution method receives and\u00a0dynamically executes user-controlled code using\u00a0exec,\u00a0at line 76 of /badguys/vulnerable/views.py. This could enable an attacker to inject and run arbitrary code.\n\nThe attacker can inject the executed code via user input,\u00a0POST, which is retrieved by the application in the code_execution method, at line 68 of /badguys/vulnerable/views.py.\n\n"
-          },
-          "locations": [
-            {
-              "id": 0,
-              "physicalLocation": {
-                "region": {
-                  "properties": {
-                    "methodName": "code_execution",
-                    "methodLine": 56,
-                    "domType": "MemberAccess",
-                    "nodeID": 963,
-                    "fullName": "CxPYNS_96a6ad9b.code_execution.request.POST"
-                  },
-                  "endColumn": 34,
-                  "sourceLanguage": "python",
-                  "startColumn": 30,
-                  "startLine": 68
-                },
-                "artifactLocation": {
-                  "uri": "badguys/vulnerable/views.py"
-                }
-              }
-            },
-            {
-              "id": 1,
-              "physicalLocation": {
-                "region": {
-                  "properties": {
-                    "methodName": "code_execution",
-                    "methodLine": 56,
-                    "domType": "MethodInvokeExpr",
-                    "nodeID": 966,
-                    "fullName": "CxPYNS_96a6ad9b.code_execution.request.POST.get"
-                  },
-                  "endColumn": 38,
-                  "sourceLanguage": "python",
-                  "startColumn": 35,
-                  "startLine": 68
-                },
-                "artifactLocation": {
-                  "uri": "badguys/vulnerable/views.py"
-                }
-              }
-            },
-            {
-              "id": 2,
-              "physicalLocation": {
-                "region": {
-                  "properties": {
-                    "methodName": "code_execution",
-                    "methodLine": 56,
-                    "domType": "UnknownReference",
-                    "nodeID": 973,
-                    "fullName": "CxPYNS_96a6ad9b.code_execution.first_name"
-                  },
-                  "endColumn": 19,
-                  "sourceLanguage": "python",
-                  "startColumn": 9,
-                  "startLine": 68
-                },
-                "artifactLocation": {
-                  "uri": "badguys/vulnerable/views.py"
-                }
-              }
-            },
-            {
-              "id": 3,
-              "physicalLocation": {
-                "region": {
-                  "properties": {
-                    "methodName": "code_execution",
-                    "methodLine": 56,
-                    "domType": "UnknownReference",
-                    "nodeID": 1026,
-                    "fullName": "CxPYNS_96a6ad9b.code_execution.first_name"
-                  },
-                  "endColumn": 52,
-                  "sourceLanguage": "python",
-                  "startColumn": 42,
-                  "startLine": 76
-                },
-                "artifactLocation": {
-                  "uri": "badguys/vulnerable/views.py"
-                }
-              }
-            },
-            {
-              "id": 4,
-              "physicalLocation": {
-                "region": {
-                  "properties": {
-                    "methodName": "code_execution",
-                    "methodLine": 56,
-                    "domType": "MethodInvokeExpr",
-                    "nodeID": 1022,
-                    "fullName": "base64.decodestring"
-                  },
-                  "endColumn": 41,
-                  "sourceLanguage": "python",
-                  "startColumn": 29,
-                  "startLine": 76
-                },
-                "artifactLocation": {
-                  "uri": "badguys/vulnerable/views.py"
-                }
-              }
-            },
-            {
-              "id": 5,
-              "physicalLocation": {
-                "region": {
-                  "properties": {
-                    "methodName": "code_execution",
-                    "methodLine": 56,
-                    "domType": "MethodInvokeExpr",
-                    "nodeID": 1015,
-                    "fullName": "exec"
-                  },
-                  "endColumn": 21,
-                  "sourceLanguage": "python",
-                  "startColumn": 17,
-                  "startLine": 76
-                },
-                "artifactLocation": {
-                  "uri": "badguys/vulnerable/views.py"
-                }
-              }
-            }
-          ],
-          "properties": {
-            "state": "TO_VERIFY",
-            "status": "NEW",
-            "severity": "CRITICAL",
-            "queryID": 13646819717326216658,
-            "foundAt": "2025-06-25T19:14:58Z",
-            "firstScanID": "6c24e7ed-e92b-444c-8c43-4ab34150a46f",
-            "firstFoundAt": "2025-06-25T19:14:58Z",
-            "cweID": 94,
-            "cvssScore": 9.1304,
-            "confidenceLevel": 0,
-            "compliances": [
-              "MOIS(KISA) Secure Coding 2021",
-              "OWASP Top 10 2013",
-              "SANS top 25",
-              "ASA Premium",
-              "Top Tier",
-              "PCI DSS v4.0",
-              "FISMA 2014",
-              "OWASP ASVS",
-              "OWASP Top 10 2021",
-              "NIST SP 800-53",
-              "PCI DSS v3.2.1",
-              "ASD STIG 6.1",
-              "CWE top 25"
-            ]
-          },
-          "hostedViewerUri": "https://ast.checkmarx.net/sast-results/42d7812b-b4c2-47f8-918c-a5fcf2b9c0dd/731c7fba-28e6-4aef-affa-29d81f749555?resultId=BFVmNn4YjisxSUK6NKkd9feIi3k%3D",
-          "partialFingerprints": {
-            "similarityID": "2094426463",
-            "queryKey": "Python_Critical_Risk.Code_Injection",
-            "nodeFilePathsSha256": "00ae58dff6e407be32281f894d806fd9c751f29b9ac74def689d32f9d35103fe"
-          },
-          "ruleId": "Python_Critical_Risk.Code_Injection"
-        },
-        {
-          "message": {
-            "markdown": "The application's\u00a0**code_execution** method receives and\u00a0dynamically executes user-controlled code using\u00a0**exec**,\u00a0at line **72** of **/badguys/vulnerable/views.py**. This could enable an attacker to inject and run arbitrary code.\n\nThe attacker can inject the executed code via user input,\u00a0**POST**, which is retrieved by the application in the **code_execution** method, at line **68** of **/badguys/vulnerable/views.py**.\n\n",
-            "text": "The application's\u00a0code_execution method receives and\u00a0dynamically executes user-controlled code using\u00a0exec,\u00a0at line 72 of /badguys/vulnerable/views.py. This could enable an attacker to inject and run arbitrary code.\n\nThe attacker can inject the executed code via user input,\u00a0POST, which is retrieved by the application in the code_execution method, at line 68 of /badguys/vulnerable/views.py.\n\n"
-          },
-          "locations": [
-            {
-              "id": 0,
-              "physicalLocation": {
-                "region": {
-                  "properties": {
-                    "methodName": "code_execution",
-                    "methodLine": 56,
-                    "domType": "MemberAccess",
-                    "nodeID": 963,
-                    "fullName": "CxPYNS_96a6ad9b.code_execution.request.POST"
-                  },
-                  "endColumn": 34,
-                  "sourceLanguage": "python",
-                  "startColumn": 30,
-                  "startLine": 68
-                },
-                "artifactLocation": {
-                  "uri": "badguys/vulnerable/views.py"
-                }
-              }
-            },
-            {
-              "id": 1,
-              "physicalLocation": {
-                "region": {
-                  "properties": {
-                    "methodName": "code_execution",
-                    "methodLine": 56,
-                    "domType": "MethodInvokeExpr",
-                    "nodeID": 966,
-                    "fullName": "CxPYNS_96a6ad9b.code_execution.request.POST.get"
-                  },
-                  "endColumn": 38,
-                  "sourceLanguage": "python",
-                  "startColumn": 35,
-                  "startLine": 68
-                },
-                "artifactLocation": {
-                  "uri": "badguys/vulnerable/views.py"
-                }
-              }
-            },
-            {
-              "id": 2,
-              "physicalLocation": {
-                "region": {
-                  "properties": {
-                    "methodName": "code_execution",
-                    "methodLine": 56,
-                    "domType": "UnknownReference",
-                    "nodeID": 973,
-                    "fullName": "CxPYNS_96a6ad9b.code_execution.first_name"
-                  },
-                  "endColumn": 19,
-                  "sourceLanguage": "python",
-                  "startColumn": 9,
-                  "startLine": 68
-                },
-                "artifactLocation": {
-                  "uri": "badguys/vulnerable/views.py"
-                }
-              }
-            },
-            {
-              "id": 3,
-              "physicalLocation": {
-                "region": {
-                  "properties": {
-                    "methodName": "code_execution",
-                    "methodLine": 56,
-                    "domType": "UnknownReference",
-                    "nodeID": 998,
-                    "fullName": "CxPYNS_96a6ad9b.code_execution.first_name"
-                  },
-                  "endColumn": 54,
-                  "sourceLanguage": "python",
-                  "startColumn": 44,
-                  "startLine": 72
-                },
-                "artifactLocation": {
-                  "uri": "badguys/vulnerable/views.py"
-                }
-              }
-            },
-            {
-              "id": 4,
-              "physicalLocation": {
-                "region": {
-                  "properties": {
-                    "methodName": "code_execution",
-                    "methodLine": 56,
-                    "domType": "MethodInvokeExpr",
-                    "nodeID": 994,
-                    "fullName": "bytes"
-                  },
-                  "endColumn": 43,
-                  "sourceLanguage": "python",
-                  "startColumn": 38,
-                  "startLine": 72
-                },
-                "artifactLocation": {
-                  "uri": "badguys/vulnerable/views.py"
-                }
-              }
-            },
-            {
-              "id": 5,
-              "physicalLocation": {
-                "region": {
-                  "properties": {
-                    "methodName": "code_execution",
-                    "methodLine": 56,
-                    "domType": "MethodInvokeExpr",
-                    "nodeID": 988,
-                    "fullName": "base64.decodestring"
-                  },
-                  "endColumn": 37,
-                  "sourceLanguage": "python",
-                  "startColumn": 25,
-                  "startLine": 72
-                },
-                "artifactLocation": {
-                  "uri": "badguys/vulnerable/views.py"
-                }
-              }
-            },
-            {
-              "id": 6,
-              "physicalLocation": {
-                "region": {
-                  "properties": {
-                    "methodName": "code_execution",
-                    "methodLine": 56,
-                    "domType": "MethodInvokeExpr",
-                    "nodeID": 981,
-                    "fullName": "exec"
-                  },
-                  "endColumn": 17,
-                  "sourceLanguage": "python",
-                  "startColumn": 13,
-                  "startLine": 72
-                },
-                "artifactLocation": {
-                  "uri": "badguys/vulnerable/views.py"
-                }
-              }
-            }
-          ],
-          "properties": {
-            "state": "TO_VERIFY",
-            "status": "NEW",
-            "severity": "CRITICAL",
-            "queryID": 13646819717326216658,
-            "foundAt": "2025-06-25T19:14:58Z",
-            "firstScanID": "6c24e7ed-e92b-444c-8c43-4ab34150a46f",
-            "firstFoundAt": "2025-06-25T19:14:58Z",
-            "cweID": 94,
-            "cvssScore": 9.1304,
-            "confidenceLevel": 0,
-            "compliances": [
-              "MOIS(KISA) Secure Coding 2021",
-              "OWASP Top 10 2013",
-              "SANS top 25",
-              "ASA Premium",
-              "Top Tier",
-              "PCI DSS v4.0",
-              "FISMA 2014",
-              "OWASP ASVS",
-              "OWASP Top 10 2021",
-              "NIST SP 800-53",
-              "PCI DSS v3.2.1",
-              "ASD STIG 6.1",
-              "CWE top 25"
-            ]
-          },
-          "hostedViewerUri": "https://ast.checkmarx.net/sast-results/42d7812b-b4c2-47f8-918c-a5fcf2b9c0dd/731c7fba-28e6-4aef-affa-29d81f749555?resultId=7PbK7y79hfavzX53tYAKtmP7HcU%3D",
-          "partialFingerprints": {
-            "similarityID": "1765596350",
-            "queryKey": "Python_Critical_Risk.Code_Injection",
-            "nodeFilePathsSha256": "dc147e72a7505364e9e0ced5af98e81046a36894e4c12cb8c1bc5b9d23fbc354"
-          },
-          "ruleId": "Python_Critical_Risk.Code_Injection"
-        },
-        {
-          "message": {
-            "markdown": "The method **user_pic** embeds untrusted data in generated output with **HttpResponse**, at line **53** of **/badguys/vulnerable/views.py**. This untrusted data is embedded into the output without proper sanitization or encoding, enabling an attacker to inject malicious code into the generated web-page.\n\nThe attacker would be able to alter the returned web page by simply providing modified data in the user input **request**, which is read by the **user_pic** method at line **35** of **/badguys/vulnerable/views.py**. This input then flows through the code straight to the output web page, without sanitization.\u00a0\r\n\r\nThis can enable a Reflected Cross-Site Scripting (XSS) attack.\n\n",
-            "text": "The method user_pic embeds untrusted data in generated output with HttpResponse, at line 53 of /badguys/vulnerable/views.py. This untrusted data is embedded into the output without proper sanitization or encoding, enabling an attacker to inject malicious code into the generated web-page.\n\nThe attacker would be able to alter the returned web page by simply providing modified data in the user input request, which is read by the user_pic method at line 35 of /badguys/vulnerable/views.py. This input then flows through the code straight to the output web page, without sanitization.\u00a0\r\n\r\nThis can enable a Reflected Cross-Site Scripting (XSS) attack.\n\n"
-          },
-          "locations": [
-            {
-              "id": 0,
-              "physicalLocation": {
-                "region": {
-                  "properties": {
-                    "methodName": "user_pic",
-                    "methodLine": 35,
-                    "domType": "ParamDecl",
-                    "nodeID": 880,
-                    "fullName": "CxPYNS_96a6ad9b.user_pic.request"
-                  },
-                  "endColumn": 21,
-                  "sourceLanguage": "python",
-                  "startColumn": 14,
-                  "startLine": 35
-                },
-                "artifactLocation": {
-                  "uri": "badguys/vulnerable/views.py"
-                }
-              }
-            },
-            {
-              "id": 1,
-              "physicalLocation": {
-                "region": {
-                  "properties": {
-                    "methodName": "user_pic",
-                    "methodLine": 35,
-                    "domType": "UnknownReference",
-                    "nodeID": 753,
-                    "fullName": "CxPYNS_96a6ad9b.user_pic.request"
-                  },
-                  "endColumn": 23,
-                  "sourceLanguage": "python",
-                  "startColumn": 16,
-                  "startLine": 39
-                },
-                "artifactLocation": {
-                  "uri": "badguys/vulnerable/views.py"
-                }
-              }
-            },
-            {
-              "id": 2,
-              "physicalLocation": {
-                "region": {
-                  "properties": {
-                    "methodName": "user_pic",
-                    "methodLine": 35,
-                    "domType": "MemberAccess",
-                    "nodeID": 754,
-                    "fullName": "CxPYNS_96a6ad9b.user_pic.request.GET"
-                  },
-                  "endColumn": 27,
-                  "sourceLanguage": "python",
-                  "startColumn": 24,
-                  "startLine": 39
-                },
-                "artifactLocation": {
-                  "uri": "badguys/vulnerable/views.py"
-                }
-              }
-            },
-            {
-              "id": 3,
-              "physicalLocation": {
-                "region": {
-                  "properties": {
-                    "methodName": "user_pic",
-                    "methodLine": 35,
-                    "domType": "MethodInvokeExpr",
-                    "nodeID": 757,
-                    "fullName": "CxPYNS_96a6ad9b.user_pic.request.GET.get"
-                  },
-                  "endColumn": 31,
-                  "sourceLanguage": "python",
-                  "startColumn": 28,
-                  "startLine": 39
-                },
-                "artifactLocation": {
-                  "uri": "badguys/vulnerable/views.py"
-                }
-              }
-            },
-            {
-              "id": 4,
-              "physicalLocation": {
-                "region": {
-                  "properties": {
-                    "methodName": "user_pic",
-                    "methodLine": 35,
-                    "domType": "UnknownReference",
-                    "nodeID": 762,
-                    "fullName": "CxPYNS_96a6ad9b.user_pic.filename"
-                  },
-                  "endColumn": 13,
-                  "sourceLanguage": "python",
-                  "startColumn": 5,
-                  "startLine": 39
-                },
-                "artifactLocation": {
-                  "uri": "badguys/vulnerable/views.py"
-                }
-              }
-            },
-            {
-              "id": 5,
-              "physicalLocation": {
-                "region": {
-                  "properties": {
-                    "methodName": "user_pic",
-                    "methodLine": 35,
-                    "domType": "UnknownReference",
-                    "nodeID": 878,
-                    "fullName": "CxPYNS_96a6ad9b.user_pic.filename"
-                  },
-                  "endColumn": 73,
-                  "sourceLanguage": "python",
-                  "startColumn": 65,
-                  "startLine": 53
-                },
-                "artifactLocation": {
-                  "uri": "badguys/vulnerable/views.py"
-                }
-              }
-            },
-            {
-              "id": 6,
-              "physicalLocation": {
-                "region": {
-                  "properties": {
-                    "methodName": "user_pic",
-                    "methodLine": 35,
-                    "domType": "MethodInvokeExpr",
-                    "nodeID": 874,
-                    "fullName": "mimetypes.guess_type"
-                  },
-                  "endColumn": 64,
-                  "sourceLanguage": "python",
-                  "startColumn": 54,
-                  "startLine": 53
-                },
-                "artifactLocation": {
-                  "uri": "badguys/vulnerable/views.py"
-                }
-              }
-            },
-            {
-              "id": 7,
-              "physicalLocation": {
-                "region": {
-                  "properties": {
-                    "methodName": "user_pic",
-                    "methodLine": 35,
-                    "domType": "MethodInvokeExpr",
-                    "nodeID": 863,
-                    "fullName": "HttpResponse"
-                  },
-                  "endColumn": 24,
-                  "sourceLanguage": "python",
-                  "startColumn": 12,
-                  "startLine": 53
-                },
-                "artifactLocation": {
-                  "uri": "badguys/vulnerable/views.py"
-                }
-              }
-            }
-          ],
-          "properties": {
-            "state": "TO_VERIFY",
-            "status": "NEW",
-            "severity": "HIGH",
-            "queryID": 11301225196674651062,
-            "foundAt": "2025-06-25T19:14:58Z",
-            "firstScanID": "6c24e7ed-e92b-444c-8c43-4ab34150a46f",
-            "firstFoundAt": "2025-06-25T19:14:58Z",
-            "cweID": 79,
-            "cvssScore": 7,
-            "confidenceLevel": 0,
-            "compliances": [
-              "OWASP Top 10 2013",
-              "FISMA 2014",
-              "SANS top 25",
-              "NIST SP 800-53",
-              "OWASP ASVS",
-              "OWASP Top 10 2021",
-              "PCI DSS v3.2.1",
-              "ASD STIG 6.1",
-              "CWE top 25",
-              "Top Tier",
-              "ASA Premium",
-              "MOIS(KISA) Secure Coding 2021",
-              "OWASP Top 10 2017",
-              "PCI DSS v4.0"
-            ]
-          },
-          "hostedViewerUri": "https://ast.checkmarx.net/sast-results/42d7812b-b4c2-47f8-918c-a5fcf2b9c0dd/731c7fba-28e6-4aef-affa-29d81f749555?resultId=WybEom%2FXBaMyyGEVCcpXa4N%2FD78%3D",
-          "partialFingerprints": {
-            "similarityID": "-1038673593",
-            "queryKey": "Python_High_Risk.Reflected_XSS",
-            "nodeFilePathsSha256": "6eb0e90aed97d4fabeee3b719d5b1b2cd181780c7c6268668d56bffe271c80d9"
-          },
-          "ruleId": "Python_High_Risk.Reflected_XSS"
-        },
-        {
-          "message": {
-            "markdown": "Method **user_pic** at line **39** of **/badguys/vulnerable/views.py** gets dynamic data from the **GET** element. This element\u2019s value then flows through the code and is eventually used in a file path for local disk access in **user_pic** at line **42** of **/badguys/vulnerable/views.py**. This may cause a Path Traversal vulnerability.\n\n",
-            "text": "Method user_pic at line 39 of /badguys/vulnerable/views.py gets dynamic data from the GET element. This element\u2019s value then flows through the code and is eventually used in a file path for local disk access in user_pic at line 42 of /badguys/vulnerable/views.py. This may cause a Path Traversal vulnerability.\n\n"
-          },
-          "locations": [
-            {
-              "id": 0,
-              "physicalLocation": {
-                "region": {
-                  "properties": {
-                    "methodName": "user_pic",
-                    "methodLine": 35,
-                    "domType": "MemberAccess",
-                    "nodeID": 852,
-                    "fullName": "CxPYNS_96a6ad9b.user_pic.request.GET"
-                  },
-                  "endColumn": 27,
-                  "sourceLanguage": "python",
-                  "startColumn": 24,
-                  "startLine": 39
-                },
-                "artifactLocation": {
-                  "uri": "badguys/vulnerable/views.py"
-                }
-              }
-            },
-            {
-              "id": 1,
-              "physicalLocation": {
-                "region": {
-                  "properties": {
-                    "methodName": "user_pic",
-                    "methodLine": 35,
-                    "domType": "MethodInvokeExpr",
-                    "nodeID": 855,
-                    "fullName": "CxPYNS_96a6ad9b.user_pic.request.GET.get"
-                  },
-                  "endColumn": 31,
-                  "sourceLanguage": "python",
-                  "startColumn": 28,
-                  "startLine": 39
-                },
-                "artifactLocation": {
-                  "uri": "badguys/vulnerable/views.py"
-                }
-              }
-            },
-            {
-              "id": 2,
-              "physicalLocation": {
-                "region": {
-                  "properties": {
-                    "methodName": "user_pic",
-                    "methodLine": 35,
-                    "domType": "UnknownReference",
-                    "nodeID": 860,
-                    "fullName": "CxPYNS_96a6ad9b.user_pic.filename"
-                  },
-                  "endColumn": 13,
-                  "sourceLanguage": "python",
-                  "startColumn": 5,
-                  "startLine": 39
-                },
-                "artifactLocation": {
-                  "uri": "badguys/vulnerable/views.py"
-                }
-              }
-            },
-            {
-              "id": 3,
-              "physicalLocation": {
-                "region": {
-                  "properties": {
-                    "methodName": "user_pic",
-                    "methodLine": 35,
-                    "domType": "UnknownReference",
-                    "nodeID": 883,
-                    "fullName": "CxPYNS_96a6ad9b.user_pic.filename"
-                  },
-                  "endColumn": 53,
-                  "sourceLanguage": "python",
-                  "startColumn": 45,
-                  "startLine": 42
-                },
-                "artifactLocation": {
-                  "uri": "badguys/vulnerable/views.py"
-                }
-              }
-            },
-            {
-              "id": 4,
-              "physicalLocation": {
-                "region": {
-                  "properties": {
-                    "methodName": "user_pic",
-                    "methodLine": 35,
-                    "domType": "MethodInvokeExpr",
-                    "nodeID": 877,
-                    "fullName": "os.path.join"
-                  },
-                  "endColumn": 33,
-                  "sourceLanguage": "python",
-                  "startColumn": 29,
-                  "startLine": 42
-                },
-                "artifactLocation": {
-                  "uri": "badguys/vulnerable/views.py"
-                }
-              }
-            },
-            {
-              "id": 5,
-              "physicalLocation": {
-                "region": {
-                  "properties": {
-                    "methodName": "user_pic",
-                    "methodLine": 35,
-                    "domType": "MethodInvokeExpr",
-                    "nodeID": 869,
-                    "fullName": "open"
-                  },
-                  "endColumn": 20,
-                  "sourceLanguage": "python",
-                  "startColumn": 16,
-                  "startLine": 42
-                },
-                "artifactLocation": {
-                  "uri": "badguys/vulnerable/views.py"
-                }
-              }
-            }
-          ],
-          "properties": {
-            "state": "TO_VERIFY",
-            "status": "NEW",
-            "severity": "HIGH",
-            "queryID": 4418167693267818286,
-            "foundAt": "2025-06-25T19:14:58Z",
-            "firstScanID": "a2489392-6561-4db6-adab-35eaafc0e267",
-            "firstFoundAt": "2025-06-25T19:14:58Z",
-            "cweID": 22,
-            "cvssScore": 7.5362,
-            "confidenceLevel": 0,
-            "compliances": [
-              "OWASP ASVS",
-              "MOIS(KISA) Secure Coding 2021",
-              "Top Tier",
-              "OWASP Top 10 2017",
-              "CWE top 25",
-              "OWASP Top 10 2021",
-              "PCI DSS v4.0",
-              "SANS top 25",
-              "ASA Premium",
-              "Base Preset",
-              "PCI DSS v3.2.1"
-            ]
-          },
-          "hostedViewerUri": "https://ast.checkmarx.net/sast-results/42d7812b-b4c2-47f8-918c-a5fcf2b9c0dd/731c7fba-28e6-4aef-affa-29d81f749555?resultId=KVXdo7td2%2BUIK0%2BwWlZpiHChLxI%3D",
-          "partialFingerprints": {
-            "similarityID": "-1069850681",
-            "queryKey": "Python_High_Risk.Path_Traversal",
-            "nodeFilePathsSha256": "00ae58dff6e407be32281f894d806fd9c751f29b9ac74def689d32f9d35103fe"
-          },
-          "ruleId": "Python_High_Risk.Path_Traversal"
-        },
-        {
-          "message": {
-            "markdown": "The application uses the hard-coded password **\"h++jszpm)i@p%ay_b=cp#()^od!qns14)h%@qm3)p=cuo+st^a\"** for authentication purposes, either using it to verify users' identities, or to access another remote system. This password at line **90** of **/badguys/settings.py** appears in the code, implying it is accessible to anyone with source code access, and cannot be changed without rebuilding\u00a0the application.",
-            "text": "The application uses the hard-coded password \"h++jszpm)i@p%ay_b=cp#()^od!qns14)h%@qm3)p=cuo+st^a\" for authentication purposes, either using it to verify users' identities, or to access another remote system. This password at line 90 of /badguys/settings.py appears in the code, implying it is accessible to anyone with source code access, and cannot be changed without rebuilding\u00a0the application."
-          },
-          "locations": [
-            {
-              "id": 0,
-              "physicalLocation": {
-                "region": {
-                  "properties": {
-                    "methodName": null,
-                    "methodLine": 90,
-                    "domType": "StringLiteral",
-                    "nodeID": 3342,
-                    "fullName": "\"h++jszpm)i@p%ay_b=cp#()^od!qns14)h%@qm3)p=cuo+st^a\""
-                  },
-                  "endColumn": 66,
-                  "sourceLanguage": "python",
-                  "startColumn": 14,
-                  "startLine": 90
-                },
-                "artifactLocation": {
-                  "uri": "badguys/settings.py"
-                }
-              }
-            }
-          ],
-          "properties": {
-            "state": "TO_VERIFY",
-            "status": "NEW",
-            "severity": "MEDIUM",
-            "queryID": 10308959669028119927,
-            "foundAt": "2025-06-25T19:14:58Z",
-            "firstScanID": "6c24e7ed-e92b-444c-8c43-4ab34150a46f",
-            "firstFoundAt": "2025-06-25T19:14:58Z",
-            "cweID": 259,
-            "cvssScore": 5.5072,
-            "confidenceLevel": 0,
-            "compliances": [
-              "OWASP ASVS",
-              "OWASP Top 10 API",
-              "SANS top 25",
-              "ASA Premium",
-              "ASD STIG 6.1",
-              "FISMA 2014",
-              "OWASP Top 10 2021",
-              "PCI DSS v4.0",
-              "CWE top 25",
-              "MOIS(KISA) Secure Coding 2021",
-              "NIST SP 800-53"
-            ]
-          },
-          "hostedViewerUri": "https://ast.checkmarx.net/sast-results/42d7812b-b4c2-47f8-918c-a5fcf2b9c0dd/731c7fba-28e6-4aef-affa-29d81f749555?resultId=kCgtUIcgA15oGP68WTAqflXtcSc%3D",
-          "partialFingerprints": {
-            "similarityID": "-2056718301",
-            "queryKey": "Python_Medium_Threat.Use_Of_Hardcoded_Password",
-            "nodeFilePathsSha256": "5cf79a6eb63854f43a84097b2e3f318d8390c35de85e2089c33a3968b705ae98"
-          },
-          "ruleId": "Python_Medium_Threat.Use_Of_Hardcoded_Password"
-        },
-        {
-          "message": {
-            "markdown": "The potentially tainted value provided by\u00a0**GET** in\u00a0**/badguys/vulnerable/views.py** at line **177** is used as a destination URL by **redirect** in **/badguys/vulnerable/views.py** at line **178**, potentially allowing attackers to perform an open redirection.\n\n",
-            "text": "The potentially tainted value provided by\u00a0GET in\u00a0/badguys/vulnerable/views.py at line 177 is used as a destination URL by redirect in /badguys/vulnerable/views.py at line 178, potentially allowing attackers to perform an open redirection.\n\n"
-          },
-          "locations": [
-            {
-              "id": 0,
-              "physicalLocation": {
-                "region": {
-                  "properties": {
-                    "methodName": "unvalidated_redirect",
-                    "methodLine": 176,
-                    "domType": "MemberAccess",
-                    "nodeID": 1643,
-                    "fullName": "CxPYNS_96a6ad9b.unvalidated_redirect.request.GET"
-                  },
-                  "endColumn": 22,
-                  "sourceLanguage": "python",
-                  "startColumn": 19,
-                  "startLine": 177
-                },
-                "artifactLocation": {
-                  "uri": "badguys/vulnerable/views.py"
-                }
-              }
-            },
-            {
-              "id": 1,
-              "physicalLocation": {
-                "region": {
-                  "properties": {
-                    "methodName": "unvalidated_redirect",
-                    "methodLine": 176,
-                    "domType": "MethodInvokeExpr",
-                    "nodeID": 1646,
-                    "fullName": "CxPYNS_96a6ad9b.unvalidated_redirect.request.GET.get"
-                  },
-                  "endColumn": 26,
-                  "sourceLanguage": "python",
-                  "startColumn": 23,
-                  "startLine": 177
-                },
-                "artifactLocation": {
-                  "uri": "badguys/vulnerable/views.py"
-                }
-              }
-            },
-            {
-              "id": 2,
-              "physicalLocation": {
-                "region": {
-                  "properties": {
-                    "methodName": "unvalidated_redirect",
-                    "methodLine": 176,
-                    "domType": "UnknownReference",
-                    "nodeID": 1651,
-                    "fullName": "CxPYNS_96a6ad9b.unvalidated_redirect.url"
-                  },
-                  "endColumn": 8,
-                  "sourceLanguage": "python",
-                  "startColumn": 5,
-                  "startLine": 177
-                },
-                "artifactLocation": {
-                  "uri": "badguys/vulnerable/views.py"
-                }
-              }
-            },
-            {
-              "id": 3,
-              "physicalLocation": {
-                "region": {
-                  "properties": {
-                    "methodName": "unvalidated_redirect",
-                    "methodLine": 176,
-                    "domType": "UnknownReference",
-                    "nodeID": 1659,
-                    "fullName": "CxPYNS_96a6ad9b.unvalidated_redirect.url"
-                  },
-                  "endColumn": 24,
-                  "sourceLanguage": "python",
-                  "startColumn": 21,
-                  "startLine": 178
-                },
-                "artifactLocation": {
-                  "uri": "badguys/vulnerable/views.py"
-                }
-              }
-            },
-            {
-              "id": 4,
-              "physicalLocation": {
-                "region": {
-                  "properties": {
-                    "methodName": "unvalidated_redirect",
-                    "methodLine": 176,
-                    "domType": "MethodInvokeExpr",
-                    "nodeID": 1655,
-                    "fullName": "redirect"
-                  },
-                  "endColumn": 20,
-                  "sourceLanguage": "python",
-                  "startColumn": 12,
-                  "startLine": 178
-                },
-                "artifactLocation": {
-                  "uri": "badguys/vulnerable/views.py"
-                }
-              }
-            }
-          ],
-          "properties": {
-            "state": "TO_VERIFY",
-            "status": "NEW",
-            "severity": "MEDIUM",
-            "queryID": 11971208775240962660,
-            "foundAt": "2025-06-25T19:14:58Z",
-            "firstScanID": "6c24e7ed-e92b-444c-8c43-4ab34150a46f",
-            "firstFoundAt": "2025-06-25T19:14:58Z",
-            "cweID": 601,
-            "cvssScore": 6.6667,
-            "confidenceLevel": 0,
-            "compliances": [
-              "OWASP Top 10 API 2023",
-              "ASA Premium",
-              "NIST SP 800-53",
-              "OWASP Top 10 2017",
-              "ASD STIG 6.1",
-              "OWASP ASVS",
-              "FISMA 2014",
-              "PCI DSS v3.2.1",
-              "PCI DSS v4.0",
-              "MOIS(KISA) Secure Coding 2021",
-              "OWASP Top 10 2021"
-            ]
-          },
-          "hostedViewerUri": "https://ast.checkmarx.net/sast-results/42d7812b-b4c2-47f8-918c-a5fcf2b9c0dd/731c7fba-28e6-4aef-affa-29d81f749555?resultId=sFfdXDYWmkLunlb9JF8KmdgKbj4%3D",
-          "partialFingerprints": {
-            "similarityID": "1923217012",
-            "queryKey": "Python_Medium_Threat.Open_Redirect",
-            "nodeFilePathsSha256": "d9eea2344b445c7cb568bf446126a07aceb12f402d013b96c288e486ff1d3bc6"
-          },
-          "ruleId": "Python_Medium_Threat.Open_Redirect"
-        },
-        {
-          "message": {
-            "markdown": "The web-application does not define an HSTS header, leaving it vulnerable to attack.\n\n",
-            "text": "The web-application does not define an HSTS header, leaving it vulnerable to attack.\n\n"
-          },
-          "locations": [
-            {
-              "id": 0,
-              "physicalLocation": {
-                "region": {
-                  "properties": {
-                    "methodName": null,
-                    "methodLine": 1,
-                    "domType": "NamespaceDecl",
-                    "nodeID": 2911,
-                    "fullName": "CxPYNS_e5742d14"
-                  },
-                  "sourceLanguage": "python",
-                  "startColumn": 1,
-                  "startLine": 1
-                },
-                "artifactLocation": {
-                  "uri": "badguys/settings.py"
-                }
-              }
-            }
-          ],
-          "properties": {
-            "state": "TO_VERIFY",
-            "status": "NEW",
-            "severity": "MEDIUM",
-            "queryID": 7929843929890808532,
-            "foundAt": "2025-06-25T19:14:58Z",
-            "firstScanID": "6c24e7ed-e92b-444c-8c43-4ab34150a46f",
-            "firstFoundAt": "2025-06-25T19:14:58Z",
-            "cweID": 346,
-            "cvssScore": 4.9275,
-            "confidenceLevel": 0,
-            "compliances": [
-              "PCI DSS v4.0",
-              "ASA Premium",
-              "OWASP ASVS",
-              "OWASP Top 10 2021",
-              "OWASP Top 10 API 2023"
-            ]
-          },
-          "hostedViewerUri": "https://ast.checkmarx.net/sast-results/42d7812b-b4c2-47f8-918c-a5fcf2b9c0dd/731c7fba-28e6-4aef-affa-29d81f749555?resultId=XpbwMP1Pb0OUG1rPCvwe%2BnvRBXw%3D",
-          "partialFingerprints": {
-            "similarityID": "1989311441",
-            "queryKey": "Python_Medium_Threat.Missing_HSTS_Header",
-            "nodeFilePathsSha256": "5cf79a6eb63854f43a84097b2e3f318d8390c35de85e2089c33a3968b705ae98"
-          },
-          "ruleId": "Python_Medium_Threat.Missing_HSTS_Header"
         }
       ],
       "automationDetails": {
         "description": {
           "text": "Static analysis scan with CheckmarxOne SAST"
         },
-        "guid": "731c7fba-28e6-4aef-affa-29d81f749555",
-        "id": "projectid/42d7812b-b4c2-47f8-918c-a5fcf2b9c0dd/scanid/731c7fba-28e6-4aef-affa-29d81f749555",
-        "correlationGuid": "42d7812b-b4c2-47f8-918c-a5fcf2b9c0dd"
+        "guid": "a0536dc5-baf6-4315-9e63-af2b0bc11418",
+        "id": "projectid/e3728b0c-aca4-40a6-b3fe-5cd99d4e9c37/scanid/a0536dc5-baf6-4315-9e63-af2b0bc11418",
+        "correlationGuid": "e3728b0c-aca4-40a6-b3fe-5cd99d4e9c37"
       },
       "columnKind": "unicodeCodePoints",
       "versionControlProvenance": [
@@ -1320,7 +1889,7 @@
             "sourceOrigin": "webapp"
           },
           "repositoryUri": "https://github.com/cx-nathan-leach/lets-be-bad-guys.git",
-          "asOfTimeUtc": "2025-06-25T19:13:59.442712Z"
+          "asOfTimeUtc": "2025-06-26T16:02:11.529377Z"
         }
       ]
     }
@@ -1329,65 +1898,65 @@
   "properties": {
     "platform": "CheckmarxOne",
     "reportCompiler": "cxone_sarif/0.0.0",
-    "scanId": "731c7fba-28e6-4aef-affa-29d81f749555",
+    "scanId": "a0536dc5-baf6-4315-9e63-af2b0bc11418",
     "scanDetails": {
-      "id": "731c7fba-28e6-4aef-affa-29d81f749555",
+      "id": "a0536dc5-baf6-4315-9e63-af2b0bc11418",
       "status": "Completed",
       "statusDetails": [
         {
           "name": "general",
           "status": "Completed",
           "details": "",
-          "startDate": "2025-06-25T19:13:59.442712Z",
-          "endDate": "2025-06-25T19:16:10.401547Z"
-        },
-        {
-          "name": "sca",
-          "status": "Completed",
-          "details": "",
-          "startDate": "2025-06-25T19:14:01.821661Z",
-          "endDate": "2025-06-25T19:16:10.179277Z"
-        },
-        {
-          "name": "containers",
-          "status": "Completed",
-          "details": "",
-          "startDate": "2025-06-25T19:14:01.817705Z",
-          "endDate": "2025-06-25T19:14:22.545362Z"
+          "startDate": "2025-06-26T16:02:11.529377Z",
+          "endDate": "2025-06-26T16:04:22.551656Z"
         },
         {
           "name": "kics",
           "status": "Completed",
           "details": "",
-          "startDate": "2025-06-25T19:14:01.819491Z",
-          "endDate": "2025-06-25T19:14:14.923815Z"
+          "startDate": "2025-06-26T16:02:13.886381Z",
+          "endDate": "2025-06-26T16:02:16.873956Z"
         },
         {
           "name": "apisec",
           "status": "Completed",
           "details": "",
-          "startDate": "2025-06-25T19:15:01.681079Z",
-          "endDate": "2025-06-25T19:15:02.686026Z"
+          "startDate": "2025-06-26T16:03:02.554005Z",
+          "endDate": "2025-06-26T16:03:04.343245Z"
         },
         {
           "name": "sast",
           "status": "Completed",
           "details": "",
           "loc": 14221,
-          "startDate": "2025-06-25T19:14:01.821732Z",
-          "endDate": "2025-06-25T19:15:01.681129Z"
+          "startDate": "2025-06-26T16:02:13.885845Z",
+          "endDate": "2025-06-26T16:03:02.553721Z"
+        },
+        {
+          "name": "sca",
+          "status": "Completed",
+          "details": "",
+          "startDate": "2025-06-26T16:02:13.88399Z",
+          "endDate": "2025-06-26T16:04:22.346645Z"
+        },
+        {
+          "name": "containers",
+          "status": "Completed",
+          "details": "",
+          "startDate": "2025-06-26T16:02:13.880689Z",
+          "endDate": "2025-06-26T16:02:34.364688Z"
         }
       ],
       "branch": "master",
-      "createdAt": "2025-06-25T19:13:59.442712Z",
-      "updatedAt": "2025-06-25T19:16:10.401547Z",
-      "projectId": "42d7812b-b4c2-47f8-918c-a5fcf2b9c0dd",
-      "projectName": "bad-guys",
+      "createdAt": "2025-06-26T16:02:11.529377Z",
+      "updatedAt": "2025-06-26T16:04:22.551656Z",
+      "projectId": "e3728b0c-aca4-40a6-b3fe-5cd99d4e9c37",
+      "projectName": "Test",
       "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36",
       "initiator": "nathan.leach@checkmarx.com",
       "tags": {},
       "metadata": {
-        "id": "731c7fba-28e6-4aef-affa-29d81f749555",
+        "id": "a0536dc5-baf6-4315-9e63-af2b0bc11418",
         "type": "git",
         "Handler": {
           "GitHandler": {
@@ -1424,11 +1993,11 @@
           }
         ],
         "project": {
-          "id": "42d7812b-b4c2-47f8-918c-a5fcf2b9c0dd"
+          "id": "e3728b0c-aca4-40a6-b3fe-5cd99d4e9c37"
         },
         "created_at": {
-          "nanos": 281775183,
-          "seconds": 1750878839
+          "nanos": 420982303,
+          "seconds": 1750953731
         }
       },
       "engines": [
