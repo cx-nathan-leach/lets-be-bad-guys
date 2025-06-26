@@ -318,7 +318,6 @@
             "markdown": "The application's\u00a0**code_execution** method receives and\u00a0dynamically executes user-controlled code using\u00a0**exec**,\u00a0at line **76** of **/badguys/vulnerable/views.py**. This could enable an attacker to inject and run arbitrary code.\n\nThe attacker can inject the executed code via user input,\u00a0**POST**, which is retrieved by the application in the **code_execution** method, at line **68** of **/badguys/vulnerable/views.py**.\n\n",
             "text": "The application's\u00a0code_execution method receives and\u00a0dynamically executes user-controlled code using\u00a0exec,\u00a0at line 76 of /badguys/vulnerable/views.py. This could enable an attacker to inject and run arbitrary code.\n\nThe attacker can inject the executed code via user input,\u00a0POST, which is retrieved by the application in the code_execution method, at line 68 of /badguys/vulnerable/views.py.\n\n"
           },
-          "level": "9.0",
           "locations": [
             {
               "id": 0,
@@ -415,7 +414,6 @@
             "markdown": "The application's\u00a0**code_execution** method receives and\u00a0dynamically executes user-controlled code using\u00a0**exec**,\u00a0at line **72** of **/badguys/vulnerable/views.py**. This could enable an attacker to inject and run arbitrary code.\n\nThe attacker can inject the executed code via user input,\u00a0**POST**, which is retrieved by the application in the **code_execution** method, at line **68** of **/badguys/vulnerable/views.py**.\n\n",
             "text": "The application's\u00a0code_execution method receives and\u00a0dynamically executes user-controlled code using\u00a0exec,\u00a0at line 72 of /badguys/vulnerable/views.py. This could enable an attacker to inject and run arbitrary code.\n\nThe attacker can inject the executed code via user input,\u00a0POST, which is retrieved by the application in the code_execution method, at line 68 of /badguys/vulnerable/views.py.\n\n"
           },
-          "level": "9.0",
           "locations": [
             {
               "id": 0,
@@ -512,7 +510,6 @@
             "markdown": "The method **user_pic** embeds untrusted data in generated output with **HttpResponse**, at line **53** of **/badguys/vulnerable/views.py**. This untrusted data is embedded into the output without proper sanitization or encoding, enabling an attacker to inject malicious code into the generated web-page.\n\nThe attacker would be able to alter the returned web page by simply providing modified data in the user input **request**, which is read by the **user_pic** method at line **35** of **/badguys/vulnerable/views.py**. This input then flows through the code straight to the output web page, without sanitization.\u00a0\r\n\r\nThis can enable a Reflected Cross-Site Scripting (XSS) attack.\n\n",
             "text": "The method user_pic embeds untrusted data in generated output with HttpResponse, at line 53 of /badguys/vulnerable/views.py. This untrusted data is embedded into the output without proper sanitization or encoding, enabling an attacker to inject malicious code into the generated web-page.\n\nThe attacker would be able to alter the returned web page by simply providing modified data in the user input request, which is read by the user_pic method at line 35 of /badguys/vulnerable/views.py. This input then flows through the code straight to the output web page, without sanitization.\u00a0\r\n\r\nThis can enable a Reflected Cross-Site Scripting (XSS) attack.\n\n"
           },
-          "level": "8.9",
           "locations": [
             {
               "id": 0,
@@ -610,7 +607,6 @@
             "markdown": "Method **user_pic** at line **39** of **/badguys/vulnerable/views.py** gets dynamic data from the **GET** element. This element\u2019s value then flows through the code and is eventually used in a file path for local disk access in **user_pic** at line **42** of **/badguys/vulnerable/views.py**. This may cause a Path Traversal vulnerability.\n\n",
             "text": "Method user_pic at line 39 of /badguys/vulnerable/views.py gets dynamic data from the GET element. This element\u2019s value then flows through the code and is eventually used in a file path for local disk access in user_pic at line 42 of /badguys/vulnerable/views.py. This may cause a Path Traversal vulnerability.\n\n"
           },
-          "level": "8.9",
           "locations": [
             {
               "id": 0,
@@ -705,7 +701,6 @@
             "markdown": "The application source code includes **true**, in line **10** of **/badguys/settings.py**, which was left from development and debugging, and is not part of the intended application functionality.",
             "text": "The application source code includes true, in line 10 of /badguys/settings.py, which was left from development and debugging, and is not part of the intended application functionality."
           },
-          "level": "8.9",
           "locations": [
             {
               "id": 0,
@@ -794,7 +789,6 @@
             "markdown": "The application uses the hard-coded password **\"h++jszpm)i@p%ay_b=cp#()^od!qns14)h%@qm3)p=cuo+st^a\"** for authentication purposes, either using it to verify users' identities, or to access another remote system. This password at line **90** of **/badguys/settings.py** appears in the code, implying it is accessible to anyone with source code access, and cannot be changed without rebuilding\u00a0the application.",
             "text": "The application uses the hard-coded password \"h++jszpm)i@p%ay_b=cp#()^od!qns14)h%@qm3)p=cuo+st^a\" for authentication purposes, either using it to verify users' identities, or to access another remote system. This password at line 90 of /badguys/settings.py appears in the code, implying it is accessible to anyone with source code access, and cannot be changed without rebuilding\u00a0the application."
           },
-          "level": "6.9",
           "locations": [
             {
               "id": 0,
@@ -889,7 +883,6 @@
             "markdown": "The variable\u00a0**\"h++jszpm)i@p%ay_b=cp#()^od!qns14)h%@qm3)p=cuo+st^a\"** at line **90** of **/badguys/settings.py** is assigned a hardcoded, literal value. This static value is used as an encryption key.\n\n",
             "text": "The variable\u00a0\"h++jszpm)i@p%ay_b=cp#()^od!qns14)h%@qm3)p=cuo+st^a\" at line 90 of /badguys/settings.py is assigned a hardcoded, literal value. This static value is used as an encryption key.\n\n"
           },
-          "level": "6.9",
           "locations": [
             {
               "id": 0,
@@ -979,7 +972,6 @@
             "markdown": "A cookie was generated and sent to the client in file **/badguys/settings.py** in line\u00a0**1**, secure attribute is missing. A cookie without a secure flag may be transmitted over a plain-text connection, potentially exposing it to anyone observing this channel.\n\n",
             "text": "A cookie was generated and sent to the client in file /badguys/settings.py in line\u00a01, secure attribute is missing. A cookie without a secure flag may be transmitted over a plain-text connection, potentially exposing it to anyone observing this channel.\n\n"
           },
-          "level": "6.9",
           "locations": [
             {
               "id": 0,
@@ -1064,7 +1056,6 @@
             "markdown": "The potentially tainted value provided by\u00a0**GET** in\u00a0**/badguys/vulnerable/views.py** at line **177** is used as a destination URL by **redirect** in **/badguys/vulnerable/views.py** at line **178**, potentially allowing attackers to perform an open redirection.\n\n",
             "text": "The potentially tainted value provided by\u00a0GET in\u00a0/badguys/vulnerable/views.py at line 177 is used as a destination URL by redirect in /badguys/vulnerable/views.py at line 178, potentially allowing attackers to perform an open redirection.\n\n"
           },
-          "level": "6.9",
           "locations": [
             {
               "id": 0,
@@ -1159,7 +1150,6 @@
             "markdown": "The web-application does not define an HSTS header, leaving it vulnerable to attack.\n\n",
             "text": "The web-application does not define an HSTS header, leaving it vulnerable to attack.\n\n"
           },
-          "level": "6.9",
           "locations": [
             {
               "id": 0,
@@ -1246,7 +1236,6 @@
             "markdown": "Line **35** flags a method or annotation that could be a potential unauthorized access to object available in the corresponding controller.\n\nThis query is looking for possible flaws in Spring-Security configuration, so only projects that use Spring-Security are considered.",
             "text": "Line 35 flags a method or annotation that could be a potential unauthorized access to object available in the corresponding controller.\n\nThis query is looking for possible flaws in Spring-Security configuration, so only projects that use Spring-Security are considered."
           },
-          "level": "6.9",
           "locations": [
             {
               "id": 0,
@@ -1336,7 +1325,6 @@
             "markdown": "An argument is passed to an external OS command by **exec** at **/badguys/vulnerable/views.py** in line **72**. This could allow an attacker to attack the external program by injecting malicious arguments into its execution.\n\nThe argument is provided by user input at **request** at **/badguys/vulnerable/views.py** in line **56**.\n\n",
             "text": "An argument is passed to an external OS command by exec at /badguys/vulnerable/views.py in line 72. This could allow an attacker to attack the external program by injecting malicious arguments into its execution.\n\nThe argument is provided by user input at request at /badguys/vulnerable/views.py in line 56.\n\n"
           },
-          "level": "6.9",
           "locations": [
             {
               "id": 0,
@@ -1425,7 +1413,6 @@
             "markdown": "An argument is passed to an external OS command by **exec** at **/badguys/vulnerable/views.py** in line **76**. This could allow an attacker to attack the external program by injecting malicious arguments into its execution.\n\nThe argument is provided by user input at **request** at **/badguys/vulnerable/views.py** in line **56**.\n\n",
             "text": "An argument is passed to an external OS command by exec at /badguys/vulnerable/views.py in line 76. This could allow an attacker to attack the external program by injecting malicious arguments into its execution.\n\nThe argument is provided by user input at request at /badguys/vulnerable/views.py in line 56.\n\n"
           },
-          "level": "6.9",
           "locations": [
             {
               "id": 0,
@@ -1514,7 +1501,6 @@
             "markdown": "The application does not protect the\u00a0web page **/badguys/templates/about.html** from clickjacking attacks in legacy browsers, by using framebusting scripts.",
             "text": "The application does not protect the\u00a0web page /badguys/templates/about.html from clickjacking attacks in legacy browsers, by using framebusting scripts."
           },
-          "level": "3.9",
           "locations": [
             {
               "id": 0,
@@ -1605,7 +1591,6 @@
             "markdown": "A Content Security Policy is not explicitly defined within the web-application.",
             "text": "A Content Security Policy is not explicitly defined within the web-application."
           },
-          "level": "3.9",
           "locations": [
             {
               "id": 0,
@@ -1690,7 +1675,6 @@
             "markdown": "A Content Security Policy is not explicitly defined within the web-application.",
             "text": "A Content Security Policy is not explicitly defined within the web-application."
           },
-          "level": "3.9",
           "locations": [
             {
               "id": 0,
@@ -1777,7 +1761,6 @@
             "markdown": "The method **user_pic** embeds untrusted data in generated output with **HttpResponse**, at line **53** of **/badguys/vulnerable/views.py**. This untrusted data is embedded into the output without proper sanitization or encoding, enabling an attacker to inject malicious code into the generated web-page.\n\nThe attacker would be able to alter the returned web page by saving malicious data in a data-store ahead of time. The attacker's modified data is then read from the database by the **user_pic** method with **read**, at line **42** of **/badguys/vulnerable/views.py**. This untrusted data then flows through the code straight to the output web page, without sanitization.\u00a0\r\n\r\nThis can enable a Stored Cross-Site Scripting (XSS) attack.\n\n",
             "text": "The method user_pic embeds untrusted data in generated output with HttpResponse, at line 53 of /badguys/vulnerable/views.py. This untrusted data is embedded into the output without proper sanitization or encoding, enabling an attacker to inject malicious code into the generated web-page.\n\nThe attacker would be able to alter the returned web page by saving malicious data in a data-store ahead of time. The attacker's modified data is then read from the database by the user_pic method with read, at line 42 of /badguys/vulnerable/views.py. This untrusted data then flows through the code straight to the output web page, without sanitization.\u00a0\r\n\r\nThis can enable a Stored Cross-Site Scripting (XSS) attack.\n\n"
           },
-          "level": "0.0",
           "locations": [
             {
               "id": 0,
