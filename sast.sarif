@@ -381,6 +381,121 @@
                             "properties": {
                               "methodName": "code_execution",
                               "methodLine": 56,
+                              "domType": "MemberAccess",
+                              "nodeID": 963,
+                              "fullName": "CxPYNS_96a6ad9b.code_execution.request.POST"
+                            },
+                            "endColumn": 34,
+                            "sourceLanguage": "python",
+                            "startColumn": 30,
+                            "startLine": 68
+                          },
+                          "artifactLocation": {
+                            "uri": "badguys/vulnerable/views.py"
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "location": {
+                        "id": 0,
+                        "physicalLocation": {
+                          "region": {
+                            "properties": {
+                              "methodName": "code_execution",
+                              "methodLine": 56,
+                              "domType": "MethodInvokeExpr",
+                              "nodeID": 966,
+                              "fullName": "CxPYNS_96a6ad9b.code_execution.request.POST.get"
+                            },
+                            "endColumn": 38,
+                            "sourceLanguage": "python",
+                            "startColumn": 35,
+                            "startLine": 68
+                          },
+                          "artifactLocation": {
+                            "uri": "badguys/vulnerable/views.py"
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "location": {
+                        "id": 0,
+                        "physicalLocation": {
+                          "region": {
+                            "properties": {
+                              "methodName": "code_execution",
+                              "methodLine": 56,
+                              "domType": "UnknownReference",
+                              "nodeID": 973,
+                              "fullName": "CxPYNS_96a6ad9b.code_execution.first_name"
+                            },
+                            "endColumn": 19,
+                            "sourceLanguage": "python",
+                            "startColumn": 9,
+                            "startLine": 68
+                          },
+                          "artifactLocation": {
+                            "uri": "badguys/vulnerable/views.py"
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "location": {
+                        "id": 0,
+                        "physicalLocation": {
+                          "region": {
+                            "properties": {
+                              "methodName": "code_execution",
+                              "methodLine": 56,
+                              "domType": "UnknownReference",
+                              "nodeID": 1026,
+                              "fullName": "CxPYNS_96a6ad9b.code_execution.first_name"
+                            },
+                            "endColumn": 52,
+                            "sourceLanguage": "python",
+                            "startColumn": 42,
+                            "startLine": 76
+                          },
+                          "artifactLocation": {
+                            "uri": "badguys/vulnerable/views.py"
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "location": {
+                        "id": 0,
+                        "physicalLocation": {
+                          "region": {
+                            "properties": {
+                              "methodName": "code_execution",
+                              "methodLine": 56,
+                              "domType": "MethodInvokeExpr",
+                              "nodeID": 1022,
+                              "fullName": "base64.decodestring"
+                            },
+                            "endColumn": 41,
+                            "sourceLanguage": "python",
+                            "startColumn": 29,
+                            "startLine": 76
+                          },
+                          "artifactLocation": {
+                            "uri": "badguys/vulnerable/views.py"
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "location": {
+                        "id": 0,
+                        "physicalLocation": {
+                          "region": {
+                            "properties": {
+                              "methodName": "code_execution",
+                              "methodLine": 56,
                               "domType": "MethodInvokeExpr",
                               "nodeID": 1015,
                               "fullName": "exec"
@@ -469,6 +584,144 @@
               "threadFlows": [
                 {
                   "locations": [
+                    {
+                      "location": {
+                        "id": 0,
+                        "physicalLocation": {
+                          "region": {
+                            "properties": {
+                              "methodName": "code_execution",
+                              "methodLine": 56,
+                              "domType": "MemberAccess",
+                              "nodeID": 963,
+                              "fullName": "CxPYNS_96a6ad9b.code_execution.request.POST"
+                            },
+                            "endColumn": 34,
+                            "sourceLanguage": "python",
+                            "startColumn": 30,
+                            "startLine": 68
+                          },
+                          "artifactLocation": {
+                            "uri": "badguys/vulnerable/views.py"
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "location": {
+                        "id": 0,
+                        "physicalLocation": {
+                          "region": {
+                            "properties": {
+                              "methodName": "code_execution",
+                              "methodLine": 56,
+                              "domType": "MethodInvokeExpr",
+                              "nodeID": 966,
+                              "fullName": "CxPYNS_96a6ad9b.code_execution.request.POST.get"
+                            },
+                            "endColumn": 38,
+                            "sourceLanguage": "python",
+                            "startColumn": 35,
+                            "startLine": 68
+                          },
+                          "artifactLocation": {
+                            "uri": "badguys/vulnerable/views.py"
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "location": {
+                        "id": 0,
+                        "physicalLocation": {
+                          "region": {
+                            "properties": {
+                              "methodName": "code_execution",
+                              "methodLine": 56,
+                              "domType": "UnknownReference",
+                              "nodeID": 973,
+                              "fullName": "CxPYNS_96a6ad9b.code_execution.first_name"
+                            },
+                            "endColumn": 19,
+                            "sourceLanguage": "python",
+                            "startColumn": 9,
+                            "startLine": 68
+                          },
+                          "artifactLocation": {
+                            "uri": "badguys/vulnerable/views.py"
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "location": {
+                        "id": 0,
+                        "physicalLocation": {
+                          "region": {
+                            "properties": {
+                              "methodName": "code_execution",
+                              "methodLine": 56,
+                              "domType": "UnknownReference",
+                              "nodeID": 998,
+                              "fullName": "CxPYNS_96a6ad9b.code_execution.first_name"
+                            },
+                            "endColumn": 54,
+                            "sourceLanguage": "python",
+                            "startColumn": 44,
+                            "startLine": 72
+                          },
+                          "artifactLocation": {
+                            "uri": "badguys/vulnerable/views.py"
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "location": {
+                        "id": 0,
+                        "physicalLocation": {
+                          "region": {
+                            "properties": {
+                              "methodName": "code_execution",
+                              "methodLine": 56,
+                              "domType": "MethodInvokeExpr",
+                              "nodeID": 994,
+                              "fullName": "bytes"
+                            },
+                            "endColumn": 43,
+                            "sourceLanguage": "python",
+                            "startColumn": 38,
+                            "startLine": 72
+                          },
+                          "artifactLocation": {
+                            "uri": "badguys/vulnerable/views.py"
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "location": {
+                        "id": 0,
+                        "physicalLocation": {
+                          "region": {
+                            "properties": {
+                              "methodName": "code_execution",
+                              "methodLine": 56,
+                              "domType": "MethodInvokeExpr",
+                              "nodeID": 988,
+                              "fullName": "base64.decodestring"
+                            },
+                            "endColumn": 37,
+                            "sourceLanguage": "python",
+                            "startColumn": 25,
+                            "startLine": 72
+                          },
+                          "artifactLocation": {
+                            "uri": "badguys/vulnerable/views.py"
+                          }
+                        }
+                      }
+                    },
                     {
                       "location": {
                         "id": 0,
@@ -574,6 +827,167 @@
                             "properties": {
                               "methodName": "user_pic",
                               "methodLine": 35,
+                              "domType": "ParamDecl",
+                              "nodeID": 880,
+                              "fullName": "CxPYNS_96a6ad9b.user_pic.request"
+                            },
+                            "endColumn": 21,
+                            "sourceLanguage": "python",
+                            "startColumn": 14,
+                            "startLine": 35
+                          },
+                          "artifactLocation": {
+                            "uri": "badguys/vulnerable/views.py"
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "location": {
+                        "id": 0,
+                        "physicalLocation": {
+                          "region": {
+                            "properties": {
+                              "methodName": "user_pic",
+                              "methodLine": 35,
+                              "domType": "UnknownReference",
+                              "nodeID": 753,
+                              "fullName": "CxPYNS_96a6ad9b.user_pic.request"
+                            },
+                            "endColumn": 23,
+                            "sourceLanguage": "python",
+                            "startColumn": 16,
+                            "startLine": 39
+                          },
+                          "artifactLocation": {
+                            "uri": "badguys/vulnerable/views.py"
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "location": {
+                        "id": 0,
+                        "physicalLocation": {
+                          "region": {
+                            "properties": {
+                              "methodName": "user_pic",
+                              "methodLine": 35,
+                              "domType": "MemberAccess",
+                              "nodeID": 754,
+                              "fullName": "CxPYNS_96a6ad9b.user_pic.request.GET"
+                            },
+                            "endColumn": 27,
+                            "sourceLanguage": "python",
+                            "startColumn": 24,
+                            "startLine": 39
+                          },
+                          "artifactLocation": {
+                            "uri": "badguys/vulnerable/views.py"
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "location": {
+                        "id": 0,
+                        "physicalLocation": {
+                          "region": {
+                            "properties": {
+                              "methodName": "user_pic",
+                              "methodLine": 35,
+                              "domType": "MethodInvokeExpr",
+                              "nodeID": 757,
+                              "fullName": "CxPYNS_96a6ad9b.user_pic.request.GET.get"
+                            },
+                            "endColumn": 31,
+                            "sourceLanguage": "python",
+                            "startColumn": 28,
+                            "startLine": 39
+                          },
+                          "artifactLocation": {
+                            "uri": "badguys/vulnerable/views.py"
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "location": {
+                        "id": 0,
+                        "physicalLocation": {
+                          "region": {
+                            "properties": {
+                              "methodName": "user_pic",
+                              "methodLine": 35,
+                              "domType": "UnknownReference",
+                              "nodeID": 762,
+                              "fullName": "CxPYNS_96a6ad9b.user_pic.filename"
+                            },
+                            "endColumn": 13,
+                            "sourceLanguage": "python",
+                            "startColumn": 5,
+                            "startLine": 39
+                          },
+                          "artifactLocation": {
+                            "uri": "badguys/vulnerable/views.py"
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "location": {
+                        "id": 0,
+                        "physicalLocation": {
+                          "region": {
+                            "properties": {
+                              "methodName": "user_pic",
+                              "methodLine": 35,
+                              "domType": "UnknownReference",
+                              "nodeID": 878,
+                              "fullName": "CxPYNS_96a6ad9b.user_pic.filename"
+                            },
+                            "endColumn": 73,
+                            "sourceLanguage": "python",
+                            "startColumn": 65,
+                            "startLine": 53
+                          },
+                          "artifactLocation": {
+                            "uri": "badguys/vulnerable/views.py"
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "location": {
+                        "id": 0,
+                        "physicalLocation": {
+                          "region": {
+                            "properties": {
+                              "methodName": "user_pic",
+                              "methodLine": 35,
+                              "domType": "MethodInvokeExpr",
+                              "nodeID": 874,
+                              "fullName": "mimetypes.guess_type"
+                            },
+                            "endColumn": 64,
+                            "sourceLanguage": "python",
+                            "startColumn": 54,
+                            "startLine": 53
+                          },
+                          "artifactLocation": {
+                            "uri": "badguys/vulnerable/views.py"
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "location": {
+                        "id": 0,
+                        "physicalLocation": {
+                          "region": {
+                            "properties": {
+                              "methodName": "user_pic",
+                              "methodLine": 35,
                               "domType": "MethodInvokeExpr",
                               "nodeID": 863,
                               "fullName": "HttpResponse"
@@ -668,6 +1082,121 @@
                             "properties": {
                               "methodName": "user_pic",
                               "methodLine": 35,
+                              "domType": "MemberAccess",
+                              "nodeID": 852,
+                              "fullName": "CxPYNS_96a6ad9b.user_pic.request.GET"
+                            },
+                            "endColumn": 27,
+                            "sourceLanguage": "python",
+                            "startColumn": 24,
+                            "startLine": 39
+                          },
+                          "artifactLocation": {
+                            "uri": "badguys/vulnerable/views.py"
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "location": {
+                        "id": 0,
+                        "physicalLocation": {
+                          "region": {
+                            "properties": {
+                              "methodName": "user_pic",
+                              "methodLine": 35,
+                              "domType": "MethodInvokeExpr",
+                              "nodeID": 855,
+                              "fullName": "CxPYNS_96a6ad9b.user_pic.request.GET.get"
+                            },
+                            "endColumn": 31,
+                            "sourceLanguage": "python",
+                            "startColumn": 28,
+                            "startLine": 39
+                          },
+                          "artifactLocation": {
+                            "uri": "badguys/vulnerable/views.py"
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "location": {
+                        "id": 0,
+                        "physicalLocation": {
+                          "region": {
+                            "properties": {
+                              "methodName": "user_pic",
+                              "methodLine": 35,
+                              "domType": "UnknownReference",
+                              "nodeID": 860,
+                              "fullName": "CxPYNS_96a6ad9b.user_pic.filename"
+                            },
+                            "endColumn": 13,
+                            "sourceLanguage": "python",
+                            "startColumn": 5,
+                            "startLine": 39
+                          },
+                          "artifactLocation": {
+                            "uri": "badguys/vulnerable/views.py"
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "location": {
+                        "id": 0,
+                        "physicalLocation": {
+                          "region": {
+                            "properties": {
+                              "methodName": "user_pic",
+                              "methodLine": 35,
+                              "domType": "UnknownReference",
+                              "nodeID": 883,
+                              "fullName": "CxPYNS_96a6ad9b.user_pic.filename"
+                            },
+                            "endColumn": 53,
+                            "sourceLanguage": "python",
+                            "startColumn": 45,
+                            "startLine": 42
+                          },
+                          "artifactLocation": {
+                            "uri": "badguys/vulnerable/views.py"
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "location": {
+                        "id": 0,
+                        "physicalLocation": {
+                          "region": {
+                            "properties": {
+                              "methodName": "user_pic",
+                              "methodLine": 35,
+                              "domType": "MethodInvokeExpr",
+                              "nodeID": 877,
+                              "fullName": "os.path.join"
+                            },
+                            "endColumn": 33,
+                            "sourceLanguage": "python",
+                            "startColumn": 29,
+                            "startLine": 42
+                          },
+                          "artifactLocation": {
+                            "uri": "badguys/vulnerable/views.py"
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "location": {
+                        "id": 0,
+                        "physicalLocation": {
+                          "region": {
+                            "properties": {
+                              "methodName": "user_pic",
+                              "methodLine": 35,
                               "domType": "MethodInvokeExpr",
                               "nodeID": 869,
                               "fullName": "open"
@@ -748,6 +1277,29 @@
               "threadFlows": [
                 {
                   "locations": [
+                    {
+                      "location": {
+                        "id": 0,
+                        "physicalLocation": {
+                          "region": {
+                            "properties": {
+                              "methodName": null,
+                              "methodLine": 10,
+                              "domType": "BooleanLiteral",
+                              "nodeID": 3922,
+                              "fullName": "true"
+                            },
+                            "endColumn": 13,
+                            "sourceLanguage": "python",
+                            "startColumn": 9,
+                            "startLine": 10
+                          },
+                          "artifactLocation": {
+                            "uri": "badguys/settings.py"
+                          }
+                        }
+                      }
+                    },
                     {
                       "location": {
                         "id": 0,
@@ -1117,6 +1669,98 @@
                             "properties": {
                               "methodName": "unvalidated_redirect",
                               "methodLine": 176,
+                              "domType": "MemberAccess",
+                              "nodeID": 1643,
+                              "fullName": "CxPYNS_96a6ad9b.unvalidated_redirect.request.GET"
+                            },
+                            "endColumn": 22,
+                            "sourceLanguage": "python",
+                            "startColumn": 19,
+                            "startLine": 177
+                          },
+                          "artifactLocation": {
+                            "uri": "badguys/vulnerable/views.py"
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "location": {
+                        "id": 0,
+                        "physicalLocation": {
+                          "region": {
+                            "properties": {
+                              "methodName": "unvalidated_redirect",
+                              "methodLine": 176,
+                              "domType": "MethodInvokeExpr",
+                              "nodeID": 1646,
+                              "fullName": "CxPYNS_96a6ad9b.unvalidated_redirect.request.GET.get"
+                            },
+                            "endColumn": 26,
+                            "sourceLanguage": "python",
+                            "startColumn": 23,
+                            "startLine": 177
+                          },
+                          "artifactLocation": {
+                            "uri": "badguys/vulnerable/views.py"
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "location": {
+                        "id": 0,
+                        "physicalLocation": {
+                          "region": {
+                            "properties": {
+                              "methodName": "unvalidated_redirect",
+                              "methodLine": 176,
+                              "domType": "UnknownReference",
+                              "nodeID": 1651,
+                              "fullName": "CxPYNS_96a6ad9b.unvalidated_redirect.url"
+                            },
+                            "endColumn": 8,
+                            "sourceLanguage": "python",
+                            "startColumn": 5,
+                            "startLine": 177
+                          },
+                          "artifactLocation": {
+                            "uri": "badguys/vulnerable/views.py"
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "location": {
+                        "id": 0,
+                        "physicalLocation": {
+                          "region": {
+                            "properties": {
+                              "methodName": "unvalidated_redirect",
+                              "methodLine": 176,
+                              "domType": "UnknownReference",
+                              "nodeID": 1659,
+                              "fullName": "CxPYNS_96a6ad9b.unvalidated_redirect.url"
+                            },
+                            "endColumn": 24,
+                            "sourceLanguage": "python",
+                            "startColumn": 21,
+                            "startLine": 178
+                          },
+                          "artifactLocation": {
+                            "uri": "badguys/vulnerable/views.py"
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "location": {
+                        "id": 0,
+                        "physicalLocation": {
+                          "region": {
+                            "properties": {
+                              "methodName": "unvalidated_redirect",
+                              "methodLine": 176,
                               "domType": "MethodInvokeExpr",
                               "nodeID": 1655,
                               "fullName": "redirect"
@@ -1380,6 +2024,190 @@
                             "properties": {
                               "methodName": "code_execution",
                               "methodLine": 56,
+                              "domType": "ParamDecl",
+                              "nodeID": 1201,
+                              "fullName": "CxPYNS_96a6ad9b.code_execution.request"
+                            },
+                            "endColumn": 27,
+                            "sourceLanguage": "python",
+                            "startColumn": 20,
+                            "startLine": 56
+                          },
+                          "artifactLocation": {
+                            "uri": "badguys/vulnerable/views.py"
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "location": {
+                        "id": 0,
+                        "physicalLocation": {
+                          "region": {
+                            "properties": {
+                              "methodName": "code_execution",
+                              "methodLine": 56,
+                              "domType": "UnknownReference",
+                              "nodeID": 1060,
+                              "fullName": "CxPYNS_96a6ad9b.code_execution.request"
+                            },
+                            "endColumn": 29,
+                            "sourceLanguage": "python",
+                            "startColumn": 22,
+                            "startLine": 68
+                          },
+                          "artifactLocation": {
+                            "uri": "badguys/vulnerable/views.py"
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "location": {
+                        "id": 0,
+                        "physicalLocation": {
+                          "region": {
+                            "properties": {
+                              "methodName": "code_execution",
+                              "methodLine": 56,
+                              "domType": "MemberAccess",
+                              "nodeID": 1061,
+                              "fullName": "CxPYNS_96a6ad9b.code_execution.request.POST"
+                            },
+                            "endColumn": 34,
+                            "sourceLanguage": "python",
+                            "startColumn": 30,
+                            "startLine": 68
+                          },
+                          "artifactLocation": {
+                            "uri": "badguys/vulnerable/views.py"
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "location": {
+                        "id": 0,
+                        "physicalLocation": {
+                          "region": {
+                            "properties": {
+                              "methodName": "code_execution",
+                              "methodLine": 56,
+                              "domType": "MethodInvokeExpr",
+                              "nodeID": 1064,
+                              "fullName": "CxPYNS_96a6ad9b.code_execution.request.POST.get"
+                            },
+                            "endColumn": 38,
+                            "sourceLanguage": "python",
+                            "startColumn": 35,
+                            "startLine": 68
+                          },
+                          "artifactLocation": {
+                            "uri": "badguys/vulnerable/views.py"
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "location": {
+                        "id": 0,
+                        "physicalLocation": {
+                          "region": {
+                            "properties": {
+                              "methodName": "code_execution",
+                              "methodLine": 56,
+                              "domType": "UnknownReference",
+                              "nodeID": 1071,
+                              "fullName": "CxPYNS_96a6ad9b.code_execution.first_name"
+                            },
+                            "endColumn": 19,
+                            "sourceLanguage": "python",
+                            "startColumn": 9,
+                            "startLine": 68
+                          },
+                          "artifactLocation": {
+                            "uri": "badguys/vulnerable/views.py"
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "location": {
+                        "id": 0,
+                        "physicalLocation": {
+                          "region": {
+                            "properties": {
+                              "methodName": "code_execution",
+                              "methodLine": 56,
+                              "domType": "UnknownReference",
+                              "nodeID": 1096,
+                              "fullName": "CxPYNS_96a6ad9b.code_execution.first_name"
+                            },
+                            "endColumn": 54,
+                            "sourceLanguage": "python",
+                            "startColumn": 44,
+                            "startLine": 72
+                          },
+                          "artifactLocation": {
+                            "uri": "badguys/vulnerable/views.py"
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "location": {
+                        "id": 0,
+                        "physicalLocation": {
+                          "region": {
+                            "properties": {
+                              "methodName": "code_execution",
+                              "methodLine": 56,
+                              "domType": "MethodInvokeExpr",
+                              "nodeID": 1092,
+                              "fullName": "bytes"
+                            },
+                            "endColumn": 43,
+                            "sourceLanguage": "python",
+                            "startColumn": 38,
+                            "startLine": 72
+                          },
+                          "artifactLocation": {
+                            "uri": "badguys/vulnerable/views.py"
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "location": {
+                        "id": 0,
+                        "physicalLocation": {
+                          "region": {
+                            "properties": {
+                              "methodName": "code_execution",
+                              "methodLine": 56,
+                              "domType": "MethodInvokeExpr",
+                              "nodeID": 1086,
+                              "fullName": "base64.decodestring"
+                            },
+                            "endColumn": 37,
+                            "sourceLanguage": "python",
+                            "startColumn": 25,
+                            "startLine": 72
+                          },
+                          "artifactLocation": {
+                            "uri": "badguys/vulnerable/views.py"
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "location": {
+                        "id": 0,
+                        "physicalLocation": {
+                          "region": {
+                            "properties": {
+                              "methodName": "code_execution",
+                              "methodLine": 56,
                               "domType": "MethodInvokeExpr",
                               "nodeID": 1079,
                               "fullName": "exec"
@@ -1460,6 +2288,167 @@
               "threadFlows": [
                 {
                   "locations": [
+                    {
+                      "location": {
+                        "id": 0,
+                        "physicalLocation": {
+                          "region": {
+                            "properties": {
+                              "methodName": "code_execution",
+                              "methodLine": 56,
+                              "domType": "ParamDecl",
+                              "nodeID": 1201,
+                              "fullName": "CxPYNS_96a6ad9b.code_execution.request"
+                            },
+                            "endColumn": 27,
+                            "sourceLanguage": "python",
+                            "startColumn": 20,
+                            "startLine": 56
+                          },
+                          "artifactLocation": {
+                            "uri": "badguys/vulnerable/views.py"
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "location": {
+                        "id": 0,
+                        "physicalLocation": {
+                          "region": {
+                            "properties": {
+                              "methodName": "code_execution",
+                              "methodLine": 56,
+                              "domType": "UnknownReference",
+                              "nodeID": 1060,
+                              "fullName": "CxPYNS_96a6ad9b.code_execution.request"
+                            },
+                            "endColumn": 29,
+                            "sourceLanguage": "python",
+                            "startColumn": 22,
+                            "startLine": 68
+                          },
+                          "artifactLocation": {
+                            "uri": "badguys/vulnerable/views.py"
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "location": {
+                        "id": 0,
+                        "physicalLocation": {
+                          "region": {
+                            "properties": {
+                              "methodName": "code_execution",
+                              "methodLine": 56,
+                              "domType": "MemberAccess",
+                              "nodeID": 1061,
+                              "fullName": "CxPYNS_96a6ad9b.code_execution.request.POST"
+                            },
+                            "endColumn": 34,
+                            "sourceLanguage": "python",
+                            "startColumn": 30,
+                            "startLine": 68
+                          },
+                          "artifactLocation": {
+                            "uri": "badguys/vulnerable/views.py"
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "location": {
+                        "id": 0,
+                        "physicalLocation": {
+                          "region": {
+                            "properties": {
+                              "methodName": "code_execution",
+                              "methodLine": 56,
+                              "domType": "MethodInvokeExpr",
+                              "nodeID": 1064,
+                              "fullName": "CxPYNS_96a6ad9b.code_execution.request.POST.get"
+                            },
+                            "endColumn": 38,
+                            "sourceLanguage": "python",
+                            "startColumn": 35,
+                            "startLine": 68
+                          },
+                          "artifactLocation": {
+                            "uri": "badguys/vulnerable/views.py"
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "location": {
+                        "id": 0,
+                        "physicalLocation": {
+                          "region": {
+                            "properties": {
+                              "methodName": "code_execution",
+                              "methodLine": 56,
+                              "domType": "UnknownReference",
+                              "nodeID": 1071,
+                              "fullName": "CxPYNS_96a6ad9b.code_execution.first_name"
+                            },
+                            "endColumn": 19,
+                            "sourceLanguage": "python",
+                            "startColumn": 9,
+                            "startLine": 68
+                          },
+                          "artifactLocation": {
+                            "uri": "badguys/vulnerable/views.py"
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "location": {
+                        "id": 0,
+                        "physicalLocation": {
+                          "region": {
+                            "properties": {
+                              "methodName": "code_execution",
+                              "methodLine": 56,
+                              "domType": "UnknownReference",
+                              "nodeID": 1124,
+                              "fullName": "CxPYNS_96a6ad9b.code_execution.first_name"
+                            },
+                            "endColumn": 52,
+                            "sourceLanguage": "python",
+                            "startColumn": 42,
+                            "startLine": 76
+                          },
+                          "artifactLocation": {
+                            "uri": "badguys/vulnerable/views.py"
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "location": {
+                        "id": 0,
+                        "physicalLocation": {
+                          "region": {
+                            "properties": {
+                              "methodName": "code_execution",
+                              "methodLine": 56,
+                              "domType": "MethodInvokeExpr",
+                              "nodeID": 1120,
+                              "fullName": "base64.decodestring"
+                            },
+                            "endColumn": 41,
+                            "sourceLanguage": "python",
+                            "startColumn": 29,
+                            "startLine": 76
+                          },
+                          "artifactLocation": {
+                            "uri": "badguys/vulnerable/views.py"
+                          }
+                        }
+                      }
+                    },
                     {
                       "location": {
                         "id": 0,
@@ -1818,6 +2807,75 @@
               "threadFlows": [
                 {
                   "locations": [
+                    {
+                      "location": {
+                        "id": 0,
+                        "physicalLocation": {
+                          "region": {
+                            "properties": {
+                              "methodName": "user_pic",
+                              "methodLine": 35,
+                              "domType": "MethodInvokeExpr",
+                              "nodeID": 790,
+                              "fullName": "read"
+                            },
+                            "endColumn": 66,
+                            "sourceLanguage": "python",
+                            "startColumn": 62,
+                            "startLine": 42
+                          },
+                          "artifactLocation": {
+                            "uri": "badguys/vulnerable/views.py"
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "location": {
+                        "id": 0,
+                        "physicalLocation": {
+                          "region": {
+                            "properties": {
+                              "methodName": "user_pic",
+                              "methodLine": 35,
+                              "domType": "UnknownReference",
+                              "nodeID": 793,
+                              "fullName": "CxPYNS_96a6ad9b.user_pic.data"
+                            },
+                            "endColumn": 13,
+                            "sourceLanguage": "python",
+                            "startColumn": 9,
+                            "startLine": 42
+                          },
+                          "artifactLocation": {
+                            "uri": "badguys/vulnerable/views.py"
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "location": {
+                        "id": 0,
+                        "physicalLocation": {
+                          "region": {
+                            "properties": {
+                              "methodName": "user_pic",
+                              "methodLine": 35,
+                              "domType": "UnknownReference",
+                              "nodeID": 867,
+                              "fullName": "CxPYNS_96a6ad9b.user_pic.data"
+                            },
+                            "endColumn": 29,
+                            "sourceLanguage": "python",
+                            "startColumn": 25,
+                            "startLine": 53
+                          },
+                          "artifactLocation": {
+                            "uri": "badguys/vulnerable/views.py"
+                          }
+                        }
+                      }
+                    },
                     {
                       "location": {
                         "id": 0,
