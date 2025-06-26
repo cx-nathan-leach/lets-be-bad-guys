@@ -25,11 +25,11 @@ jobs:
           # Used to differentiate multiple results for one commit
           category: Checkmarx-SAST
 
-      - name: Upload SCA SARIF
-        uses: github/codeql-action/upload-sarif@v3
-        with:
-          # Path to SARIF file relative to the root of the repository
-          sarif_file: sca.sarif
-          # Optional category for the results
-          # Used to differentiate multiple results for one commit
-          category: Checkmarx-SCA 
+      # - name: Upload SCA SARIF
+      #   uses: github/codeql-action/upload-sarif@v3
+      #   with:
+      #     # Path to SARIF file relative to the root of the repository
+      #     sarif_file: sca.sarif
+      #     # Optional category for the results
+      #     # Used to differentiate multiple results for one commit
+      #     category: Checkmarx-SCA 
