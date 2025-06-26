@@ -54,7 +54,7 @@
               },
               "helpUri": "https://docs.checkmarx.com/",
               "shortDescription": {
-                "text": "The application performs some action by creating and running code that includes untrusted data, which might be under control of a malicious user. If the data contains malicious code, the executed code could contain system-level activities engineered by an attacker, as though the attacker were running code directly on the application server.\n\n"
+                "text": "Python: Code Injection"
               }
             },
             {
@@ -72,7 +72,7 @@
               },
               "helpUri": "https://docs.checkmarx.com/",
               "shortDescription": {
-                "text": "The application creates web pages that include untrusted data, whether from user input, the application\u2019s database, or from other external sources. The untrusted data is embedded directly in the page's HTML, causing the browser to display it as part of the web page. If the input includes HTML fragments or JavaScript, these are displayed too, and the user cannot tell that this is not the intended page. The vulnerability is the result of directly embedding arbitrary data without first encoding it in a format that would prevent the browser from treating it like HTML or code instead of plain text.\n\nNote that an attacker can exploit this vulnerability either by modifying the URL, or by submitting malicious data in the user input or other request fields.\n\n"
+                "text": "Python: Reflected XSS"
               }
             },
             {
@@ -90,7 +90,7 @@
               },
               "helpUri": "https://docs.checkmarx.com/",
               "shortDescription": {
-                "text": "The application uses user input in the file path for accessing files on the application server\u2019s local disk.\n\n"
+                "text": "Python: Path Traversal"
               }
             },
             {
@@ -108,7 +108,7 @@
               },
               "helpUri": "https://docs.checkmarx.com/",
               "shortDescription": {
-                "text": "During application development, it is common for programmers to implement specialized code, in order to ease debugging and testing. Often the programmer will even\u00a0enable the debug code to bypass security mechanisms, so as to focus the tests on the specific functionality and isolate it from the security architecture.\u00a0\r\n\r\nThis debug or test code is not removed from the codebase, and is then included in the software build and deployed to the production environment."
+                "text": "Python: Debug Enabled"
               }
             },
             {
@@ -126,7 +126,7 @@
               },
               "helpUri": "https://docs.checkmarx.com/",
               "shortDescription": {
-                "text": "The application codebase\u00a0has string literal passwords embedded in the source code. This hardcoded value is used either to compare to user-provided credentials, or to authenticate downstream to a remote system (such as a database or a remote web service). \u00a0\r\n\r\nAn attacker only needs to gain access to the source code to reveal the hardcoded password. Likewise, the attacker can reverse engineer the compiled application binaries, and easily retrieve the embedded password. Once found, the attacker can easily use the password in impersonation attacks, either directly on the application or to the remote system.\u00a0\r\n\r\nFurthermore, once stolen, this password cannot be easily changed to prevent further misuse, unless a new version of the application is compiled. Moreover, if this application is distributed to numerous systems, stealing the password from one system automatically allows a class break in to all the deployed systems."
+                "text": "Python: Use Of Hardcoded Password"
               }
             },
             {
@@ -144,7 +144,7 @@
               },
               "helpUri": "https://docs.checkmarx.com/",
               "shortDescription": {
-                "text": "The application code uses an encryption key to encrypt and decrypt sensitive data. While it is important to create this encryption key randomly and keep it secret, the application has a single, static key embedded in plain text in the source code.\u00a0\r\n\r\nAn attacker could gain access to the source code - whether in the source control system, developer workstations, or the server filesystem or product binaries themselves. Once the attacker has gained access to the source code, it is trivial to retrieve the plain text encryption key and use it to decrypt the sensitive data that the application was protecting.\n\n"
+                "text": "Python: Use of Hardcoded Cryptographic Key"
               }
             },
             {
@@ -162,7 +162,7 @@
               },
               "helpUri": "https://docs.checkmarx.com/",
               "shortDescription": {
-                "text": "Cookies can be passed via encrypted and unencrypted channels. Setting the secure cookie attribute will indicate to the browser to never submit this cookie over an insecure channel.\n\n"
+                "text": "Python: Secure Cookie Flag Not Set In Config"
               }
             },
             {
@@ -180,7 +180,7 @@
               },
               "helpUri": "https://docs.checkmarx.com/",
               "shortDescription": {
-                "text": "The application redirects the user\u2019s browser to a URL provided by a tainted input, without first ensuring that URL leads to a trusted destination, and without warning users that they are being redirected outside of the current site. An attacker could use social engineering to get a victim to click a link to the application with a parameter defining another site to which the application will redirect the user\u2019s browser. Since the user may not be aware of the redirection, they may be under the misconception that the website they are currently browsing can be trusted.\n\n"
+                "text": "Python: Open Redirect"
               }
             },
             {
@@ -198,7 +198,7 @@
               },
               "helpUri": "https://docs.checkmarx.com/",
               "shortDescription": {
-                "text": "Many users browse to websites by simply typing the domain name into the address bar, without the protocol prefix. The browser will automatically assume that the user's intended protocol is HTTP, instead of the\u00a0encrypted HTTPS protocol.\r\n\r\nWhen this initial request is made, an attacker can perform a Man-in-the-Middle attack and manipulate it to redirect users to a malicious web-site of the attacker's choosing. To protect the user from such an occurence, the HTTP Strict Transport Security (HSTS) header instructs the user's browser to disallow use of an unsecure HTTP connection to the the domain associated with the HSTS header.\r\n\r\nOnce\u00a0a browser that supports the HSTS feature has visited a web-site and the header was set, it will no longer allow\u00a0communicating with the domain over an HTTP connection.\r\n\r\nOnce an HSTS header was issued for a specific website, the browser is also instructed\u00a0to prevent users from manually overriding and accepting an untrusted SSL certificate for as long as the \"max-age\" value still applies. The recommended \"max-age\" value is for at least one year in seconds, or 31536000.\n\n"
+                "text": "Python: Missing HSTS Header"
               }
             },
             {
@@ -216,7 +216,7 @@
               },
               "helpUri": "https://docs.checkmarx.com/",
               "shortDescription": {
-                "text": "Lack of spring-security configuration in the backend; Easily predictable object Ids in the application's frontend."
+                "text": "Python: Django Missing Function Level Authorization"
               }
             },
             {
@@ -234,7 +234,7 @@
               },
               "helpUri": "https://docs.checkmarx.com/",
               "shortDescription": {
-                "text": "A potentially tainted value is passed as an argument to an external program, which is executed by code.\n\n"
+                "text": "Python: Command Argument Injection"
               }
             },
             {
@@ -252,7 +252,7 @@
               },
               "helpUri": "https://docs.checkmarx.com/",
               "shortDescription": {
-                "text": "The root cause of vulnerability to a clickjacking attack, is that the application's web pages can be loaded into a frame of another website. The application does not implement a proper frame-busting script, that would prevent the page from being loaded into another frame. Note that there are many types of simplistic\u00a0redirection scripts that still leave the application vulnerable to clickjacking techniques, and should not be used.\u00a0\r\n\r\nWhen dealing with modern browsers, applications mitigate this vulnerability by issuing appropriate Content-Security-Policy or X-Frame-Options headers to indicate to the browser to disallow framing. However, many legacy browsers do not support this feature, and require a more manual approach by implementing a mitigation in Javascript. To ensure legacy support, a framebusting script is required."
+                "text": "Javascript: Potential Clickjacking on Legacy Browsers"
               }
             },
             {
@@ -270,7 +270,7 @@
               },
               "helpUri": "https://docs.checkmarx.com/",
               "shortDescription": {
-                "text": "The Content-Security-Policy header is used by modern browsers as an indicator for trusted sources of content, including media, images, scripts, frames and more. If these policies are not explicitly defined, default browser behavior would allow\u00a0untrusted content."
+                "text": "Python: Missing Content Security Policy"
               }
             },
             {
@@ -288,7 +288,7 @@
               },
               "helpUri": "https://docs.checkmarx.com/",
               "shortDescription": {
-                "text": "The application creates web pages that include untrusted data, whether from user input, the application\u2019s database, or from other external sources. The untrusted data is embedded directly in the page's HTML, causing the browser to display it as part of the web page. If the input includes HTML fragments or JavaScript, these are displayed too, and the user cannot tell that this is not the intended page. The vulnerability is the result of directly embedding arbitrary data without first encoding it in a format that would prevent the browser from treating it like HTML or code instead of plain text.\n\nIn order to exploit this vulnerability, an attacker would load the malicious payload into the data-store, typically via regular forms on other web pages. Afterwards, the application reads this data from the data-store, and embeds it within the web page as displayed for another user.\n\n"
+                "text": "Python: Stored XSS"
               }
             }
           ],
