@@ -4144,29 +4144,6 @@
           "locations": [
             {
               "id": 0,
-              "logicalLocations": [
-                {
-                  "name": "read",
-                  "properties": {
-                    "FullName": "StreamingBuffer||.read",
-                    "NameSpace": "",
-                    "Line": "304"
-                  },
-                  "fullyQualifiedName": "/django/utils/text.py"
-                },
-                {
-                  "name": "read",
-                  "properties": {
-                    "FullName": "StreamingBuffer.read",
-                    "NameSpace": "",
-                    "Line": "42"
-                  },
-                  "fullyQualifiedName": "/badguys/vulnerable/views.py"
-                }
-              ]
-            },
-            {
-              "id": 1,
               "physicalLocation": {
                 "region": {
                   "endColumn": 1,
@@ -4596,29 +4573,6 @@
           "locations": [
             {
               "id": 0,
-              "logicalLocations": [
-                {
-                  "name": "read",
-                  "properties": {
-                    "FullName": "StreamingBuffer||.read",
-                    "NameSpace": "",
-                    "Line": "304"
-                  },
-                  "fullyQualifiedName": "/django/utils/text.py"
-                },
-                {
-                  "name": "read",
-                  "properties": {
-                    "FullName": "StreamingBuffer.read",
-                    "NameSpace": "",
-                    "Line": "42"
-                  },
-                  "fullyQualifiedName": "/badguys/vulnerable/views.py"
-                }
-              ]
-            },
-            {
-              "id": 1,
               "physicalLocation": {
                 "region": {
                   "endColumn": 1,
@@ -5321,29 +5275,6 @@
           "locations": [
             {
               "id": 0,
-              "logicalLocations": [
-                {
-                  "name": "get",
-                  "properties": {
-                    "FullName": "BaseMemcachedCache||.get",
-                    "NameSpace": "",
-                    "Line": "74"
-                  },
-                  "fullyQualifiedName": "/django/core/cache/backends/memcached.py"
-                },
-                {
-                  "name": "get",
-                  "properties": {
-                    "FullName": "BaseMemcachedCache.get",
-                    "NameSpace": "",
-                    "Line": "30"
-                  },
-                  "fullyQualifiedName": "/badguys/vulnerable/views.py"
-                }
-              ]
-            },
-            {
-              "id": 1,
               "physicalLocation": {
                 "region": {
                   "endColumn": 1,
@@ -5422,29 +5353,6 @@
           "locations": [
             {
               "id": 0,
-              "logicalLocations": [
-                {
-                  "name": "read",
-                  "properties": {
-                    "FullName": "StreamingBuffer||.read",
-                    "NameSpace": "",
-                    "Line": "304"
-                  },
-                  "fullyQualifiedName": "/django/utils/text.py"
-                },
-                {
-                  "name": "read",
-                  "properties": {
-                    "FullName": "StreamingBuffer.read",
-                    "NameSpace": "",
-                    "Line": "42"
-                  },
-                  "fullyQualifiedName": "/badguys/vulnerable/views.py"
-                }
-              ]
-            },
-            {
-              "id": 1,
               "physicalLocation": {
                 "region": {
                   "endColumn": 1,
@@ -5484,29 +5392,6 @@
           "locations": [
             {
               "id": 0,
-              "logicalLocations": [
-                {
-                  "name": "read",
-                  "properties": {
-                    "FullName": "HttpRequest||.read",
-                    "NameSpace": "",
-                    "Line": "317"
-                  },
-                  "fullyQualifiedName": "/django/http/request.py"
-                },
-                {
-                  "name": "read",
-                  "properties": {
-                    "FullName": "HttpRequest.read",
-                    "NameSpace": "",
-                    "Line": "42"
-                  },
-                  "fullyQualifiedName": "/badguys/vulnerable/views.py"
-                }
-              ]
-            },
-            {
-              "id": 1,
               "physicalLocation": {
                 "region": {
                   "endColumn": 1,
