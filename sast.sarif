@@ -315,7 +315,7 @@
       "results": [
         {
           "message": {
-            "markdown": "The application's\u00a0**code_execution** method receives and\u00a0dynamically executes user-controlled code using\u00a0**exec**,\u00a0at line **76** of **/badguys/vulnerable/views.py**. This could enable an attacker to inject and run arbitrary code.\n\nThe attacker can inject the executed code via user input,\u00a0**POST**, which is retrieved by the application in the **code_execution** method, at line **68** of **/badguys/vulnerable/views.py**.\n\n",
+            "markdown": "The application's\u00a0**code_execution** method receives and\u00a0dynamically executes user-controlled code using\u00a0**exec**,\u00a0at line **76** of **/badguys/vulnerable/views.py**. This could enable an attacker to inject and run arbitrary code.\n\nThe attacker can inject the executed code via user input,\u00a0**POST**, which is retrieved by the application in the **code_execution** method, at line **68** of **/badguys/vulnerable/views.py**.\n\n [View in CheckmarxOne](https://ast.checkmarx.net/sast-results/e3728b0c-aca4-40a6-b3fe-5cd99d4e9c37/a0536dc5-baf6-4315-9e63-af2b0bc11418?resultId=BFVmNn4YjisxSUK6NKkd9feIi3k%3D)",
             "text": "The application's\u00a0code_execution method receives and\u00a0dynamically executes user-controlled code using\u00a0exec,\u00a0at line 76 of /badguys/vulnerable/views.py. This could enable an attacker to inject and run arbitrary code.\n\nThe attacker can inject the executed code via user input,\u00a0POST, which is retrieved by the application in the code_execution method, at line 68 of /badguys/vulnerable/views.py.\n\n"
           },
           "locations": [
@@ -526,7 +526,7 @@
         },
         {
           "message": {
-            "markdown": "The application's\u00a0**code_execution** method receives and\u00a0dynamically executes user-controlled code using\u00a0**exec**,\u00a0at line **72** of **/badguys/vulnerable/views.py**. This could enable an attacker to inject and run arbitrary code.\n\nThe attacker can inject the executed code via user input,\u00a0**POST**, which is retrieved by the application in the **code_execution** method, at line **68** of **/badguys/vulnerable/views.py**.\n\n",
+            "markdown": "The application's\u00a0**code_execution** method receives and\u00a0dynamically executes user-controlled code using\u00a0**exec**,\u00a0at line **72** of **/badguys/vulnerable/views.py**. This could enable an attacker to inject and run arbitrary code.\n\nThe attacker can inject the executed code via user input,\u00a0**POST**, which is retrieved by the application in the **code_execution** method, at line **68** of **/badguys/vulnerable/views.py**.\n\n [View in CheckmarxOne](https://ast.checkmarx.net/sast-results/e3728b0c-aca4-40a6-b3fe-5cd99d4e9c37/a0536dc5-baf6-4315-9e63-af2b0bc11418?resultId=7PbK7y79hfavzX53tYAKtmP7HcU%3D)",
             "text": "The application's\u00a0code_execution method receives and\u00a0dynamically executes user-controlled code using\u00a0exec,\u00a0at line 72 of /badguys/vulnerable/views.py. This could enable an attacker to inject and run arbitrary code.\n\nThe attacker can inject the executed code via user input,\u00a0POST, which is retrieved by the application in the code_execution method, at line 68 of /badguys/vulnerable/views.py.\n\n"
           },
           "locations": [
@@ -760,7 +760,7 @@
         },
         {
           "message": {
-            "markdown": "The method **user_pic** embeds untrusted data in generated output with **HttpResponse**, at line **53** of **/badguys/vulnerable/views.py**. This untrusted data is embedded into the output without proper sanitization or encoding, enabling an attacker to inject malicious code into the generated web-page.\n\nThe attacker would be able to alter the returned web page by simply providing modified data in the user input **request**, which is read by the **user_pic** method at line **35** of **/badguys/vulnerable/views.py**. This input then flows through the code straight to the output web page, without sanitization.\u00a0\r\n\r\nThis can enable a Reflected Cross-Site Scripting (XSS) attack.\n\n",
+            "markdown": "The method **user_pic** embeds untrusted data in generated output with **HttpResponse**, at line **53** of **/badguys/vulnerable/views.py**. This untrusted data is embedded into the output without proper sanitization or encoding, enabling an attacker to inject malicious code into the generated web-page.\n\nThe attacker would be able to alter the returned web page by simply providing modified data in the user input **request**, which is read by the **user_pic** method at line **35** of **/badguys/vulnerable/views.py**. This input then flows through the code straight to the output web page, without sanitization.\u00a0\r\n\r\nThis can enable a Reflected Cross-Site Scripting (XSS) attack.\n\n [View in CheckmarxOne](https://ast.checkmarx.net/sast-results/e3728b0c-aca4-40a6-b3fe-5cd99d4e9c37/a0536dc5-baf6-4315-9e63-af2b0bc11418?resultId=WybEom%2FXBaMyyGEVCcpXa4N%2FD78%3D)",
             "text": "The method user_pic embeds untrusted data in generated output with HttpResponse, at line 53 of /badguys/vulnerable/views.py. This untrusted data is embedded into the output without proper sanitization or encoding, enabling an attacker to inject malicious code into the generated web-page.\n\nThe attacker would be able to alter the returned web page by simply providing modified data in the user input request, which is read by the user_pic method at line 35 of /badguys/vulnerable/views.py. This input then flows through the code straight to the output web page, without sanitization.\u00a0\r\n\r\nThis can enable a Reflected Cross-Site Scripting (XSS) attack.\n\n"
           },
           "locations": [
@@ -1018,7 +1018,7 @@
         },
         {
           "message": {
-            "markdown": "Method **user_pic** at line **39** of **/badguys/vulnerable/views.py** gets dynamic data from the **GET** element. This element\u2019s value then flows through the code and is eventually used in a file path for local disk access in **user_pic** at line **42** of **/badguys/vulnerable/views.py**. This may cause a Path Traversal vulnerability.\n\n",
+            "markdown": "Method **user_pic** at line **39** of **/badguys/vulnerable/views.py** gets dynamic data from the **GET** element. This element\u2019s value then flows through the code and is eventually used in a file path for local disk access in **user_pic** at line **42** of **/badguys/vulnerable/views.py**. This may cause a Path Traversal vulnerability.\n\n [View in CheckmarxOne](https://ast.checkmarx.net/sast-results/e3728b0c-aca4-40a6-b3fe-5cd99d4e9c37/a0536dc5-baf6-4315-9e63-af2b0bc11418?resultId=KVXdo7td2%2BUIK0%2BwWlZpiHChLxI%3D)",
             "text": "Method user_pic at line 39 of /badguys/vulnerable/views.py gets dynamic data from the GET element. This element\u2019s value then flows through the code and is eventually used in a file path for local disk access in user_pic at line 42 of /badguys/vulnerable/views.py. This may cause a Path Traversal vulnerability.\n\n"
           },
           "locations": [
@@ -1227,7 +1227,7 @@
         },
         {
           "message": {
-            "markdown": "The application source code includes **true**, in line **10** of **/badguys/settings.py**, which was left from development and debugging, and is not part of the intended application functionality.",
+            "markdown": "The application source code includes **true**, in line **10** of **/badguys/settings.py**, which was left from development and debugging, and is not part of the intended application functionality. [View in CheckmarxOne](https://ast.checkmarx.net/sast-results/e3728b0c-aca4-40a6-b3fe-5cd99d4e9c37/a0536dc5-baf6-4315-9e63-af2b0bc11418?resultId=la2hh1xFNtoOjucLUA1YZG%2BZZvo%3D)",
             "text": "The application source code includes true, in line 10 of /badguys/settings.py, which was left from development and debugging, and is not part of the intended application functionality."
           },
           "locations": [
@@ -1338,7 +1338,7 @@
         },
         {
           "message": {
-            "markdown": "The application uses the hard-coded password **\"h++jszpm)i@p%ay_b=cp#()^od!qns14)h%@qm3)p=cuo+st^a\"** for authentication purposes, either using it to verify users' identities, or to access another remote system. This password at line **90** of **/badguys/settings.py** appears in the code, implying it is accessible to anyone with source code access, and cannot be changed without rebuilding\u00a0the application.",
+            "markdown": "The application uses the hard-coded password **\"h++jszpm)i@p%ay_b=cp#()^od!qns14)h%@qm3)p=cuo+st^a\"** for authentication purposes, either using it to verify users' identities, or to access another remote system. This password at line **90** of **/badguys/settings.py** appears in the code, implying it is accessible to anyone with source code access, and cannot be changed without rebuilding\u00a0the application. [View in CheckmarxOne](https://ast.checkmarx.net/sast-results/e3728b0c-aca4-40a6-b3fe-5cd99d4e9c37/a0536dc5-baf6-4315-9e63-af2b0bc11418?resultId=kCgtUIcgA15oGP68WTAqflXtcSc%3D)",
             "text": "The application uses the hard-coded password \"h++jszpm)i@p%ay_b=cp#()^od!qns14)h%@qm3)p=cuo+st^a\" for authentication purposes, either using it to verify users' identities, or to access another remote system. This password at line 90 of /badguys/settings.py appears in the code, implying it is accessible to anyone with source code access, and cannot be changed without rebuilding\u00a0the application."
           },
           "locations": [
@@ -1432,7 +1432,7 @@
         },
         {
           "message": {
-            "markdown": "The variable\u00a0**\"h++jszpm)i@p%ay_b=cp#()^od!qns14)h%@qm3)p=cuo+st^a\"** at line **90** of **/badguys/settings.py** is assigned a hardcoded, literal value. This static value is used as an encryption key.\n\n",
+            "markdown": "The variable\u00a0**\"h++jszpm)i@p%ay_b=cp#()^od!qns14)h%@qm3)p=cuo+st^a\"** at line **90** of **/badguys/settings.py** is assigned a hardcoded, literal value. This static value is used as an encryption key.\n\n [View in CheckmarxOne](https://ast.checkmarx.net/sast-results/e3728b0c-aca4-40a6-b3fe-5cd99d4e9c37/a0536dc5-baf6-4315-9e63-af2b0bc11418?resultId=HtOzeqYBPaNQaUXDe6gBHCx6y14%3D)",
             "text": "The variable\u00a0\"h++jszpm)i@p%ay_b=cp#()^od!qns14)h%@qm3)p=cuo+st^a\" at line 90 of /badguys/settings.py is assigned a hardcoded, literal value. This static value is used as an encryption key.\n\n"
           },
           "locations": [
@@ -1521,7 +1521,7 @@
         },
         {
           "message": {
-            "markdown": "A cookie was generated and sent to the client in file **/badguys/settings.py** in line\u00a0**1**, secure attribute is missing. A cookie without a secure flag may be transmitted over a plain-text connection, potentially exposing it to anyone observing this channel.\n\n",
+            "markdown": "A cookie was generated and sent to the client in file **/badguys/settings.py** in line\u00a0**1**, secure attribute is missing. A cookie without a secure flag may be transmitted over a plain-text connection, potentially exposing it to anyone observing this channel.\n\n [View in CheckmarxOne](https://ast.checkmarx.net/sast-results/e3728b0c-aca4-40a6-b3fe-5cd99d4e9c37/a0536dc5-baf6-4315-9e63-af2b0bc11418?resultId=QcGKTcisO72v1lUhQopK0fcrJg0%3D)",
             "text": "A cookie was generated and sent to the client in file /badguys/settings.py in line\u00a01, secure attribute is missing. A cookie without a secure flag may be transmitted over a plain-text connection, potentially exposing it to anyone observing this channel.\n\n"
           },
           "locations": [
@@ -1605,7 +1605,7 @@
         },
         {
           "message": {
-            "markdown": "The potentially tainted value provided by\u00a0**GET** in\u00a0**/badguys/vulnerable/views.py** at line **177** is used as a destination URL by **redirect** in **/badguys/vulnerable/views.py** at line **178**, potentially allowing attackers to perform an open redirection.\n\n",
+            "markdown": "The potentially tainted value provided by\u00a0**GET** in\u00a0**/badguys/vulnerable/views.py** at line **177** is used as a destination URL by **redirect** in **/badguys/vulnerable/views.py** at line **178**, potentially allowing attackers to perform an open redirection.\n\n [View in CheckmarxOne](https://ast.checkmarx.net/sast-results/e3728b0c-aca4-40a6-b3fe-5cd99d4e9c37/a0536dc5-baf6-4315-9e63-af2b0bc11418?resultId=sFfdXDYWmkLunlb9JF8KmdgKbj4%3D)",
             "text": "The potentially tainted value provided by\u00a0GET in\u00a0/badguys/vulnerable/views.py at line 177 is used as a destination URL by redirect in /badguys/vulnerable/views.py at line 178, potentially allowing attackers to perform an open redirection.\n\n"
           },
           "locations": [
@@ -1791,7 +1791,7 @@
         },
         {
           "message": {
-            "markdown": "The web-application does not define an HSTS header, leaving it vulnerable to attack.\n\n",
+            "markdown": "The web-application does not define an HSTS header, leaving it vulnerable to attack.\n\n [View in CheckmarxOne](https://ast.checkmarx.net/sast-results/e3728b0c-aca4-40a6-b3fe-5cd99d4e9c37/a0536dc5-baf6-4315-9e63-af2b0bc11418?resultId=XpbwMP1Pb0OUG1rPCvwe%2BnvRBXw%3D)",
             "text": "The web-application does not define an HSTS header, leaving it vulnerable to attack.\n\n"
           },
           "locations": [
@@ -1877,7 +1877,7 @@
         },
         {
           "message": {
-            "markdown": "Line **35** flags a method or annotation that could be a potential unauthorized access to object available in the corresponding controller.\n\nThis query is looking for possible flaws in Spring-Security configuration, so only projects that use Spring-Security are considered.",
+            "markdown": "Line **35** flags a method or annotation that could be a potential unauthorized access to object available in the corresponding controller.\n\nThis query is looking for possible flaws in Spring-Security configuration, so only projects that use Spring-Security are considered. [View in CheckmarxOne](https://ast.checkmarx.net/sast-results/e3728b0c-aca4-40a6-b3fe-5cd99d4e9c37/a0536dc5-baf6-4315-9e63-af2b0bc11418?resultId=LdWwrUU59SrbbPVrEdRCJ2FtReI%3D)",
             "text": "Line 35 flags a method or annotation that could be a potential unauthorized access to object available in the corresponding controller.\n\nThis query is looking for possible flaws in Spring-Security configuration, so only projects that use Spring-Security are considered."
           },
           "locations": [
@@ -1966,7 +1966,7 @@
         },
         {
           "message": {
-            "markdown": "An argument is passed to an external OS command by **exec** at **/badguys/vulnerable/views.py** in line **72**. This could allow an attacker to attack the external program by injecting malicious arguments into its execution.\n\nThe argument is provided by user input at **request** at **/badguys/vulnerable/views.py** in line **56**.\n\n",
+            "markdown": "An argument is passed to an external OS command by **exec** at **/badguys/vulnerable/views.py** in line **72**. This could allow an attacker to attack the external program by injecting malicious arguments into its execution.\n\nThe argument is provided by user input at **request** at **/badguys/vulnerable/views.py** in line **56**.\n\n [View in CheckmarxOne](https://ast.checkmarx.net/sast-results/e3728b0c-aca4-40a6-b3fe-5cd99d4e9c37/a0536dc5-baf6-4315-9e63-af2b0bc11418?resultId=mRT5jt4pV3UZI19VErdyrvupi3Y%3D)",
             "text": "An argument is passed to an external OS command by exec at /badguys/vulnerable/views.py in line 72. This could allow an attacker to attack the external program by injecting malicious arguments into its execution.\n\nThe argument is provided by user input at request at /badguys/vulnerable/views.py in line 56.\n\n"
           },
           "locations": [
@@ -2238,7 +2238,7 @@
         },
         {
           "message": {
-            "markdown": "An argument is passed to an external OS command by **exec** at **/badguys/vulnerable/views.py** in line **76**. This could allow an attacker to attack the external program by injecting malicious arguments into its execution.\n\nThe argument is provided by user input at **request** at **/badguys/vulnerable/views.py** in line **56**.\n\n",
+            "markdown": "An argument is passed to an external OS command by **exec** at **/badguys/vulnerable/views.py** in line **76**. This could allow an attacker to attack the external program by injecting malicious arguments into its execution.\n\nThe argument is provided by user input at **request** at **/badguys/vulnerable/views.py** in line **56**.\n\n [View in CheckmarxOne](https://ast.checkmarx.net/sast-results/e3728b0c-aca4-40a6-b3fe-5cd99d4e9c37/a0536dc5-baf6-4315-9e63-af2b0bc11418?resultId=4dgEEItTryswNJqVosBNepfLmRA%3D)",
             "text": "An argument is passed to an external OS command by exec at /badguys/vulnerable/views.py in line 76. This could allow an attacker to attack the external program by injecting malicious arguments into its execution.\n\nThe argument is provided by user input at request at /badguys/vulnerable/views.py in line 56.\n\n"
           },
           "locations": [
@@ -2487,7 +2487,7 @@
         },
         {
           "message": {
-            "markdown": "The application does not protect the\u00a0web page **/badguys/templates/about.html** from clickjacking attacks in legacy browsers, by using framebusting scripts.",
+            "markdown": "The application does not protect the\u00a0web page **/badguys/templates/about.html** from clickjacking attacks in legacy browsers, by using framebusting scripts. [View in CheckmarxOne](https://ast.checkmarx.net/sast-results/e3728b0c-aca4-40a6-b3fe-5cd99d4e9c37/a0536dc5-baf6-4315-9e63-af2b0bc11418?resultId=TeQcYkZyTekLrU6IqRMekcFbANs%3D)",
             "text": "The application does not protect the\u00a0web page /badguys/templates/about.html from clickjacking attacks in legacy browsers, by using framebusting scripts."
           },
           "locations": [
@@ -2577,7 +2577,7 @@
         },
         {
           "message": {
-            "markdown": "A Content Security Policy is not explicitly defined within the web-application.",
+            "markdown": "A Content Security Policy is not explicitly defined within the web-application. [View in CheckmarxOne](https://ast.checkmarx.net/sast-results/e3728b0c-aca4-40a6-b3fe-5cd99d4e9c37/a0536dc5-baf6-4315-9e63-af2b0bc11418?resultId=l2pquZzs%2FvcC1yYl8T0nAp8rAOw%3D)",
             "text": "A Content Security Policy is not explicitly defined within the web-application."
           },
           "locations": [
@@ -2661,7 +2661,7 @@
         },
         {
           "message": {
-            "markdown": "A Content Security Policy is not explicitly defined within the web-application.",
+            "markdown": "A Content Security Policy is not explicitly defined within the web-application. [View in CheckmarxOne](https://ast.checkmarx.net/sast-results/e3728b0c-aca4-40a6-b3fe-5cd99d4e9c37/a0536dc5-baf6-4315-9e63-af2b0bc11418?resultId=pah5xFS0pUiD8MWmH6v%2FydQWaf8%3D)",
             "text": "A Content Security Policy is not explicitly defined within the web-application."
           },
           "locations": [
@@ -2747,7 +2747,7 @@
         },
         {
           "message": {
-            "markdown": "The method **user_pic** embeds untrusted data in generated output with **HttpResponse**, at line **53** of **/badguys/vulnerable/views.py**. This untrusted data is embedded into the output without proper sanitization or encoding, enabling an attacker to inject malicious code into the generated web-page.\n\nThe attacker would be able to alter the returned web page by saving malicious data in a data-store ahead of time. The attacker's modified data is then read from the database by the **user_pic** method with **read**, at line **42** of **/badguys/vulnerable/views.py**. This untrusted data then flows through the code straight to the output web page, without sanitization.\u00a0\r\n\r\nThis can enable a Stored Cross-Site Scripting (XSS) attack.\n\n",
+            "markdown": "The method **user_pic** embeds untrusted data in generated output with **HttpResponse**, at line **53** of **/badguys/vulnerable/views.py**. This untrusted data is embedded into the output without proper sanitization or encoding, enabling an attacker to inject malicious code into the generated web-page.\n\nThe attacker would be able to alter the returned web page by saving malicious data in a data-store ahead of time. The attacker's modified data is then read from the database by the **user_pic** method with **read**, at line **42** of **/badguys/vulnerable/views.py**. This untrusted data then flows through the code straight to the output web page, without sanitization.\u00a0\r\n\r\nThis can enable a Stored Cross-Site Scripting (XSS) attack.\n\n [View in CheckmarxOne](https://ast.checkmarx.net/sast-results/e3728b0c-aca4-40a6-b3fe-5cd99d4e9c37/a0536dc5-baf6-4315-9e63-af2b0bc11418?resultId=km7phuIZJVcOxgJXWv8%2B45fDR7o%3D)",
             "text": "The method user_pic embeds untrusted data in generated output with HttpResponse, at line 53 of /badguys/vulnerable/views.py. This untrusted data is embedded into the output without proper sanitization or encoding, enabling an attacker to inject malicious code into the generated web-page.\n\nThe attacker would be able to alter the returned web page by saving malicious data in a data-store ahead of time. The attacker's modified data is then read from the database by the user_pic method with read, at line 42 of /badguys/vulnerable/views.py. This untrusted data then flows through the code straight to the output web page, without sanitization.\u00a0\r\n\r\nThis can enable a Stored Cross-Site Scripting (XSS) attack.\n\n"
           },
           "locations": [
